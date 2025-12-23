@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ===== NAVBAR ===== -->
 <nav>
   <div class="logo">Lokesh<span>AI</span></div>
   <ul>
@@ -18,18 +18,20 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#resume">Resume</a></li>
+    <li><a href="#hire">Hire Me</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <header>
   <h1 class="animate__animated animate__fadeInDown">
     Hi, I'm <span class="highlight">Lokesh Kumar</span>
   </h1>
-  <p class="animate__animated animate__fadeInUp">
-    AI & Data Science Enthusiast | Machine Learning | NLP | Analytics
+
+  <p class="typing-text">
+    <span id="typed"></span>
   </p>
 
   <div class="buttons animate__animated animate__zoomIn">
@@ -39,26 +41,26 @@
 </header>
 
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- ===== ABOUT ===== -->
+<section class="section reveal" id="about">
   <h2>🧑‍🚀 About Me</h2>
   <p>
-   Passionate AI & Data enthusiast with experience in building real-world AI dashboards,
-   business analytics tools and intelligent applications. Eager to gain industry exposure
-   and contribute to impactful AI solutions.
+   Passionate AI & Data enthusiast building real-world AI dashboards,
+   analytics tools and intelligent systems. I love solving problems
+   and creating impactful solutions using AI.
   </p>
 </section>
 
 
-<!-- SKILLS -->
-<section class="section" id="skills">
+<!-- ===== SKILLS ===== -->
+<section class="section reveal" id="skills">
   <h2>⚡ Skills</h2>
 
   <div class="skills-box">
     <span>Python</span>
     <span>Machine Learning</span>
-    <span>Deep Learning Basics</span>
     <span>NLP</span>
+    <span>Deep Learning Basics</span>
     <span>Data Science</span>
     <span>Pandas</span>
     <span>NumPy</span>
@@ -68,24 +70,22 @@
 </section>
 
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
+<!-- ===== PROJECTS ===== -->
+<section class="section reveal" id="projects">
   <h2>🚀 Projects</h2>
 
   <div class="card">
     <h3>🧠 Smart AI Dashboard</h3>
     <p>
-     Powerful AI dashboard supporting CSV/Excel upload, auto insights, correlation heatmap,
-     outlier detection and interactive analytics using Python & Streamlit.
+     Upload CSV/Excel, auto generate insights, heatmaps, outlier detection & analytics.
     </p>
     <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
 
   <div class="card">
-    <h3>📄 AI Resume Analyzer (ATS)</h3>
+    <h3>📄 AI Resume Analyzer</h3>
     <p>
-     ATS powered resume analyzer that extracts resume text, identifies skills,
-     calculates ATS score, detects missing skills & experience.
+     ATS powered resume analyzer that detects skills, experience & ATS score.
     </p>
     <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
@@ -93,16 +93,15 @@
   <div class="card">
     <h3>📊 Business AI Dashboard</h3>
     <p>
-     Business analytics dashboard with KPI cards, trends visualization,
-     performance monitoring and AI forecasting.
+     Business analytics dashboard with KPI, charts & AI forecasting.
     </p>
     <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
 </section>
 
 
-<!-- RESUME -->
-<section class="section" id="resume">
+<!-- ===== RESUME ===== -->
+<section class="section reveal" id="resume">
   <h2>📄 Resume</h2>
 
   <iframe src="assets/resume.pdf" height="500px" width="100%"></iframe>
@@ -112,21 +111,91 @@
 </section>
 
 
-<!-- CONTACT -->
-<section class="section" id="contact">
+<!-- ===== HIRE ME ===== -->
+<section class="section reveal" id="hire">
+  <h2>💼 Hire Me</h2>
+  <p>
+   Available for AI Internship | Data Analyst Roles |
+   Machine Learning Opportunities
+  </p>
+
+  <a href="mailto:yourmail@gmail.com" class="hire-btn">Let’s Work Together</a>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section class="section reveal" id="contact">
   <h2>📞 Contact Me</h2>
 
   <p>Email: <b>yourmail@gmail.com</b></p>
-  <p>LinkedIn: <b>your profile link</b></p>
+  <p>LinkedIn: <b>your linkedin profile</b></p>
 
   <a href="mailto:yourmail@gmail.com" class="btn">Send Message</a>
 </section>
 
 
-<!-- FOOTER -->
+<!-- ===== FLOATING BUTTONS ===== -->
+<a href="#about" class="float-btn">↑</a>
+<a href="mailto:yourmail@gmail.com" class="float-btn2">✉️</a>
+
+
+<!-- ===== FOOTER ===== -->
 <footer>
   <p>Built with ❤️ by Lokesh | AI Enthusiast</p>
 </footer>
+
+
+
+<!-- ===== TYPING EFFECT ===== -->
+<script>
+const textArray = [
+  "AI & Data Science Enthusiast",
+  "Machine Learning Developer",
+  "NLP & Analytics Learner",
+  "Building Real World AI Solutions"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let letter = "";
+
+(function type() {
+  if (index === textArray.length) index = 0;
+  currentText = textArray[index];
+  letter = currentText.slice(0, ++charIndex);
+
+  document.getElementById("typed").textContent = letter;
+
+  if (letter.length === currentText.length) {
+      index++;
+      charIndex = 0;
+      setTimeout(type, 1200);
+  } else {
+      setTimeout(type, 90);
+  }
+})();
+</script>
+
+
+<!-- ===== SECTION REVEAL ANIMATION ===== -->
+<script>
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+  var reveals = document.querySelectorAll(".reveal");
+
+  for(let i = 0; i < reveals.length; i++){
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    var revealPoint = 100;
+
+    if(revealTop < windowHeight - revealPoint){
+      reveals[i].classList.add("active");
+    }
+  }
+}
+</script>
 
 </body>
 </html>
