@@ -1,6 +1,4 @@
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   font-family: Arial;
@@ -16,13 +14,21 @@ nav{
   width:100%;
   display:flex;
   justify-content:space-between;
-  padding:15px 40px;
-  background:#000000d8;
-  z-index:10;
+  padding:15px 30px;
+  background:#000000e9;
+  z-index:100;
 }
-nav ul{display:flex;list-style:none;}
-nav ul li{margin-left:20px;}
-nav ul li a{color:white;text-decoration:none;}
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:25px;
+  flex-wrap:wrap;
+}
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  padding:8px 10px;
+}
 .logo{font-size:22px;font-weight:bold;}
 .logo span{color:#00ffa6;}
 
@@ -34,19 +40,9 @@ header{
 }
 .highlight{color:#00ffa6;}
 
-.typing-text{
-  font-size:20px;
-  margin-top:10px;
-  color:#ffffffbe;
-}
-#typed{
-  color:#00ffa6;
-  font-weight:bold;
-}
-#typed::after{
-  content:"|";
-  animation:blink 0.7s infinite;
-}
+.typing-text{font-size:20px;margin-top:10px;color:#ffffffbe;}
+#typed{color:#00ffa6;font-weight:bold;}
+#typed::after{content:"|";animation:blink .7s infinite;}
 @keyframes blink{50%{opacity:0;}}
 
 .buttons .btn,.btn-2{
@@ -59,22 +55,9 @@ header{
 .btn{background:#00ffa6;color:black;}
 .btn-2{background:white;color:black;}
 
-.section{
-  width:80%;
-  margin:auto;
-  margin-top:70px;
-}
+.section{width:80%;margin:auto;margin-top:70px;}
 .section h2{text-align:center;margin-bottom:20px;}
 
-.card{
-  background:#0f0f0f;
-  padding:20px;
-  border-radius:12px;
-  border:1px solid #00ffa6;
-  margin-bottom:20px;
-}
-
-/* SKILLS */
 .skills-box span{
   display:inline-block;
   background:#111;
@@ -84,7 +67,50 @@ header{
   margin:5px;
 }
 
-/* HIRE BUTTON */
+/* PROJECT CARDS + ANIMATION */
+.card{
+  background:#0f0f0f;
+  padding:22px;
+  border-radius:12px;
+  border:1px solid #00ffa6;
+  margin-bottom:25px;
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+/* Floating Dashboard Glow Animation */
+.dash-animate{
+  transform:perspective(800px) rotateX(0deg) rotateY(0deg);
+}
+.dash-animate:hover{
+  transform:perspective(800px) rotateX(5deg) rotateY(5deg) scale(1.02);
+}
+
+.glow{
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(45deg,#00ffa6,#0077ff,#ff00ff);
+  filter:blur(35px);
+  opacity:.4;
+  border-radius:12px;
+  z-index:-1;
+}
+
+/* RESUME BOX */
+.resume-box{
+  width:100%;
+  height:550px;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid #00ffa6;
+}
+.resume-frame{
+  width:100%;
+  height:100%;
+}
+
+/* HIRE */
 .hire-btn{
   padding:12px 20px;
   background:#ffd500;
@@ -94,43 +120,22 @@ header{
   font-weight:bold;
 }
 
-/* FLOATING BUTTONS */
-.float-btn{
+/* FLOAT BUTTONS */
+.float-btn,.float-btn2{
   position:fixed;
   right:20px;
-  bottom:90px;
   background:#00ffa6;
   padding:12px;
   border-radius:50%;
   text-decoration:none;
   font-size:22px;
 }
-.float-btn2{
-  position:fixed;
-  right:20px;
-  bottom:30px;
-  background:#ff0066;
-  padding:12px;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:22px;
-}
+.float-btn{bottom:90px;}
+.float-btn2{bottom:30px;background:#ff0066;}
 
-/* Section Scroll Animation */
-.reveal{
-  opacity:0;
-  transform:translateY(50px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:translateY(0px);
-}
+/* Section Reveal */
+.reveal{opacity:0;transform:translateY(50px);transition:1s;}
+.reveal.active{opacity:1;transform:translateY(0px);}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:22px;
-  margin-top:50px;
-  background:#0f0f0f;
-}
+footer{text-align:center;padding:22px;margin-top:50px;background:#0f0f0f;}
