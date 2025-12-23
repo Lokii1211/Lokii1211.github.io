@@ -1,44 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lokesh AI Portfolio</title>
+<title>Lokesh | AI Portfolio</title>
 <link rel="stylesheet" href="style.css">
-</head>
 
+<!-- Animation Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
 <body>
 
-<header>
-  <h1>👋 Hi, I'm <span class="highlight">Lokeshkumar</span></h1>
-  <p>AI Intern | Machine Learning | NLP | Data Analytics</p>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Lokesh<span>AI</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <div class="buttons">
+
+<!-- HERO -->
+<header>
+  <h1 class="animate__animated animate__fadeInDown">
+    Hi, I'm <span class="highlight">Lokesh Kumar</span>
+  </h1>
+  <p class="animate__animated animate__fadeInUp">
+    AI & Data Science Enthusiast | Machine Learning | NLP | Analytics
+  </p>
+
+  <div class="buttons animate__animated animate__zoomIn">
     <a href="https://github.com/YOURUSERNAME" target="_blank" class="btn">GitHub</a>
-    <a href="mailto:yourmail@gmail.com" class="btn-2">Contact Me</a>
+    <a href="#resume" class="btn-2">View Resume</a>
   </div>
 </header>
 
-<section class="section">
-  <h2>🚀 Featured AI Projects</h2>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>🧑‍🚀 About Me</h2>
+  <p>
+   Passionate AI & Data enthusiast with experience in building real-world AI dashboards,
+   business analytics tools and intelligent applications. Eager to gain industry exposure
+   and contribute to impactful AI solutions.
+  </p>
+</section>
+
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <h2>⚡ Skills</h2>
+
+  <div class="skills-box">
+    <span>Python</span>
+    <span>Machine Learning</span>
+    <span>Deep Learning Basics</span>
+    <span>NLP</span>
+    <span>Data Science</span>
+    <span>Pandas</span>
+    <span>NumPy</span>
+    <span>Streamlit</span>
+    <span>Analytics</span>
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2>🚀 Projects</h2>
 
   <div class="card">
     <h3>🧠 Smart AI Dashboard</h3>
-    <p>Interactive dashboard supporting CSV/Excel uploads, auto insights, outlier detection, heatmaps & visualization.</p>
-    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" target="_blank" class="view-btn">View Project</a>
+    <p>
+     Powerful AI dashboard supporting CSV/Excel upload, auto insights, correlation heatmap,
+     outlier detection and interactive analytics using Python & Streamlit.
+    </p>
+    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
 
   <div class="card">
     <h3>📄 AI Resume Analyzer (ATS)</h3>
-    <p>Uploads resume, extracts text, scores ATS, detects skills, experience, education & improvements.</p>
-    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" target="_blank" class="view-btn">View Project</a>
+    <p>
+     ATS powered resume analyzer that extracts resume text, identifies skills,
+     calculates ATS score, detects missing skills & experience.
+    </p>
+    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
 
   <div class="card">
     <h3>📊 Business AI Dashboard</h3>
-    <p>Business analytics suite with KPI cards, trends, charts & AI-powered forecasting.</p>
-    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" target="_blank" class="view-btn">View Project</a>
+    <p>
+     Business analytics dashboard with KPI cards, trends visualization,
+     performance monitoring and AI forecasting.
+    </p>
+    <a href="https://github.com/YOURUSERNAME/AI-Portfolio" class="btn">Source Code</a>
   </div>
 </section>
 
+
+<!-- RESUME -->
+<section class="section" id="resume">
+  <h2>📄 Resume</h2>
+
+  <iframe src="assets/resume.pdf" height="500px" width="100%"></iframe>
+
+  <br>
+  <a href="assets/resume.pdf" download class="btn-2">Download Resume</a>
+</section>
+
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2>📞 Contact Me</h2>
+
+  <p>Email: <b>yourmail@gmail.com</b></p>
+  <p>LinkedIn: <b>your profile link</b></p>
+
+  <a href="mailto:yourmail@gmail.com" class="btn">Send Message</a>
+</section>
+
+
+<!-- FOOTER -->
 <footer>
   <p>Built with ❤️ by Lokesh | AI Enthusiast</p>
 </footer>
