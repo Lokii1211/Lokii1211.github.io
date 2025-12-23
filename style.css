@@ -1,3 +1,7 @@
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family: Arial;
   background:#050505;
@@ -14,13 +18,11 @@ nav{
   justify-content:space-between;
   padding:15px 40px;
   background:#000000d8;
+  z-index:10;
 }
 nav ul{display:flex;list-style:none;}
 nav ul li{margin-left:20px;}
-nav ul li a{
-  color:white;
-  text-decoration:none;
-}
+nav ul li a{color:white;text-decoration:none;}
 .logo{font-size:22px;font-weight:bold;}
 .logo span{color:#00ffa6;}
 
@@ -31,6 +33,22 @@ header{
   background:linear-gradient(120deg,#141e30,#243b55);
 }
 .highlight{color:#00ffa6;}
+
+.typing-text{
+  font-size:20px;
+  margin-top:10px;
+  color:#ffffffbe;
+}
+#typed{
+  color:#00ffa6;
+  font-weight:bold;
+}
+#typed::after{
+  content:"|";
+  animation:blink 0.7s infinite;
+}
+@keyframes blink{50%{opacity:0;}}
+
 .buttons .btn,.btn-2{
   padding:10px 18px;
   margin:8px;
@@ -55,6 +73,8 @@ header{
   border:1px solid #00ffa6;
   margin-bottom:20px;
 }
+
+/* SKILLS */
 .skills-box span{
   display:inline-block;
   background:#111;
@@ -63,6 +83,51 @@ header{
   border:1px solid #00ffa6;
   margin:5px;
 }
+
+/* HIRE BUTTON */
+.hire-btn{
+  padding:12px 20px;
+  background:#ffd500;
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+/* FLOATING BUTTONS */
+.float-btn{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  background:#00ffa6;
+  padding:12px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:22px;
+}
+.float-btn2{
+  position:fixed;
+  right:20px;
+  bottom:30px;
+  background:#ff0066;
+  padding:12px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:22px;
+}
+
+/* Section Scroll Animation */
+.reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0px);
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:22px;
