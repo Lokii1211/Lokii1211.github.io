@@ -1,0 +1,12 @@
+# Robots.txt for lokii1211.github.io
+# AI Engineer Portfolio - Lokeshkumar D
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lokii1211.github.io/sitemap.xml
+
+# Welcome search engines!
+# This is the portfolio of Lokeshkumar D - AI Engineer
+# Keywords: AI Engineer, Agentic AI, LLM Developer, Machine Learning, FastAPI, LangChain
