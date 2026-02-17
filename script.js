@@ -1,9 +1,11 @@
 // =========================================
 // LOKI.AI - Premium Portfolio Scripts
-// White Theme with Advanced Animations
+// Enhanced with Particle System & Dark Mode
 // =========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    initDarkMode();
+    initParticleCanvas();
     initNavbarScroll();
     initTypingAnimation();
     initScrollAnimations();
@@ -16,6 +18,114 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
+// DARK MODE
+// =========================================
+function initDarkMode() {
+    const btn = document.getElementById('dark-mode-btn');
+    if (!btn) return;
+
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    btn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// =========================================
+// PARTICLE CANVAS - Neural Network Effect
+// =========================================
+function initParticleCanvas() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const particleCount = Math.min(60, Math.floor(window.innerWidth / 25));
+    const maxDist = 150;
+    let mouse = { x: null, y: null };
+    let animId;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', debounce(resize, 200));
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.r = Math.random() * 2 + 1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < maxDist) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - dist / maxDist)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+            // Mouse interaction
+            if (mouse.x !== null) {
+                const dx = particles[i].x - mouse.x;
+                const dy = particles[i].y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 200) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(139, 92, 246, ${0.2 * (1 - dist / 200)})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+        animId = requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+// =========================================
 // NAVBAR SCROLL EFFECT
 // =========================================
 function initNavbarScroll() {
@@ -23,19 +133,19 @@ function initNavbarScroll() {
     if (!navbar) return;
 
     let lastScroll = 0;
+    const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY;
 
         if (currentScroll > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = isDark() ? 'rgba(10, 10, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.85)';
+            navbar.style.background = isDark() ? 'rgba(10, 10, 26, 0.85)' : 'rgba(255, 255, 255, 0.85)';
             navbar.style.boxShadow = 'none';
         }
 
-        // Hide/show navbar on scroll
         if (currentScroll > lastScroll && currentScroll > 400) {
             navbar.style.transform = 'translateY(-100%)';
         } else {
@@ -73,9 +183,9 @@ function initTypingAnimation() {
     const roles = [
         'Agentic AI Systems',
         'LLM Applications',
-        'Business AI Platforms',
-        'AI-Powered Solutions',
-        'Intelligent Automation'
+        'RAG Pipelines',
+        'Multi-Agent Workflows',
+        'Production AI Platforms'
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -121,7 +231,6 @@ function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Staggered animation
                 setTimeout(() => {
                     entry.target.classList.add('visible');
                 }, index * 100);
@@ -143,6 +252,7 @@ function initSmoothScroll() {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             const target = document.querySelector(targetId);
             if (target) {
                 const offsetTop = target.offsetTop - 80;
@@ -255,11 +365,8 @@ function initCounterAnimation() {
 }
 
 function animateCounter(element, target) {
-    let current = 0;
     const duration = 2000;
-    const increment = target / (duration / 16);
     const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
-
     const startTime = performance.now();
 
     const updateCounter = (currentTime) => {
@@ -267,8 +374,7 @@ function animateCounter(element, target) {
         const progress = Math.min(elapsed / duration, 1);
         const easedProgress = easeOutQuart(progress);
 
-        current = Math.floor(easedProgress * target);
-        element.textContent = current;
+        element.textContent = Math.floor(easedProgress * target);
 
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
@@ -286,15 +392,6 @@ function animateCounter(element, target) {
 function initParallaxOrbs() {
     const orbs = document.querySelectorAll('.gradient-orb');
 
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        orbs.forEach((orb, index) => {
-            const speed = 0.05 * (index + 1);
-            orb.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-    });
-
-    // Mouse parallax
     document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX / window.innerWidth - 0.5;
         const mouseY = e.clientY / window.innerHeight - 0.5;
@@ -357,7 +454,7 @@ console.log(`
 );
 
 // =========================================
-// PERFORMANCE: Debounce scroll events
+// UTILITY: Debounce
 // =========================================
 function debounce(func, wait) {
     let timeout;
@@ -370,10 +467,3 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
-// Optimize scroll listeners
-const optimizedScroll = debounce(() => {
-    // Any heavy scroll operations
-}, 10);
-
-window.addEventListener('scroll', optimizedScroll);
