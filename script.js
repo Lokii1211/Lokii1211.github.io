@@ -1,6 +1,6 @@
 // =========================================
-// LOKI.AI - Senior AI Engineer Portfolio
-// Premium Animations, Popups & Interactions
+// LOKI.AI - Premium AI Engineer Portfolio
+// Advanced 2D/3D Animations & Interactions
 // =========================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,23 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectModals();
     initMagneticButtons();
     initTechMarquee();
+    init3DCardDepth();
+    initCursorGlow();
+    initMorphingShapes();
+    initScrollProgress();
+    initHeroParticles3D();
+    initTextRevealAnimation();
+    initFloatingIcons();
 });
 
 // =========================================
-// DARK MODE — Default: Light (White)
+// DARK MODE
 // =========================================
 function initDarkMode() {
     const btn = document.getElementById('dark-mode-btn');
     if (!btn) return;
-
-    // Default is light. Only go dark if explicitly saved.
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
     } else {
         document.documentElement.removeAttribute('data-theme');
     }
-
     btn.addEventListener('click', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         if (isDark) {
@@ -49,15 +53,15 @@ function initDarkMode() {
 }
 
 // =========================================
-// PARTICLE CANVAS - Neural Network
+// ADVANCED PARTICLE CANVAS - Neural Network 
 // =========================================
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-
     let particles = [];
     let mouse = { x: null, y: null };
+    let frame = 0;
 
     function resize() {
         canvas.width = window.innerWidth;
@@ -66,27 +70,54 @@ function initParticleCanvas() {
     resize();
     window.addEventListener('resize', debounce(resize, 200));
 
-    const count = Math.min(50, Math.floor(window.innerWidth / 30));
-    const maxDist = 140;
+    const count = Math.min(70, Math.floor(window.innerWidth / 22));
+    const maxDist = 160;
 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.r = Math.random() * 2 + 0.5;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.r = Math.random() * 2.5 + 0.5;
+            this.baseR = this.r;
+            this.pulse = Math.random() * Math.PI * 2;
+            this.hue = 240 + Math.random() * 40;
         }
         update() {
+            this.pulse += 0.02;
+            this.r = this.baseR + Math.sin(this.pulse) * 0.5;
             this.x += this.vx;
             this.y += this.vy;
             if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
             if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+            // Mouse attraction
+            if (mouse.x !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 200) {
+                    this.vx += dx * 0.00008;
+                    this.vy += dy * 0.00008;
+                }
+            }
+            // Speed dampening
+            this.vx *= 0.999;
+            this.vy *= 0.999;
         }
         draw() {
+            const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 4);
+            glow.addColorStop(0, `hsla(${this.hue}, 80%, 65%, 0.8)`);
+            glow.addColorStop(1, `hsla(${this.hue}, 80%, 65%, 0)`);
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r * 4, 0, Math.PI * 2);
+            ctx.fillStyle = glow;
+            ctx.fill();
+
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+            ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, 0.9)`;
             ctx.fill();
         }
     }
@@ -98,6 +129,7 @@ function initParticleCanvas() {
     });
 
     function animate() {
+        frame++;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
@@ -107,24 +139,32 @@ function initParticleCanvas() {
                 const dy = particles[i].y - particles[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < maxDist) {
+                    const alpha = 0.15 * (1 - dist / maxDist);
+                    const gradient = ctx.createLinearGradient(
+                        particles[i].x, particles[i].y,
+                        particles[j].x, particles[j].y
+                    );
+                    gradient.addColorStop(0, `hsla(${particles[i].hue}, 70%, 60%, ${alpha})`);
+                    gradient.addColorStop(1, `hsla(${particles[j].hue}, 70%, 60%, ${alpha})`);
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / maxDist)})`;
-                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 0.8;
                     ctx.stroke();
                 }
             }
+            // Mouse connection lines
             if (mouse.x !== null) {
                 const dx = particles[i].x - mouse.x;
                 const dy = particles[i].y - mouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 180) {
+                if (dist < 200) {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(139, 92, 246, ${0.18 * (1 - dist / 180)})`;
-                    ctx.lineWidth = 0.7;
+                    ctx.strokeStyle = `hsla(270, 80%, 65%, ${0.25 * (1 - dist / 200)})`;
+                    ctx.lineWidth = 1;
                     ctx.stroke();
                 }
             }
@@ -135,13 +175,160 @@ function initParticleCanvas() {
 }
 
 // =========================================
+// 3D HERO PARTICLES (Floating Spheres)
+// =========================================
+function initHeroParticles3D() {
+    const hero = document.querySelector('.hero-visual');
+    if (!hero) return;
+    const container = document.createElement('div');
+    container.className = 'hero-3d-particles';
+    hero.prepend(container);
+
+    for (let i = 0; i < 12; i++) {
+        const sphere = document.createElement('div');
+        sphere.className = 'floating-sphere';
+        sphere.style.setProperty('--delay', `${Math.random() * 5}s`);
+        sphere.style.setProperty('--duration', `${4 + Math.random() * 6}s`);
+        sphere.style.setProperty('--x', `${Math.random() * 100}%`);
+        sphere.style.setProperty('--y', `${Math.random() * 100}%`);
+        sphere.style.setProperty('--size', `${6 + Math.random() * 18}px`);
+        sphere.style.setProperty('--hue', `${240 + Math.random() * 60}`);
+        container.appendChild(sphere);
+    }
+}
+
+// =========================================
+// CURSOR GLOW EFFECT
+// =========================================
+function initCursorGlow() {
+    if (window.innerWidth < 768) return;
+    const glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; });
+
+    function update() {
+        cx += (tx - cx) * 0.12;
+        cy += (ty - cy) * 0.12;
+        glow.style.transform = `translate(${cx - 150}px, ${cy - 150}px)`;
+        requestAnimationFrame(update);
+    }
+    update();
+}
+
+// =========================================
+// 3D CARD DEPTH EFFECT
+// =========================================
+function init3DCardDepth() {
+    document.querySelectorAll('.arch-card, .cert-card, .highlight-card, .contact-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width;
+            const y = (e.clientY - r.top) / r.height;
+            const rx = (y - 0.5) * 12;
+            const ry = (0.5 - x) * 12;
+            card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px) scale(1.02)`;
+            // Shine effect
+            card.style.setProperty('--shine-x', `${x * 100}%`);
+            card.style.setProperty('--shine-y', `${y * 100}%`);
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+}
+
+// =========================================
+// MORPHING SHAPES BACKGROUND
+// =========================================
+function initMorphingShapes() {
+    const container = document.createElement('div');
+    container.className = 'morphing-shapes';
+    document.body.prepend(container);
+
+    for (let i = 0; i < 4; i++) {
+        const shape = document.createElement('div');
+        shape.className = 'morph-shape';
+        shape.style.setProperty('--i', i);
+        container.appendChild(shape);
+    }
+}
+
+// =========================================
+// SCROLL PROGRESS INDICATOR
+// =========================================
+function initScrollProgress() {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress-bar';
+    document.body.appendChild(bar);
+
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const p = (window.scrollY / h) * 100;
+        bar.style.width = `${p}%`;
+    });
+}
+
+// =========================================
+// TEXT REVEAL ANIMATION
+// =========================================
+function initTextRevealAnimation() {
+    const titles = document.querySelectorAll('.section-title');
+    titles.forEach(title => {
+        const text = title.textContent;
+        title.innerHTML = '';
+        title.setAttribute('data-text', text);
+        [...text].forEach((char, i) => {
+            const span = document.createElement('span');
+            span.className = 'char-reveal';
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.setProperty('--char-i', i);
+            title.appendChild(span);
+        });
+    });
+
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.char-reveal').forEach((c, i) => {
+                    setTimeout(() => c.classList.add('revealed'), i * 30);
+                });
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.section-title').forEach(t => obs.observe(t));
+}
+
+// =========================================
+// FLOATING TECH ICONS  
+// =========================================
+function initFloatingIcons() {
+    const icons = ['⚡', '🧠', '🔗', '📊', '🚀', '💡', '🔮', '⚙️'];
+    const container = document.createElement('div');
+    container.className = 'floating-icons-bg';
+    document.body.prepend(container);
+
+    icons.forEach((icon, i) => {
+        const el = document.createElement('span');
+        el.className = 'floating-bg-icon';
+        el.textContent = icon;
+        el.style.setProperty('--fi-delay', `${i * 2}s`);
+        el.style.setProperty('--fi-x', `${10 + Math.random() * 80}%`);
+        el.style.setProperty('--fi-dur', `${12 + Math.random() * 12}s`);
+        container.appendChild(el);
+    });
+}
+
+// =========================================
 // NAVBAR SCROLL
 // =========================================
 function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
     let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
         const s = window.scrollY;
         const dark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -173,7 +360,8 @@ function initTypingAnimation() {
         'LLM Applications',
         'RAG Pipelines',
         'Multi-Agent Workflows',
-        'Production AI Platforms'
+        'Production AI Platforms',
+        'Voice AI Agents'
     ];
     let ri = 0, ci = 0, del = false;
     const el = document.getElementById('typed-text');
@@ -239,18 +427,24 @@ function initSkillProgressBars() {
 }
 
 // =========================================
-// PROJECT CARD TILT
+// PROJECT CARD 3D TILT
 // =========================================
 function initProjectCardTilt() {
     document.querySelectorAll('[data-tilt]').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const r = card.getBoundingClientRect();
-            const rx = (e.clientY - r.top - r.height / 2) / 25;
-            const ry = (r.width / 2 - (e.clientX - r.left)) / 25;
-            card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
+            const x = (e.clientX - r.left) / r.width;
+            const y = (e.clientY - r.top) / r.height;
+            const rx = (y - 0.5) * 15;
+            const ry = (0.5 - x) * 15;
+            card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(20px) scale(1.03)`;
         });
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(1)';
+            card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.1s ease';
         });
     });
 }
@@ -316,14 +510,14 @@ function initParallaxOrbs() {
         const mx = e.clientX / window.innerWidth - 0.5;
         const my = e.clientY / window.innerHeight - 0.5;
         orbs.forEach((o, i) => {
-            const s = 20 * (i + 1);
+            const s = 25 * (i + 1);
             o.style.transform = `translate(${mx * s}px, ${my * s}px)`;
         });
     });
 }
 
 // =========================================
-// SCROLL TO TOP BUTTON
+// SCROLL TO TOP
 // =========================================
 function initScrollToTop() {
     const btn = document.createElement('button');
@@ -331,20 +525,14 @@ function initScrollToTop() {
     btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>';
     btn.setAttribute('aria-label', 'Scroll to top');
     document.body.appendChild(btn);
-
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 600);
-    });
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 600); });
+    btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 }
 
 // =========================================
-// PROJECT DETAIL MODALS (POPUP)
+// PROJECT DETAIL MODALS
 // =========================================
 function initProjectModals() {
-    // Create modal overlay
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
     overlay.innerHTML = `
@@ -355,68 +543,52 @@ function initProjectModals() {
             <p class="modal-subtitle"></p>
             <div class="modal-desc"></div>
             <div class="modal-tech"></div>
-            <div class="modal-actions"></div>
         </div>
     `;
     document.body.appendChild(overlay);
 
     const projectData = [
         {
-            icon: '🏪',
-            title: 'KadaiGPT',
-            subtitle: 'AI-Powered Smart Shop Assistant • 2026',
-            desc: 'A production-grade AI assistant for local retailers and small businesses. Built with LangChain agent architecture, it manages inventory, generates sales analytics, provides customer insights, and handles automated GST invoicing — all through natural conversation on WhatsApp in Tamil & English.',
+            icon: '🏪', title: 'KadaiGPT', subtitle: 'AI-Powered Smart Shop Assistant • 2026',
+            desc: 'A production-grade AI assistant for local retailers. Built with LangChain agent architecture for inventory, sales analytics, customer insights, and automated GST invoicing via WhatsApp in Tamil & English.',
             tech: ['Python', 'FastAPI', 'LangChain', 'WhatsApp', 'Gemini', 'PostgreSQL'],
-            highlights: ['📊 Real-time sales analytics dashboard', '🧾 Automated GST invoice generation', '🗣️ Bilingual: Tamil + English NLP', '📦 Smart inventory tracking with alerts'],
+            highlights: ['📊 Real-time sales analytics', '🧾 Automated GST invoicing', '🗣️ Bilingual: Tamil + English', '📦 Smart inventory tracking'],
         },
         {
-            icon: '🎙️',
-            title: 'Voice AI Assistant',
-            subtitle: 'Real-Time Conversational Agent • 2026',
-            desc: 'A cutting-edge voice AI system with OpenAI Whisper for speech-to-text and advanced TTS for natural responses. Features LLM-powered reasoning engine with context memory, WebSocket streaming for real-time interaction, and sub-2-second end-to-end response latency.',
+            icon: '🎙️', title: 'Voice AI Assistant', subtitle: 'Real-Time Conversational Agent • 2026',
+            desc: 'Cutting-edge voice AI with OpenAI Whisper STT and TTS. LLM-powered reasoning with context memory, WebSocket streaming, and sub-2s latency.',
             tech: ['Python', 'Whisper', 'WebSocket', 'LangChain', 'FastAPI', 'TTS'],
-            highlights: ['⚡ Sub-2s end-to-end latency', '🔊 Real-time voice streaming', '🧠 Context-aware memory', '🎯 Intent classification engine'],
+            highlights: ['⚡ Sub-2s latency', '🔊 Real-time voice', '🧠 Context memory', '🎯 Intent classification'],
         },
         {
-            icon: '📊',
-            title: 'AadhaarInsights 360',
-            subtitle: 'UIDAI National Data Hackathon • 2026',
-            desc: 'Led Team Neural Breach to analyze 4.94M+ Aadhaar enrollment and update records across India. Discovered critical societal patterns including a 22x update-to-enrolment ratio and 65.3% child enrolment dominance, providing actionable insights for national policy.',
+            icon: '📊', title: 'AadhaarInsights 360', subtitle: 'UIDAI National Data Hackathon • 2026',
+            desc: 'Led Team Neural Breach analyzing 4.94M+ Aadhaar records. Discovered 22x update-to-enrolment ratio and 65.3% child enrolment dominance.',
             tech: ['Python', 'Pandas', 'NumPy', 'Seaborn', 'Matplotlib', 'Statistics'],
-            highlights: ['📈 4.94M+ records analyzed', '📋 9 statistical visualizations', '🔍 22x update ratio discovery', '🏆 National-level hackathon'],
+            highlights: ['📈 4.94M+ records', '📋 9 visualizations', '🔍 22x ratio discovery', '🏆 National hackathon'],
         },
         {
-            icon: '🎯',
-            title: 'SkillSync AI',
-            subtitle: 'VEL IDEAFORGE 2K26 Finalist',
-            desc: 'AI-powered career guidance platform that analyzes student skills, interests, and market trends to recommend personalized career paths. Features RAG-powered retrieval, skill gap analysis with AI-generated learning roadmaps, NLP-based resume analysis, and mock interview preparation.',
+            icon: '🎯', title: 'SkillSync AI', subtitle: 'VEL IDEAFORGE 2K26 Finalist',
+            desc: 'AI career guidance platform analyzing skills, interests & market trends. RAG-powered retrieval, skill gap analysis, NLP resume analysis, and interview prep.',
             tech: ['Python', 'React', 'LangChain', 'Gemini', 'ChromaDB', 'FastAPI'],
-            highlights: ['🎓 Personalized career paths', '📝 AI resume analysis', '🗺️ Learning roadmap generation', '🎤 Mock interview prep'],
+            highlights: ['🎓 Career paths', '📝 Resume analysis', '🗺️ Learning roadmaps', '🎤 Interview prep'],
         }
     ];
 
-    // Attach click to project cards (not featured)
     const cards = document.querySelectorAll('.project-card');
     cards.forEach((card, i) => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => openModal(projectData[i]));
     });
 
-    // Close modal
     overlay.querySelector('.modal-close').addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-    });
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
     function openModal(data) {
         if (!data) return;
         overlay.querySelector('.modal-icon').textContent = data.icon;
         overlay.querySelector('.modal-title').textContent = data.title;
         overlay.querySelector('.modal-subtitle').textContent = data.subtitle;
-
         let descHTML = `<p>${data.desc}</p>`;
         if (data.highlights) {
             descHTML += '<div class="modal-highlights">';
@@ -424,11 +596,9 @@ function initProjectModals() {
             descHTML += '</div>';
         }
         overlay.querySelector('.modal-desc').innerHTML = descHTML;
-
         let techHTML = '';
         data.tech.forEach(t => { techHTML += `<span class="modal-tech-tag">${t}</span>`; });
         overlay.querySelector('.modal-tech').innerHTML = techHTML;
-
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -448,21 +618,18 @@ function initMagneticButtons() {
             const r = btn.getBoundingClientRect();
             const x = e.clientX - r.left - r.width / 2;
             const y = e.clientY - r.top - r.height / 2;
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
         });
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = '';
-        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
     });
 }
 
 // =========================================
-// TECH STACK MARQUEE
+// TECH MARQUEE
 // =========================================
 function initTechMarquee() {
     const marquee = document.querySelector('.tech-marquee-track');
     if (!marquee) return;
-    // Duplicate content for seamless loop
     marquee.innerHTML += marquee.innerHTML;
 }
 
@@ -489,9 +656,9 @@ if (fp) {
 }
 
 // =========================================
-// CONSOLE BRANDING
+// CONSOLE BRANDING 
 // =========================================
-console.log('%c🚀 LOKI.AI Portfolio\n%cSenior AI Agentic Engineer\n%c📧 lokiiii1211@gmail.com',
+console.log('%c🚀 LOKI.AI Portfolio\n%cAI Engineer | Agentic AI Expert\n%c📧 lokiiii1211@gmail.com',
     'font-size:20px;font-weight:bold;color:#6366f1;',
     'font-size:14px;color:#8b5cf6;',
     'font-size:12px;color:#22c55e;'
