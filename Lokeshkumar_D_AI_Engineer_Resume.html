@@ -1,700 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lokeshkumar D - AI Engineer Resume</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        @page { size: A4; margin: 0; }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokeshkumar D - AI Engineer Resume</title>
+<style>
+    @page { size: A4; margin: 0.6in 0.7in; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        color: #000000;
+        max-width: 210mm;
+        margin: 0 auto;
+        padding: 0.6in 0.7in;
+        background: #fff;
+    }
 
-        :root {
-            --primary: #6366f1;
-            --primary-light: #818cf8;
-            --accent: #8b5cf6;
-            --dark: #0f172a;
-            --text: #1e293b;
-            --text-light: #475569;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --bg: #ffffff;
-            --bg-soft: #f8fafc;
-            --gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-        }
+    /* ATS-SAFE: Single column, no tables, no floats, no columns */
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 9pt;
-            line-height: 1.4;
-            color: var(--text);
-            width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            padding: 0;
-            background: var(--bg);
-        }
+    .name { font-size: 22pt; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .contact-line { font-size: 9.5pt; color: #000; margin-bottom: 1px; }
+    .contact-line a { color: #000; text-decoration: none; }
+    .divider { border: none; border-top: 1.5px solid #000; margin: 8px 0 6px 0; }
+    .thin-divider { border: none; border-top: 0.5px solid #999; margin: 6px 0 4px 0; }
 
-        /* ---- ANIMATED HEADER ---- */
-        .header {
-            background: var(--gradient);
-            color: white;
-            padding: 22px 28px 18px;
-            position: relative;
-            overflow: hidden;
-        }
+    h2 {
+        font-size: 11pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: header-glow 6s ease-in-out infinite;
-        }
+    .summary { font-size: 10pt; line-height: 1.5; text-align: justify; margin-bottom: 2px; }
+    .entry { margin-bottom: 8px; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .entry-title { font-weight: 700; font-size: 10.5pt; }
+    .entry-subtitle { font-size: 9.5pt; font-style: italic; }
+    .entry-date { font-size: 9.5pt; text-align: right; }
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -40%;
-            left: -10%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: header-glow 8s ease-in-out infinite reverse;
-        }
+    ul { margin-left: 16px; margin-top: 2px; }
+    li { font-size: 10pt; margin-bottom: 2px; line-height: 1.45; }
+    li strong { font-weight: 700; }
 
-        @keyframes header-glow {
-            0%, 100% { transform: scale(1) translate(0, 0); }
-            50% { transform: scale(1.2) translate(20px, -10px); }
-        }
+    .skills-line { font-size: 10pt; margin-bottom: 3px; line-height: 1.5; }
+    .skills-line strong { font-weight: 700; }
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+    .edu-entry { margin-bottom: 5px; }
+    .edu-title { font-weight: 700; font-size: 10.5pt; }
+    .edu-detail { font-size: 9.5pt; }
 
-        .name {
-            font-size: 24pt;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-            animation: slideInLeft 0.6s ease forwards;
-        }
+    .cert-item { font-size: 10pt; margin-bottom: 2px; }
 
-        .title-role {
-            font-size: 11pt;
-            font-weight: 500;
-            opacity: 0.95;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-            animation: slideInLeft 0.6s ease 0.1s forwards;
-        }
-
-        .contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 16px;
-            font-size: 8.5pt;
-            opacity: 0.92;
-            animation: fadeIn 0.8s ease 0.3s forwards;
-        }
-
-        .contact-row a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            transition: border-color 0.2s;
-        }
-
-        .contact-row a:hover { border-color: white; }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ---- MAIN LAYOUT ---- */
-        .main {
-            display: grid;
-            grid-template-columns: 1fr 210px;
-            gap: 0;
-            min-height: calc(297mm - 80px);
-        }
-
-        .left-col {
-            padding: 16px 20px 16px 28px;
-        }
-
-        .right-col {
-            padding: 16px 24px 16px 16px;
-            background: var(--bg-soft);
-            border-left: 2px solid transparent;
-            border-image: var(--gradient) 1;
-        }
-
-        /* ---- SECTIONS ---- */
-        .section {
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 9.5pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary);
-            margin-bottom: 8px;
-            padding-bottom: 4px;
-            border-bottom: 2px solid var(--primary);
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        .section-icon {
-            font-size: 11pt;
-        }
-
-        /* Summary */
-        .summary {
-            font-size: 8.5pt;
-            color: var(--text);
-            line-height: 1.5;
-            text-align: justify;
-        }
-
-        .summary strong {
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .summary .highlight {
-            background: linear-gradient(120deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%);
-            padding: 1px 4px;
-            border-radius: 3px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        /* Projects */
-        .project {
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-
-        .project-name {
-            font-weight: 700;
-            font-size: 9.5pt;
-            color: var(--dark);
-        }
-
-        .project-meta {
-            font-size: 7.5pt;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .project-tech {
-            font-size: 7.5pt;
-            color: var(--accent);
-            font-style: italic;
-            margin-bottom: 3px;
-            font-weight: 500;
-        }
-
-        .project ul {
-            margin-left: 12px;
-        }
-
-        .project li {
-            font-size: 8.5pt;
-            margin-bottom: 2px;
-            line-height: 1.45;
-            color: var(--text-light);
-        }
-
-        .project li strong {
-            color: var(--text);
-        }
-
-        /* ---- RIGHT COLUMN ---- */
-        .right-section {
-            margin-bottom: 14px;
-        }
-
-        .right-title {
-            font-size: 8.5pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--primary);
-            margin-bottom: 8px;
-            padding-bottom: 3px;
-            border-bottom: 1.5px solid var(--primary);
-        }
-
-        /* Skills */
-        .skill-category {
-            margin-bottom: 8px;
-        }
-
-        .skill-cat-label {
-            font-size: 7.5pt;
-            font-weight: 700;
-            color: var(--dark);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3px;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            padding: 2px 6px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            font-size: 7pt;
-            color: var(--text-light);
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .skill-tag.primary {
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
-            border-color: rgba(99,102,241,0.3);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Education */
-        .edu-item {
-            margin-bottom: 8px;
-        }
-
-        .edu-name {
-            font-weight: 700;
-            font-size: 8.5pt;
-            color: var(--dark);
-        }
-
-        .edu-school {
-            font-size: 7.5pt;
-            color: var(--text-light);
-        }
-
-        .edu-detail {
-            font-size: 7.5pt;
-            color: var(--text-muted);
-        }
-
-        /* Achievements */
-        .achievement-item {
-            display: flex;
-            gap: 6px;
-            align-items: flex-start;
-            margin-bottom: 6px;
-            font-size: 7.5pt;
-            color: var(--text-light);
-            line-height: 1.4;
-        }
-
-        .achievement-icon {
-            font-size: 9pt;
-            flex-shrink: 0;
-            margin-top: -1px;
-        }
-
-        .achievement-item strong {
-            color: var(--dark);
-        }
-
-        /* Competencies */
-        .competency-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .comp-tag {
-            padding: 3px 8px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 7pt;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Languages */
-        .lang-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 7.5pt;
-            color: var(--text-light);
-            margin-bottom: 3px;
-        }
-
-        .lang-bar {
-            width: 60px;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-
-        .lang-fill {
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        /* ---- FOOTER BAR ---- */
-        .footer-bar {
-            background: var(--dark);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 6px 20px;
-            font-size: 7pt;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-bar a {
-            color: var(--primary-light);
-            text-decoration: none;
-        }
-
-        /* Print */
-        @media print {
-            body { padding: 0; }
-            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .right-col { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .footer-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .skill-tag.primary { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-
-        /* Screen animations (disabled for print) */
-        @media screen {
-            .section { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-            .section:nth-child(1) { animation-delay: 0.1s; }
-            .section:nth-child(2) { animation-delay: 0.2s; }
-            .section:nth-child(3) { animation-delay: 0.3s; }
-            .right-section { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-            .right-section:nth-child(1) { animation-delay: 0.15s; }
-            .right-section:nth-child(2) { animation-delay: 0.25s; }
-            .right-section:nth-child(3) { animation-delay: 0.35s; }
-            .right-section:nth-child(4) { animation-delay: 0.45s; }
-            .right-section:nth-child(5) { animation-delay: 0.55s; }
-
-            @keyframes fadeInUp {
-                from { opacity: 0; transform: translateY(15px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        }
-    </style>
+    @media print {
+        body { padding: 0; }
+    }
+</style>
 </head>
-
 <body>
 
-    <!-- ANIMATED HEADER -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="name">LOKESHKUMAR D</h1>
-            <div class="title-role">AI Engineer — Agentic AI · LLM Orchestration · RAG Pipelines · Production Systems</div>
-            <div class="contact-row">
-                <span>📧 <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a></span>
-                <span>📱 +91-9003360494</span>
-                <span>🔗 <a href="https://linkedin.com/in/lokiiii1211">linkedin.com/in/lokiiii1211</a></span>
-                <span>💻 <a href="https://github.com/Lokii1211">github.com/Lokii1211</a></span>
-                <span>🌐 <a href="https://lokii1211.github.io">lokii1211.github.io</a></span>
-            </div>
-        </div>
-    </header>
+<!-- ========== NAME & CONTACT ========== -->
+<div class="name">LOKESHKUMAR D</div>
+<div class="contact-line">AI Engineer | Agentic AI Systems | Full-Stack Product Builder</div>
+<div class="contact-line">
+    <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> |
+    +91-9003360494 |
+    <a href="https://linkedin.com/in/lokiiii1211">linkedin.com/in/lokiiii1211</a> |
+    <a href="https://github.com/Lokii1211">github.com/Lokii1211</a> |
+    <a href="https://lokii1211.github.io">lokii1211.github.io</a>
+</div>
 
-    <!-- MAIN 2-COLUMN LAYOUT -->
-    <div class="main">
-        <!-- LEFT COLUMN -->
-        <div class="left-col">
+<hr class="divider">
 
-            <!-- SUMMARY -->
-            <div class="section">
-                <h2 class="section-title"><span class="section-icon">💡</span> Professional Summary</h2>
-                <p class="summary">
-                    <strong>AI Engineer</strong> specializing in <span class="highlight">production-grade Agentic AI systems</span>,
-                    <strong>LLM orchestration</strong>, and <strong>RAG pipeline architecture</strong>. Architected
-                    <strong>MoneyViya</strong> & <strong>KadaiGPT</strong>—autonomous multi-agent WhatsApp systems with
-                    4-step LangChain workflows, ChromaDB context retrieval, and n8n automation, serving real users 24/7
-                    with <span class="highlight">99.5% uptime</span>. Built real-time <strong>Voice AI (sub-2s latency)</strong> and
-                    <strong>SkillSync</strong> career guidance platform (<span class="highlight">VEL IDEAFORGE 2K26 Finalist</span>).
-                    Led UIDAI Hackathon analysis of <strong>4.94M+ records</strong>. Seeking AI Engineering roles at innovative companies.
-                </p>
-            </div>
+<!-- ========== PROFESSIONAL SUMMARY ========== -->
+<h2>Professional Summary</h2>
+<p class="summary">
+    AI Engineer and product builder with hands-on experience designing, building, and deploying production-grade AI applications used by real users daily. Co-founded and shipped 3 live products — MoneyViya (autonomous financial AI agent on WhatsApp serving users across 5 Indian languages), Kaizy (on-demand home services marketplace with 18 production pages, 6 API routes, and Rapido-style dispatch engine), and Mentixy (AI career intelligence platform with real-time code compiler, AI counselor, and 15+ features deployed on Vercel + Railway). Skilled in LLM orchestration (LangChain, LangGraph), multi-agent architectures, RAG pipelines, and full-stack TypeScript/Python development. Every project built from zero to production with real databases, real APIs, and real user feedback — not classroom demos.
+</p>
 
-            <!-- PROJECTS -->
-            <div class="section">
-                <h2 class="section-title"><span class="section-icon">🚀</span> Key Projects</h2>
+<hr class="divider">
 
-                <div class="project">
-                    <div class="project-header">
-                        <span class="project-name">MoneyViya — Autonomous AI Financial Agent</span>
-                        <span class="project-meta">Jan 2025 – Present</span>
-                    </div>
-                    <div class="project-tech">Python · FastAPI · LangChain · Gemini · n8n · Railway · WhatsApp API</div>
-                    <ul>
-                        <li>Architected <strong>4-step LangChain agent workflow</strong> with n8n orchestration for autonomous expense tracking, stock insights & automated financial reports via WhatsApp</li>
-                        <li>Engineered <strong>multilingual NLP pipeline</strong> supporting 5 Indian languages with <strong>95%+ intent accuracy</strong> using ChromaDB RAG for user context retrieval</li>
-                        <li>Deployed on <strong>Railway cloud</strong> with async FastAPI backend, serving users 24/7 with <strong>99.5% uptime</strong></li>
-                    </ul>
-                </div>
+<!-- ========== TECHNICAL SKILLS ========== -->
+<h2>Technical Skills</h2>
+<div class="skills-line"><strong>AI & LLM:</strong> LangChain, LangGraph, RAG, CrewAI, Prompt Engineering, Agent Orchestration, Function Calling, MCP Protocol, OpenAI GPT, Google Gemini, Anthropic Claude</div>
+<div class="skills-line"><strong>Languages:</strong> Python, TypeScript, JavaScript (ES6+), SQL, C++, HTML5, CSS3</div>
+<div class="skills-line"><strong>Backend:</strong> FastAPI, Next.js 14 (App Router), Node.js, Express.js, REST API, WebSocket, GraphQL</div>
+<div class="skills-line"><strong>Frontend:</strong> React, Next.js, Tailwind CSS, Framer Motion, Responsive Design</div>
+<div class="skills-line"><strong>Databases:</strong> PostgreSQL, MongoDB, Supabase, ChromaDB, Pinecone, Redis, pgvector</div>
+<div class="skills-line"><strong>DevOps & Cloud:</strong> Docker, Railway, Vercel, AWS (S3, Lambda), Git, CI/CD, GitHub Actions</div>
+<div class="skills-line"><strong>Tools & APIs:</strong> n8n, Razorpay, WhatsApp Business API, Gupshup, Mapbox, Judge0, Whisper STT</div>
 
-                <div class="project">
-                    <div class="project-header">
-                        <span class="project-name">KadaiGPT — AI-Powered Smart Shop Assistant</span>
-                        <span class="project-meta">Jan 2026 – Present</span>
-                    </div>
-                    <div class="project-tech">Python · FastAPI · LangChain · Gemini · PostgreSQL · WhatsApp API</div>
-                    <ul>
-                        <li>Architected <strong>LangChain-based agent</strong> for local retailers with real-time inventory management, sales analytics & customer insights via WhatsApp</li>
-                        <li>Developed <strong>automated GST invoicing pipeline</strong> with smart product categorization, reducing manual billing by <strong>5+ hours/week</strong></li>
-                        <li>Implemented <strong>bilingual NLP queries (Tamil & English)</strong> for stock updates, billing & daily reports with PostgreSQL backend</li>
-                    </ul>
-                </div>
+<hr class="divider">
 
-                <div class="project">
-                    <div class="project-header">
-                        <span class="project-name">Voice AI Assistant — Real-Time Conversational Agent</span>
-                        <span class="project-meta">Feb 2026 – Present</span>
-                    </div>
-                    <div class="project-tech">Python · OpenAI Whisper · Google TTS · FastAPI · WebSocket · LangChain</div>
-                    <ul>
-                        <li>Engineered <strong>real-time voice agent</strong> with OpenAI Whisper STT and Google TTS for hands-free AI interaction</li>
-                        <li>Integrated <strong>LLM-powered conversational engine</strong> with context memory, tool-calling, and agent orchestration</li>
-                        <li>Achieved <strong>sub-2-second response latency</strong> via WebSocket streaming and async Python pipeline</li>
-                    </ul>
-                </div>
+<!-- ========== PROJECTS / WORK EXPERIENCE ========== -->
+<h2>Products Built (Founder & Lead Engineer)</h2>
 
-                <div class="project">
-                    <div class="project-header">
-                        <span class="project-name">SkillSync — AI Career Guidance Platform</span>
-                        <span class="project-meta">VEL IDEAFORGE 2K26 Finalist</span>
-                    </div>
-                    <div class="project-tech">Python · React · FastAPI · Gemini · LangChain · MongoDB</div>
-                    <ul>
-                        <li>Designed <strong>multi-agent career guidance system</strong> analyzing skills, interests & market trends with RAG-powered retrieval</li>
-                        <li>Built <strong>skill gap analysis engine</strong> with AI-generated learning roadmaps using Gemini API</li>
-                        <li>Implemented <strong>NLP-based resume analysis & interview prep</strong> modules with structured output parsing</li>
-                    </ul>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <span class="project-name">AadhaarInsights 360 — National Data Analysis</span>
-                        <span class="project-meta">UIDAI Hackathon 2026</span>
-                    </div>
-                    <div class="project-tech">Python · Pandas · NumPy · Matplotlib · Seaborn · Statistical Analysis</div>
-                    <ul>
-                        <li>Led <strong>Team Neural Breach</strong> analyzing <strong>4.94M+ Aadhaar records</strong> for national policy insights</li>
-                        <li>Discovered <strong>22x update-to-enrolment ratio</strong> and <strong>65.3% child enrolment dominance</strong></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="right-col">
-
-            <!-- TECHNICAL SKILLS -->
-            <div class="right-section">
-                <h3 class="right-title">🛠️ Technical Skills</h3>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">AI & LLMs</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag primary">LangChain</span>
-                        <span class="skill-tag primary">LangGraph</span>
-                        <span class="skill-tag primary">RAG</span>
-                        <span class="skill-tag">CrewAI</span>
-                        <span class="skill-tag">GPT</span>
-                        <span class="skill-tag">Gemini</span>
-                        <span class="skill-tag">MCP</span>
-                        <span class="skill-tag">Prompting</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Languages</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag primary">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">C++</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Backend</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag primary">FastAPI</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">REST</span>
-                        <span class="skill-tag">WebSocket</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">ML & Data</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Whisper</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Databases</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">ChromaDB</span>
-                        <span class="skill-tag">Pinecone</span>
-                        <span class="skill-tag">Redis</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">DevOps</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Railway</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Vercel</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EDUCATION -->
-            <div class="right-section">
-                <h3 class="right-title">🎓 Education</h3>
-                <div class="edu-item">
-                    <div class="edu-name">B.Tech — Information Technology</div>
-                    <div class="edu-school">Sri Krishna College of Technology</div>
-                    <div class="edu-detail">Sep 2023 – Mar 2027 · CGPA: 7.3/10</div>
-                    <div class="edu-detail" style="font-size: 7pt; color: #94a3b8; margin-top: 2px;">ML, AI, Data Structures, DBMS, Networks</div>
-                </div>
-                <div class="edu-item">
-                    <div class="edu-name">Higher Secondary (XII)</div>
-                    <div class="edu-school">Wisdom Matric Hr Sec School</div>
-                    <div class="edu-detail">2022–2023 · 92.8%</div>
-                </div>
-            </div>
-
-            <!-- ACHIEVEMENTS -->
-            <div class="right-section">
-                <h3 class="right-title">🏆 Achievements</h3>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🏅</span>
-                    <span><strong>UIDAI Hackathon 2026</strong> — Led Team Neural Breach, 4.94M+ records</span>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🥇</span>
-                    <span><strong>VEL IDEAFORGE 2K26</strong> Finalist — SkillSync AI Platform</span>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🚀</span>
-                    <span><strong>2 Live AI Products</strong> — MoneyViya & KadaiGPT on WhatsApp 24/7</span>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-icon">🎙️</span>
-                    <span><strong>Voice AI</strong> — Real-time agent, sub-2s latency</span>
-                </div>
-            </div>
-
-            <!-- CORE COMPETENCIES -->
-            <div class="right-section">
-                <h3 class="right-title">⚡ Core Strengths</h3>
-                <div class="competency-grid">
-                    <span class="comp-tag">Agentic AI</span>
-                    <span class="comp-tag">LLM Orchestration</span>
-                    <span class="comp-tag">RAG Design</span>
-                    <span class="comp-tag">Multi-Agent</span>
-                    <span class="comp-tag">Cloud Deploy</span>
-                    <span class="comp-tag">Async Systems</span>
-                    <span class="comp-tag">Team Lead</span>
-                    <span class="comp-tag">MLOps</span>
-                </div>
-            </div>
-
-            <!-- LANGUAGES -->
-            <div class="right-section">
-                <h3 class="right-title">🌐 Languages</h3>
-                <div class="lang-item">
-                    <span>English (Fluent)</span>
-                    <div class="lang-bar"><div class="lang-fill" style="width: 90%"></div></div>
-                </div>
-                <div class="lang-item">
-                    <span>Tamil (Native)</span>
-                    <div class="lang-bar"><div class="lang-fill" style="width: 100%"></div></div>
-                </div>
-            </div>
-
-        </div>
+<!-- MoneyViya -->
+<div class="entry">
+    <div class="entry-header">
+        <span class="entry-title">MoneyViya — Autonomous AI Financial Agent (WhatsApp Bot + Web App)</span>
+        <span class="entry-date">Jan 2025 – Present</span>
     </div>
+    <div class="entry-subtitle">Co-Founder & AI Engineer | Python, FastAPI, LangChain, Gemini, n8n, Railway, WhatsApp API</div>
+    <ul>
+        <li>Designed and deployed a <strong>production-grade Agentic AI system</strong> that autonomously tracks expenses, provides stock market insights, and generates financial reports — all through natural WhatsApp conversation</li>
+        <li>Architected <strong>4-step LangChain agent workflow</strong> with n8n orchestration: intent classification → context retrieval (ChromaDB RAG) → tool execution → response generation with memory</li>
+        <li>Built <strong>multilingual NLP pipeline supporting 5 Indian languages</strong> (Tamil, Hindi, Telugu, Kannada, English) achieving 95%+ intent recognition accuracy on financial queries</li>
+        <li>Deployed on Railway cloud with async FastAPI backend, <strong>serving real users 24/7 with 99.5% uptime</strong> and sub-3-second response latency</li>
+        <li><strong>Why I built this:</strong> Millions of Indians manage money through WhatsApp but have no financial tracking tool in their language — MoneyViya bridges that gap with zero app downloads required</li>
+    </ul>
+</div>
 
-    <!-- FOOTER -->
-    <div class="footer-bar">
-        Built with passion for AI · <a href="https://lokii1211.github.io">lokii1211.github.io</a> · Available for AI Engineering Opportunities
+<!-- Kaizy -->
+<div class="entry">
+    <div class="entry-header">
+        <span class="entry-title">Kaizy — On-Demand Home Services Marketplace (Mobile + Web App)</span>
+        <span class="entry-date">Feb 2026 – Present</span>
     </div>
+    <div class="entry-subtitle">Co-Founder & Full-Stack Engineer | Next.js 14, TypeScript, Supabase, Razorpay, Mapbox, Vercel</div>
+    <ul>
+        <li>Built a <strong>complete marketplace connecting homeowners with verified tradespeople</strong> (electricians, plumbers, carpenters, painters, AC technicians, welders) — 18 production pages, 6 production API routes</li>
+        <li>Engineered <strong>Rapido-style 3-round dispatch engine</strong>: Round 1 (5km, 45-second countdown) → Round 2 (10km, +10% price bump) → Round 3 (15km, +20% price bump) with atomic job acceptance (HTTP 409 conflict prevention)</li>
+        <li>Implemented <strong>dynamic pricing engine with 35 problem types and 8 multipliers</strong> (night, emergency, rain, holiday, demand surge, worker level, complexity) plus Haversine GPS distance calculation</li>
+        <li>Designed <strong>Razorpay escrow payment system</strong> with full booking lifecycle: created → funded → started → completed → released, including dispute resolution and automated worker payouts</li>
+        <li>Built <strong>real-time GPS tracking, WhatsApp-style chat, and 10-type notification cascade</strong> (FCM → WhatsApp → SMS) with 3-language support (English, Hindi, Tamil)</li>
+        <li><strong>Why I built this:</strong> India's blue-collar workforce has no reliable platform to find work — Kaizy gives them instant job alerts, escrow-protected payments, and verified profiles</li>
+    </ul>
+</div>
+
+<!-- Mentixy -->
+<div class="entry">
+    <div class="entry-header">
+        <span class="entry-title">Mentixy — AI Career Intelligence Platform (Web App + Planned Mobile)</span>
+        <span class="entry-date">Jan 2026 – Present</span>
+    </div>
+    <div class="entry-subtitle">Co-Founder & Platform Architect | Next.js 14, FastAPI, PostgreSQL (pgvector), Claude API, Supabase, Redis</div>
+    <ul>
+        <li>Architected a <strong>full-stack career intelligence platform with 15+ features</strong>: AI counselor, coding arena with real-time compiler (Judge0), aptitude practice, company intelligence, community network, and internship discovery</li>
+        <li>Built <strong>AI Career Counselor powered by Claude API</strong> with CareerDNA™ vector profiling (pgvector, 256-dimension embeddings) for personalized career path recommendations based on skills, interests, and market trends</li>
+        <li>Implemented <strong>real-time WebSocket system</strong> for messaging, leaderboard updates, typing indicators, and notifications — handling presence tracking with 30-second heartbeat</li>
+        <li>Designed <strong>production backend with FastAPI</strong>: JWT RS256 auth, Supabase RLS, Redis-backed rate limiting (100 req/min), Pydantic validation, and PgBouncer connection pooling (p95 API latency: ~180ms)</li>
+        <li>Deployed on <strong>Vercel (frontend) + Railway (API)</strong> with CI/CD pipeline, achieving &lt;1.5s FCP and &lt;250KB gzipped bundle size</li>
+        <li><strong>Why I built this:</strong> Indian students lack access to honest, personalized career guidance — Mentixy uses AI + real placement data + peer community to replace guesswork with intelligence</li>
+    </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ========== EDUCATION ========== -->
+<h2>Education</h2>
+<div class="edu-entry">
+    <div class="edu-title">Bachelor of Technology — Information Technology</div>
+    <div class="edu-detail">Sri Krishna College of Technology, Coimbatore | Sep 2023 – Mar 2027 | CGPA: 7.3/10</div>
+    <div class="edu-detail">Relevant Coursework: Machine Learning, Artificial Intelligence, Data Structures & Algorithms, DBMS, Computer Networks</div>
+</div>
+<div class="edu-entry">
+    <div class="edu-title">Higher Secondary (XII) — 92.8%</div>
+    <div class="edu-detail">Wisdom Matric Hr Sec School | 2022–2023</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== ACHIEVEMENTS ========== -->
+<h2>Achievements & Recognition</h2>
+<ul>
+    <li><strong>UIDAI National Hackathon 2026</strong> — Led Team Neural Breach analyzing 4.94M+ Aadhaar records; discovered 22x update-to-enrolment ratio and 65.3% child enrolment dominance with 9 production-grade visualizations</li>
+    <li><strong>VEL IDEAFORGE 2K26 Finalist</strong> — SkillSync AI career guidance platform selected among top teams from 100+ entries</li>
+    <li><strong>3 Live Products Shipped</strong> — MoneyViya, Kaizy, and Mentixy all running in production with real users, real APIs, and real revenue models</li>
+    <li><strong>Founder Experience</strong> — End-to-end product ownership: ideation → architecture → development → deployment → user feedback → iteration</li>
+</ul>
+
+<hr class="divider">
+
+<!-- ========== CERTIFICATIONS ========== -->
+<h2>Certifications</h2>
+<div class="cert-item">• Google Cloud AI Fundamentals | • LangChain for LLM Application Development (DeepLearning.AI) | • Python for Data Science (IBM)</div>
 
 </body>
-
 </html>

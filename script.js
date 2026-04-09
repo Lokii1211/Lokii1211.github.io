@@ -356,12 +356,12 @@ function initNavbarScroll() {
 // =========================================
 function initTypingAnimation() {
     const roles = [
+        'Production AI Products',
         'Agentic AI Systems',
-        'LLM Applications',
-        'RAG Pipelines',
-        'Multi-Agent Workflows',
-        'Production AI Platforms',
-        'Voice AI Agents'
+        'Full-Stack Platforms',
+        'WhatsApp AI Agents',
+        'Real-Time Marketplaces',
+        'AI Career Intelligence'
     ];
     let ri = 0, ci = 0, del = false;
     const el = document.getElementById('typed-text');
@@ -549,28 +549,16 @@ function initProjectModals() {
 
     const projectData = [
         {
-            icon: '🏪', title: 'KadaiGPT', subtitle: 'AI-Powered Smart Shop Assistant • 2026',
-            desc: 'A production-grade AI assistant for local retailers. Built with LangChain agent architecture for inventory, sales analytics, customer insights, and automated GST invoicing via WhatsApp in Tamil & English.',
-            tech: ['Python', 'FastAPI', 'LangChain', 'WhatsApp', 'Gemini', 'PostgreSQL'],
-            highlights: ['📊 Real-time sales analytics', '🧾 Automated GST invoicing', '🗣️ Bilingual: Tamil + English', '📦 Smart inventory tracking'],
+            icon: '⚡', title: 'Kaizy', subtitle: 'On-Demand Home Services Marketplace • 2026',
+            desc: 'Complete marketplace connecting homeowners with verified tradespeople. 18 production pages, 6 API routes, Rapido-style 3-round dispatch engine with atomic job acceptance, dynamic pricing with 35 problem types and 8 multipliers, Razorpay escrow payment system with full booking lifecycle, real-time GPS tracking, WhatsApp-style chat, and 10-type notification cascade — all in 3 languages.',
+            tech: ['Next.js 14', 'TypeScript', 'Supabase', 'Razorpay', 'Mapbox', 'Redis'],
+            highlights: ['🚀 3-Round Dispatch Engine', '💳 Escrow Payment System', '📍 Real-time GPS Tracking', '💬 WhatsApp-style Chat', '🔔 10-Type Notification Cascade', '🌐 3-Language Support (EN/HI/TA)'],
         },
         {
-            icon: '🎙️', title: 'Voice AI Assistant', subtitle: 'Real-Time Conversational Agent • 2026',
-            desc: 'Cutting-edge voice AI with OpenAI Whisper STT and TTS. LLM-powered reasoning with context memory, WebSocket streaming, and sub-2s latency.',
-            tech: ['Python', 'Whisper', 'WebSocket', 'LangChain', 'FastAPI', 'TTS'],
-            highlights: ['⚡ Sub-2s latency', '🔊 Real-time voice', '🧠 Context memory', '🎯 Intent classification'],
-        },
-        {
-            icon: '📊', title: 'AadhaarInsights 360', subtitle: 'UIDAI National Data Hackathon • 2026',
-            desc: 'Led Team Neural Breach analyzing 4.94M+ Aadhaar records. Discovered 22x update-to-enrolment ratio and 65.3% child enrolment dominance.',
-            tech: ['Python', 'Pandas', 'NumPy', 'Seaborn', 'Matplotlib', 'Statistics'],
-            highlights: ['📈 4.94M+ records', '📋 9 visualizations', '🔍 22x ratio discovery', '🏆 National hackathon'],
-        },
-        {
-            icon: '🎯', title: 'SkillSync AI', subtitle: 'VEL IDEAFORGE 2K26 Finalist',
-            desc: 'AI career guidance platform analyzing skills, interests & market trends. RAG-powered retrieval, skill gap analysis, NLP resume analysis, and interview prep.',
-            tech: ['Python', 'React', 'LangChain', 'Gemini', 'ChromaDB', 'FastAPI'],
-            highlights: ['🎓 Career paths', '📝 Resume analysis', '🗺️ Learning roadmaps', '🎤 Interview prep'],
+            icon: '🧠', title: 'Mentixy', subtitle: 'AI Career Intelligence Platform • 2026',
+            desc: 'Full-stack career intelligence platform with 15+ features: AI counselor powered by Claude API, coding arena with real-time Judge0 compiler, aptitude practice, company intelligence, CareerDNA™ vector profiling using pgvector (256-dim embeddings), community network, and internship discovery. WebSocket real-time system for messaging, leaderboard updates, and presence tracking.',
+            tech: ['Next.js 14', 'FastAPI', 'PostgreSQL', 'Claude AI', 'Redis', 'pgvector'],
+            highlights: ['🎯 AI Career Counselor', '💻 Real-time Code Compiler', '🧬 CareerDNA™ Vector Profiling', '📊 Company Intelligence', '🏆 Leaderboard & Streaks', '🔐 JWT RS256 + Supabase RLS'],
         }
     ];
 
