@@ -82,7 +82,7 @@ function initParticleCanvas() {
             this.r = Math.random() * 2.5 + 0.5;
             this.baseR = this.r;
             this.pulse = Math.random() * Math.PI * 2;
-            this.hue = 240 + Math.random() * 40;
+            this.hue = 280 + Math.random() * 40;
         }
         update() {
             this.pulse += 0.02;
@@ -192,7 +192,7 @@ function initHeroParticles3D() {
         sphere.style.setProperty('--x', `${Math.random() * 100}%`);
         sphere.style.setProperty('--y', `${Math.random() * 100}%`);
         sphere.style.setProperty('--size', `${6 + Math.random() * 18}px`);
-        sphere.style.setProperty('--hue', `${240 + Math.random() * 60}`);
+        sphere.style.setProperty('--hue', `${280 + Math.random() * 50}`);
         container.appendChild(sphere);
     }
 }
@@ -358,10 +358,12 @@ function initTypingAnimation() {
     const roles = [
         'Production AI Products',
         'Agentic AI Systems',
-        'Full-Stack Platforms',
+        'Full-Stack AI Platforms',
         'WhatsApp AI Agents',
-        'Real-Time Marketplaces',
-        'AI Career Intelligence'
+        'Freelance AI Solutions',
+        'AI-Powered SaaS Products',
+        'LangChain & RAG Systems',
+        'Your Next AI Product'
     ];
     let ri = 0, ci = 0, del = false;
     const el = document.getElementById('typed-text');

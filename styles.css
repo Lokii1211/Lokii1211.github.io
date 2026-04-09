@@ -1,59 +1,65 @@
 /* =====================================================
-   LOKI.AI - Premium AI Engineer Portfolio
-   Modern Dark/Light Theme with Glassmorphism
+   LOKI.AI - Founder Portfolio & Freelance Hub
+   Neural Synthesis Design — Imported from Stitch
+   Space Grotesk + Inter | Deep Obsidian + Neon Violet
 ===================================================== */
 
 /* CSS Variables - Light Theme */
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
+    --bg-primary: #f0f0ff;
+    --bg-secondary: #e8e8f8;
+    --bg-tertiary: #ddddf0;
     --bg-card: #ffffff;
-    --bg-glass: rgba(255, 255, 255, 0.7);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-tertiary: #a855f7;
-    --accent-glow: rgba(99, 102, 241, 0.4);
-    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-    --gradient-soft: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    --border-color: rgba(0, 0, 0, 0.08);
-    --border-focus: rgba(99, 102, 241, 0.5);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.15);
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg-glass: rgba(255, 255, 255, 0.65);
+    --text-primary: #11131d;
+    --text-secondary: #514250;
+    --text-muted: #9d8b9b;
+    --accent-primary: #9c27b0;
+    --accent-secondary: #7b008f;
+    --accent-tertiary: #f9abff;
+    --accent-glow: rgba(156, 39, 176, 0.35);
+    --gradient-primary: linear-gradient(135deg, #9c27b0 0%, #f9abff 50%, #e0bbe4 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(156, 39, 176, 0.08) 0%, rgba(249, 171, 255, 0.08) 100%);
+    --border-color: rgba(81, 66, 80, 0.1);
+    --border-focus: rgba(156, 39, 176, 0.5);
+    --shadow-sm: 0 1px 3px rgba(17, 19, 29, 0.06);
+    --shadow-md: 0 4px 20px rgba(17, 19, 29, 0.08);
+    --shadow-lg: 0 10px 40px rgba(17, 19, 29, 0.12);
+    --shadow-glow: 0 0 60px rgba(156, 39, 176, 0.12);
+    --font-primary: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
-    --nav-bg: rgba(255, 255, 255, 0.85);
-    --nav-scroll-bg: rgba(255, 255, 255, 0.95);
+    --nav-bg: rgba(240, 240, 255, 0.85);
+    --nav-scroll-bg: rgba(240, 240, 255, 0.95);
 }
 
-/* Dark Mode */
+/* Dark Mode — Neural Synthesis (Stitch "Lokesh Protfolio") */
 [data-theme="dark"] {
-    --bg-primary: #0a0a1a;
-    --bg-secondary: #0f0f23;
-    --bg-tertiary: #1a1a2e;
-    --bg-card: #12122a;
-    --bg-glass: rgba(18, 18, 42, 0.8);
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --accent-glow: rgba(99, 102, 241, 0.6);
-    --gradient-soft: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-focus: rgba(99, 102, 241, 0.5);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 80px rgba(99, 102, 241, 0.25);
-    --nav-bg: rgba(10, 10, 26, 0.85);
-    --nav-scroll-bg: rgba(10, 10, 26, 0.95);
+    --bg-primary: #11131d;
+    --bg-secondary: #191b25;
+    --bg-tertiary: #1d1f2a;
+    --bg-card: #272934;
+    --bg-glass: rgba(29, 31, 42, 0.75);
+    --text-primary: #e1e1f0;
+    --text-secondary: #d5c1d2;
+    --text-muted: #9d8b9b;
+    --accent-primary: #f9abff;
+    --accent-secondary: #9c27b0;
+    --accent-tertiary: #e0bbe4;
+    --accent-glow: rgba(249, 171, 255, 0.3);
+    --gradient-primary: linear-gradient(135deg, #f9abff 0%, #9c27b0 50%, #7b008f 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(249, 171, 255, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%);
+    --border-color: rgba(249, 171, 255, 0.08);
+    --border-focus: rgba(249, 171, 255, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 80px rgba(249, 171, 255, 0.15);
+    --nav-bg: rgba(17, 19, 29, 0.8);
+    --nav-scroll-bg: rgba(17, 19, 29, 0.92);
 }
 
 /* Particle Canvas */
