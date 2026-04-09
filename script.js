@@ -559,6 +559,12 @@ function initProjectModals() {
             desc: 'Full-stack career intelligence platform with 15+ features: AI counselor powered by Claude API, coding arena with real-time Judge0 compiler, aptitude practice, company intelligence, CareerDNA™ vector profiling using pgvector (256-dim embeddings), community network, and internship discovery. WebSocket real-time system for messaging, leaderboard updates, and presence tracking.',
             tech: ['Next.js 14', 'FastAPI', 'PostgreSQL', 'Claude AI', 'Redis', 'pgvector'],
             highlights: ['🎯 AI Career Counselor', '💻 Real-time Code Compiler', '🧬 CareerDNA™ Vector Profiling', '📊 Company Intelligence', '🏆 Leaderboard & Streaks', '🔐 JWT RS256 + Supabase RLS'],
+        },
+        {
+            icon: '🏪', title: 'KadaiGPT', subtitle: 'AI Smart Shop Assistant • 2026',
+            desc: 'LangChain-based AI agent for local retailers — real-time inventory management, sales analytics, automated GST invoicing, and bilingual NLP queries (Tamil & English). Workers can check stock, generate bills, get daily reports, and manage their entire shop through a simple WhatsApp conversation.',
+            tech: ['Python', 'LangChain', 'FastAPI', 'Gemini', 'PostgreSQL', 'WhatsApp API'],
+            highlights: ['🧾 Automated GST Invoicing', '🗣️ Bilingual NLP (Tamil & English)', '📦 Real-time Inventory Tracking', '📊 Daily Sales Analytics', '🤖 WhatsApp-native Interface', '⚡ 5+ Hours/Week Saved per Retailer'],
         }
     ];
 
@@ -657,4 +663,43 @@ console.log('%c🚀 LOKI.AI Portfolio\n%cAI Engineer | Agentic AI Expert\n%c📧
 // =========================================
 function debounce(fn, ms) {
     let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
+}
+
+// =========================================
+// CURSOR GLOW TRACKER
+// =========================================
+function initCursorGlow() {
+    const glow = document.getElementById('cursor-glow');
+    if (!glow || window.innerWidth < 768) return;
+    
+    let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function animate() {
+        glowX += (mouseX - glowX) * 0.08;
+        glowY += (mouseY - glowY) * 0.08;
+        glow.style.left = glowX + 'px';
+        glow.style.top = glowY + 'px';
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+// =========================================
+// SCROLL PROGRESS BAR
+// =========================================
+function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        bar.style.width = progress + '%';
+    });
 }

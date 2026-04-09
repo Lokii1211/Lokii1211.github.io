@@ -115,6 +115,12 @@
         <div class="gradient-orb orb-3"></div>
     </div>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
@@ -194,12 +200,12 @@
             </h1>
             <p class="hero-subtitle animate-fade-in-up delay-1">
                 <strong>Founder & AI Engineer</strong> who ships <strong>production AI products</strong> that real people use daily.
-                Co-founded <strong>MoneyViya</strong>, <strong>Kaizy</strong>, and <strong>Mentixy</strong> —
-                3 live products serving real users with real APIs, real databases, and real revenue models.
+                Co-founded <strong>MoneyViya</strong>, <strong>Kaizy</strong>, <strong>Mentixy</strong>, and <strong>KadaiGPT</strong> —
+                4 live products serving real users with real APIs, real databases, and real revenue models.
             </p>
             <div class="hero-stats animate-fade-in-up delay-2">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-number" data-target="4">0</span>
                     <span class="stat-suffix"></span>
                     <span class="stat-label">Live Products</span>
                 </div>
@@ -551,6 +557,36 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- KadaiGPT -->
+                <article class="project-card animate-on-scroll" data-tilt>
+                    <div class="project-card-header">
+                        <div class="project-icon">🏪</div>
+                        <div class="project-links">
+                            <span class="project-status new">LIVE • 2026</span>
+                        </div>
+                    </div>
+                    <h3 class="project-card-title">KadaiGPT</h3>
+                    <p class="project-card-desc">
+                        <strong>AI-powered smart shop assistant</strong> for local retailers. LangChain-based agent with real-time
+                        inventory management, sales analytics, automated GST invoicing, and bilingual NLP queries in Tamil & English
+                        — all accessible via WhatsApp.
+                    </p>
+                    <p class="project-card-why"><em>Why:</em> Small retailers lose hours to manual billing. KadaiGPT automates their entire workflow through a simple WhatsApp chat.</p>
+                    <div class="project-card-tech">
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>FastAPI</span>
+                        <span>Gemini</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-metrics">
+                            <span>🧾 Auto GST Invoicing</span>
+                            <span>🗣️ Bilingual NLP</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -756,8 +792,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">2026</span>
-                        <h3>Kaizy & Mentixy Launch</h3>
-                        <p>Co-founded and shipped two full-stack production platforms — Kaizy (on-demand home services marketplace with Razorpay escrow) and Mentixy (AI career intelligence with Claude API).</p>
+                        <h3>Kaizy, Mentixy & KadaiGPT Launch</h3>
+                        <p>Co-founded and shipped three full-stack production platforms — Kaizy (on-demand home services marketplace with Razorpay escrow), Mentixy (AI career intelligence with Claude API), and KadaiGPT (AI-powered smart shop assistant for local retailers).</p>
                     </div>
                 </article>
 
@@ -843,8 +879,8 @@
                 </div>
                 <div class="cert-card animate-on-scroll">
                     <div class="cert-badge">🚀</div>
-                    <h3>3 Live Products Shipped</h3>
-                    <p>MoneyViya, Kaizy & Mentixy serving real users daily with production APIs and real databases</p>
+                    <h3>4 Live Products Shipped</h3>
+                    <p>MoneyViya, Kaizy, Mentixy & KadaiGPT serving real users daily with production APIs and real databases</p>
                 </div>
                 <div class="cert-card animate-on-scroll">
                     <div class="cert-badge">🎓</div>
@@ -933,8 +969,99 @@
             </div>
         </div>
     </footer>
+    <!-- 3D Particle Background Canvas -->
+    <canvas id="neural-canvas"></canvas>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
+    <script>
+    // Neural Synthesis 3D Particle Network
+    (function() {
+        const canvas = document.getElementById('neural-canvas');
+        if (!canvas || typeof THREE === 'undefined') return;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Particles
+        const particleCount = 200;
+        const geo = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const velocities = [];
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+            velocities.push({
+                x: (Math.random() - 0.5) * 0.01,
+                y: (Math.random() - 0.5) * 0.01,
+                z: (Math.random() - 0.5) * 0.01
+            });
+        }
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const mat = new THREE.PointsMaterial({
+            color: 0x9c27b0,
+            size: 0.06,
+            transparent: true,
+            opacity: 0.7,
+            blending: THREE.AdditiveBlending
+        });
+        const particles = new THREE.Points(geo, mat);
+        scene.add(particles);
+
+        // Neural connection lines
+        const lineMat = new THREE.LineBasicMaterial({
+            color: 0xf9abff,
+            transparent: true,
+            opacity: 0.08,
+            blending: THREE.AdditiveBlending
+        });
+
+        camera.position.z = 8;
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const pos = geo.attributes.position.array;
+            for (let i = 0; i < particleCount; i++) {
+                pos[i * 3] += velocities[i].x;
+                pos[i * 3 + 1] += velocities[i].y;
+                pos[i * 3 + 2] += velocities[i].z;
+                // Boundary wrap
+                for (let j = 0; j < 3; j++) {
+                    if (Math.abs(pos[i * 3 + j]) > 10) velocities[i][['x','y','z'][j]] *= -1;
+                }
+            }
+            geo.attributes.position.needsUpdate = true;
+
+            particles.rotation.y += 0.0008;
+            particles.rotation.x += 0.0003;
+
+            camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.02;
+            camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.02;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    })();
+    </script>
 </body>
 
 </html>
