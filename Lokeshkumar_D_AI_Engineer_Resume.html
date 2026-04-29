@@ -64,6 +64,19 @@
     .project-header .tech-right { font-size: 9pt; font-style: italic; text-align: right; max-width: 45%; }
     .project-link { font-size: 9pt; margin-bottom: 1px; }
     .project-link a { color: #0000EE; text-decoration: none; }
+
+    /* Core Competencies Grid */
+    .competencies-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2px 20px;
+        font-size: 10pt;
+        margin-top: 2px;
+    }
+    .competencies-grid li {
+        list-style: disc;
+        margin-left: 16px;
+    }
     .project ul { padding-left: 16px; font-size: 9.5pt; }
     .project li { margin-bottom: 0.5px; }
     .project li strong { font-weight: 700; }
@@ -101,6 +114,21 @@
 </div>
 
 <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <ul class="competencies-grid">
+        <li>Agentic AI Systems</li>
+        <li>LangChain / RAG Pipelines</li>
+        <li>Multi-Agent Orchestration</li>
+        <li>Full-Stack Development</li>
+        <li>System Design & Architecture</li>
+        <li>Conversational AI / NLP</li>
+        <li>Cloud Deployment & DevOps</li>
+        <li>Production AI Products</li>
+        <li>Cross-Platform Engineering</li>
+    </ul>
+</div>
+
+<div class="section">
     <div class="section-title">Technical Skills</div>
     <div class="skill-line"><span class="label">AI &amp; ML:</span><span class="value">Agentic AI, LangChain, LangGraph, RAG, CrewAI, Multi-Agent Systems, Prompt Engineering, NLP, Vector Search, Fine-Tuning, AI Agents</span></div>
     <div class="skill-line"><span class="label">LLM APIs:</span><span class="value">OpenAI GPT-4, Google Gemini, Anthropic Claude, Function Calling, Tool Use, MCP, Embeddings, Whisper STT, Hugging Face</span></div>
@@ -120,7 +148,7 @@
             <h3>Viya AI &mdash; AI Life &amp; Wealth Partner (PWA + WhatsApp + Android)</h3>
             <span class="tech-right">Python, FastAPI, LangChain, Gemini, n8n, Railway</span>
         </div>
-        <div class="project-link"><a href="https://heyviya.vercel.app">heyviya.vercel.app</a> &bull; <a href="https://github.com/Lokii1211/vittasaathi">GitHub</a></div>
+        <div class="project-link">PWA + WhatsApp + Android &bull; <a href="https://heyviya.vercel.app">Live App</a> &bull; <a href="https://github.com/Lokii1211/vittasaathi">GitHub</a></div>
         <ul>
             <li>Architected <strong>multi-channel AI personal finance platform</strong> enabling users to track expenses, set budgets, monitor investments, build financial habits, and receive AI-generated wealth advice across PWA, WhatsApp bot, and Android app</li>
             <li>Engineered <strong>4-stage LangChain agentic pipeline</strong> with n8n workflow orchestration: intent classification &rarr; RAG context retrieval (ChromaDB) &rarr; tool execution &rarr; personalized response generation with conversation memory</li>
@@ -134,7 +162,7 @@
             <h3>Kaizy &mdash; India's Workforce OS (Full-Stack Web Platform)</h3>
             <span class="tech-right">Next.js 14, TypeScript, Supabase, Razorpay, Mapbox</span>
         </div>
-        <div class="project-link"><a href="https://kaizyy.vercel.app">kaizyy.vercel.app</a></div>
+        <div class="project-link">Web + Mobile &bull; <a href="https://kaizyy.vercel.app">Live Site</a></div>
         <ul>
             <li>Built <strong>end-to-end workforce marketplace platform</strong> connecting homeowners with verified skilled workers &mdash; 18 production pages, 6 API routes, real-time GPS tracking with same-day UPI payouts</li>
             <li>Engineered <strong>intelligent 3-round dispatch engine</strong> with geo-proximity matching (5km &rarr; 10km &rarr; 15km) and atomic job acceptance preventing race conditions at scale</li>
@@ -147,7 +175,7 @@
             <h3>Mentixy &mdash; AI Career Intelligence Platform (Full-Stack SaaS)</h3>
             <span class="tech-right">Next.js 14, FastAPI, PostgreSQL, Claude AI, pgvector, Redis</span>
         </div>
-        <div class="project-link"><a href="https://synaptiqq.vercel.app">synaptiqq.vercel.app</a></div>
+        <div class="project-link">Full-Stack SaaS &bull; <a href="https://synaptiqq.vercel.app">Live Site</a></div>
         <ul>
             <li>Architected <strong>AI-powered career platform with 15+ features</strong>: Claude-powered AI counselor, real-time coding arena (Judge0), aptitude engine, 4D career profiling, community network, and internship matching</li>
             <li>Built <strong>CareerDNA&trade; vector profiling system</strong> using pgvector (256-dim embeddings) with real-time WebSocket messaging, typing indicators, and presence tracking</li>
@@ -159,7 +187,7 @@
             <h3>KadaiGPT &mdash; AI Smart Shop Assistant (WhatsApp Bot)</h3>
             <span class="tech-right">Python, FastAPI, LangChain, Gemini, PostgreSQL</span>
         </div>
-        <div class="project-link"><a href="https://github.com/Lokii1211/kadaigpt">GitHub</a></div>
+        <div class="project-link">WhatsApp Bot &bull; <a href="https://github.com/Lokii1211/kadaigpt">GitHub</a></div>
         <ul>
             <li>Architected <strong>LangChain-based conversational AI agent</strong> for local retailers with real-time inventory management, automated GST invoicing, sales analytics, and bilingual NLP (Tamil &amp; English), reducing manual billing by <strong>5+ hours/week</strong></li>
         </ul>
