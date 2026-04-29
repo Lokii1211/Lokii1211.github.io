@@ -1,4 +1,4 @@
-// =========================================
+﻿// =========================================
 // LOKI.AI - Premium AI Engineer Portfolio
 // Advanced 2D/3D Animations & Interactions
 // =========================================
@@ -82,7 +82,7 @@ function initParticleCanvas() {
             this.r = Math.random() * 2.5 + 0.5;
             this.baseR = this.r;
             this.pulse = Math.random() * Math.PI * 2;
-            this.hue = 280 + Math.random() * 40;
+            this.hue = 220 + Math.random() * 40;
         }
         update() {
             this.pulse += 0.02;
@@ -192,7 +192,7 @@ function initHeroParticles3D() {
         sphere.style.setProperty('--x', `${Math.random() * 100}%`);
         sphere.style.setProperty('--y', `${Math.random() * 100}%`);
         sphere.style.setProperty('--size', `${6 + Math.random() * 18}px`);
-        sphere.style.setProperty('--hue', `${280 + Math.random() * 50}`);
+        sphere.style.setProperty('--hue', `${220 + Math.random() * 50}`);
         container.appendChild(sphere);
     }
 }
@@ -705,3 +705,4 @@ function initScrollProgress() {
         bar.style.width = progress + '%';
     });
 }
+
