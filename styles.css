@@ -2576,7 +2576,7 @@ body {
 .project-card.animated:nth-child(2) { animation-delay: 0.25s; }
 
 /* ============================================
-   ENHANCED 3D ORBIT RING FOR FEATURED PROJECT
+   ENHANCED BORDER GLOW FOR FEATURED PROJECT
 ============================================ */
 .featured-project {
     position: relative;
@@ -2585,36 +2585,19 @@ body {
 .featured-project::after {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
     border-radius: inherit;
-    background: conic-gradient(
-        from var(--orbit-angle, 0deg),
-        transparent 0%,
-        var(--accent-primary) 10%,
-        var(--accent-secondary) 20%,
-        transparent 40%
-    );
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
     z-index: -1;
     opacity: 0;
     transition: opacity 0.5s ease;
-    animation: orbitSpin 4s linear infinite;
-}
-
-@keyframes orbitSpin {
-    to { --orbit-angle: 360deg; }
-}
-
-@property --orbit-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
 }
 
 .featured-project:hover::after {
-    opacity: 1;
+    opacity: 0.7;
 }
 
 /* ============================================
