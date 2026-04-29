@@ -243,30 +243,22 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    font-family: var(--font-mono);
-    font-size: 1.25rem;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
     font-weight: 700;
     text-decoration: none;
     color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
-.logo-bracket {
-    color: var(--text-muted);
-}
-
-.logo-text {
+.logo-name {
     color: var(--text-primary);
 }
 
 .logo-dot {
     color: var(--accent-primary);
-}
-
-.logo-ai {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-size: 1.8rem;
+    line-height: 0;
 }
 
 .nav-links {
@@ -2976,4 +2968,226 @@ body {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* =====================================================
+   BENTO GRID SKILLS — Trending 2026 Design
+===================================================== */
+.skills-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    backdrop-filter: blur(12px);
+}
+
+.bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+.bento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg), 0 0 40px var(--accent-glow);
+    border-color: var(--accent-primary);
+}
+
+.bento-card.bento-large {
+    grid-column: span 2;
+}
+
+.bento-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.bento-icon {
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-soft);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.bento-header h3 {
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.bento-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    border-radius: 100px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    transition: all 0.25s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tag.tag-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: #fff;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.tag.tag-primary:hover {
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.tag.tag-accent {
+    background: rgba(156, 39, 176, 0.12);
+    color: var(--accent-primary);
+    border-color: rgba(156, 39, 176, 0.25);
+    font-weight: 600;
+}
+
+[data-theme="dark"] .bento-card {
+    background: rgba(25, 27, 37, 0.7);
+    border-color: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .bento-card:hover {
+    background: rgba(30, 32, 45, 0.9);
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+[data-theme="dark"] .bento-icon {
+    background: rgba(156, 39, 176, 0.15);
+    border-color: rgba(156, 39, 176, 0.2);
+}
+
+[data-theme="dark"] .tag {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.08);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .tag:hover {
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .tag.tag-accent {
+    background: rgba(156, 39, 176, 0.2);
+    color: var(--accent-tertiary);
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+/* Bento responsive */
+@media (max-width: 768px) {
+    .skills-bento {
+        grid-template-columns: 1fr;
+    }
+    .bento-card.bento-large {
+        grid-column: span 1;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .skills-bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =====================================================
+   ENHANCED NAVBAR — Gradient border bottom on scroll
+===================================================== */
+.navbar.scrolled {
+    border-bottom: 1px solid transparent;
+    background-image: linear-gradient(var(--nav-scroll-bg), var(--nav-scroll-bg)),
+                      linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* =====================================================
+   3D CARD SHINE — Glassmorphism shimmer on hover
+===================================================== */
+.bento-card::after,
+.arch-card::after,
+.cert-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.bento-card:hover::after,
+.arch-card:hover::after,
+.cert-card:hover::after {
+    left: 100%;
+}
+
+/* =====================================================
+   ENHANCED FOOTER — Clean minimal look
+===================================================== */
+.footer .footer-brand {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.footer .footer-brand .logo-name {
+    color: var(--text-primary);
+}
+
+.footer .footer-brand .logo-dot {
+    color: var(--accent-primary);
+    font-size: 2rem;
+    line-height: 0;
 }
