@@ -5,124 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lokeshkumar D - AI Engineer Resume</title>
 <style>
-    @page { size: A4; margin: 0.35in 0.5in; }
+    @page { size: A4; margin: 0.3in 0.45in; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
-        font-size: 10pt;
-        line-height: 1.3;
+        font-size: 9.5pt;
+        line-height: 1.25;
         color: #000;
         background: #fff;
-        max-width: 8.5in;
+        max-width: 8.27in;
         margin: 0 auto;
-        padding: 0.35in 0.5in;
+        padding: 0.3in 0.45in;
     }
 
     /* Header */
-    .header { text-align: center; margin-bottom: 6px; }
+    .header { text-align: center; margin-bottom: 4px; }
     .header h1 {
-        font-size: 20pt;
+        font-size: 18pt;
         font-weight: 700;
         letter-spacing: 2px;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
         color: #000;
     }
     .contact-row {
-        font-size: 9.5pt;
+        font-size: 9pt;
         color: #333;
-        padding-bottom: 6px;
-        border-bottom: 2px solid #000;
+        padding-bottom: 4px;
+        border-bottom: 1.5px solid #000;
     }
-    .contact-row a {
-        color: #0563C1;
-        text-decoration: underline;
-    }
+    .contact-row a { color: #0563C1; text-decoration: underline; }
 
     /* Sections */
-    .section { margin-bottom: 6px; }
+    .section { margin-bottom: 4px; }
     .section-title {
-        font-size: 11pt;
+        font-size: 10pt;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        border-bottom: 1.5px solid #000;
-        padding-bottom: 2px;
-        margin-bottom: 4px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 1px;
+        margin-bottom: 3px;
         color: #000;
     }
 
     /* Summary */
-    .summary {
-        font-size: 9.5pt;
-        line-height: 1.35;
-        text-align: justify;
-    }
+    .summary { font-size: 9pt; line-height: 1.3; text-align: justify; }
 
-    /* Skills — Single Column for ATS */
-    .skills-list {
-        font-size: 9.5pt;
-        line-height: 1.4;
-    }
-    .skills-list .skill-line {
-        margin-bottom: 1px;
-    }
-    .skills-list .label {
-        font-weight: 700;
-    }
+    /* Skills */
+    .skills-list { font-size: 9pt; line-height: 1.3; }
+    .skills-list .skill-line { margin-bottom: 0; }
+    .skills-list .label { font-weight: 700; }
 
     /* Experience */
-    .exp { margin-bottom: 5px; }
-    .exp-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-    }
-    .exp-header h3 {
-        font-size: 10.5pt;
-        font-weight: 700;
-    }
-    .exp-header .date-right {
-        font-size: 9pt;
-        font-style: italic;
-        white-space: nowrap;
-    }
-    .exp-role {
-        font-size: 9.5pt;
-        font-style: italic;
-        color: #333;
-        margin-bottom: 1px;
-    }
-    .exp-links {
-        font-size: 9pt;
-        color: #555;
-        margin-bottom: 2px;
-    }
-    .exp-links a {
-        color: #0563C1;
-        text-decoration: underline;
-    }
-    .exp ul {
-        padding-left: 16px;
-        font-size: 9.5pt;
-        line-height: 1.3;
-    }
-    .exp li {
-        margin-bottom: 1px;
-    }
+    .exp { margin-bottom: 4px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .exp-header h3 { font-size: 10pt; font-weight: 700; }
+    .exp-header .date-right { font-size: 8.5pt; font-style: italic; white-space: nowrap; }
+    .exp-role { font-size: 9pt; font-style: italic; color: #333; margin-bottom: 0; }
+    .exp-links { font-size: 8.5pt; color: #555; margin-bottom: 1px; }
+    .exp-links a { color: #0563C1; text-decoration: underline; }
+    .exp ul { padding-left: 14px; font-size: 9pt; line-height: 1.25; }
+    .exp li { margin-bottom: 0; }
 
     /* Education */
-    .edu-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 10pt;
-    }
-    .edu-sub { font-size: 9.5pt; }
+    .edu-row { display: flex; justify-content: space-between; font-size: 9.5pt; }
+    .edu-sub { font-size: 9pt; }
 
-    /* Core Competencies — plain text for ATS */
-    .comp-plain {
-        font-size: 9.5pt;
-        line-height: 1.4;
-    }
+    /* Core Competencies */
+    .comp-plain { font-size: 9pt; line-height: 1.3; }
 
     @media print {
         body { padding: 0; }
@@ -146,10 +96,10 @@
 <div class="section">
     <div class="section-title">Professional Summary</div>
     <div class="summary">
-        AI Engineer and Founder specializing in production-grade Agentic AI systems, LLM orchestration, and full-stack product development.
-        Built and shipped 4 live production products — Viya AI (AI life and wealth partner with WhatsApp and PWA), Kaizy (workforce marketplace OS), Mentixy (AI career intelligence platform), and KadaiGPT (multilingual smart shop assistant) — serving real users 24/7 with 99.5% uptime across 310+ production commits.
+        AI Engineer and Founder building production-grade Agentic AI systems, LLM orchestration, and full-stack products.
+        Shipped 4 live products serving real users 24/7 with 99.5% uptime across 310+ commits.
         Led UIDAI National Hackathon team analyzing 4.94M+ Aadhaar records. VEL IDEAFORGE 2K26 Finalist.
-        Infrastructure: Vercel, Supabase, n8n automation.
+        Stack: Vercel, Supabase, n8n, LangChain, Next.js, FastAPI.
     </div>
 </div>
 
@@ -158,13 +108,12 @@
     <div class="skills-list">
         <div class="skill-line"><span class="label">Languages:</span> Python, TypeScript, JavaScript, SQL, C++</div>
         <div class="skill-line"><span class="label">AI/ML:</span> TensorFlow, PyTorch, Scikit-learn, Hugging Face, OpenAI Whisper</div>
-        <div class="skill-line"><span class="label">LLM and NLP:</span> OpenAI GPT-4, Gemini, Claude AI, RAG, Prompt Engineering, Fine-tuning</div>
+        <div class="skill-line"><span class="label">LLM/NLP:</span> OpenAI GPT-4, Gemini, Claude AI, RAG, Prompt Engineering, Fine-tuning</div>
         <div class="skill-line"><span class="label">Agentic AI:</span> LangChain, LangGraph, n8n, CrewAI, Multi-Agent Systems, MCP</div>
         <div class="skill-line"><span class="label">Backend:</span> FastAPI, Flask, Node.js, Express, REST API, WebSocket</div>
         <div class="skill-line"><span class="label">Frontend:</span> Next.js, React, HTML5, CSS3, Tailwind CSS, PWA</div>
         <div class="skill-line"><span class="label">Databases:</span> PostgreSQL, Supabase, ChromaDB, pgvector, Pinecone, Redis, SQLite</div>
         <div class="skill-line"><span class="label">DevOps:</span> Docker, Vercel, AWS, Git, GitHub Actions, CI/CD</div>
-        <div class="skill-line"><span class="label">Data Tools:</span> Pandas, NumPy, Matplotlib, Seaborn, Jupyter, Plotly</div>
     </div>
 </div>
 
@@ -176,12 +125,11 @@
             <h3>Founder and AI Engineer — Viya AI</h3>
             <span class="date-right">Jan 2025 – Present</span>
         </div>
-        <div class="exp-role">AI Life and Wealth Partner | Next.js 14, FastAPI, LangChain, Gemini, Supabase, n8n, PWA</div>
-        <div class="exp-links">Live: heyviya.vercel.app | GitHub: github.com/Lokii1211/vittasaathi</div>
+        <div class="exp-role">AI Life and Wealth Partner | Next.js, FastAPI, LangChain, Gemini, Supabase, n8n, PWA</div>
+        <div class="exp-links">Live: <a href="https://heyviya.vercel.app">heyviya.vercel.app</a> | GitHub: <a href="https://github.com/Lokii1211/vittasaathi">github.com/Lokii1211/vittasaathi</a></div>
         <ul>
-            <li>Built AI-powered personal finance companion with real-time expense tracking, habit building, budgeting, goal management and personalized financial advice via conversational AI</li>
-            <li>Architected 4-stage LangChain agentic workflow with n8n orchestration for intent classification, ChromaDB vector RAG, tool execution and automated insights across 5 Indian languages with 95%+ intent accuracy</li>
-            <li>Deployed as installable PWA and WhatsApp bot with voice-to-text (Whisper), Google TTS, WebSocket streaming and sub-2-second response latency serving users 24/7 with 99.5% uptime across 121+ commits</li>
+            <li>Built AI-powered personal finance companion with real-time expense tracking, habit building, budgeting, goal management and conversational AI across 5 Indian languages with 95%+ intent accuracy</li>
+            <li>Architected 4-stage LangChain agentic workflow with n8n orchestration, ChromaDB vector RAG, tool execution and automated insights; deployed as PWA + WhatsApp bot with voice-to-text and sub-2s latency across 121+ commits</li>
         </ul>
     </div>
 
@@ -191,10 +139,10 @@
             <span class="date-right">Mar 2026 – Present</span>
         </div>
         <div class="exp-role">India's Workforce OS | Next.js 14, TypeScript, Supabase, Razorpay, Mapbox</div>
-        <div class="exp-links">Live: kaizyy.vercel.app</div>
+        <div class="exp-links">Live: <a href="https://kaizyy.vercel.app">kaizyy.vercel.app</a></div>
         <ul>
             <li>Built end-to-end workforce marketplace connecting users with verified skilled workers across 35 service categories with same-day UPI payouts via Razorpay escrow integration</li>
-            <li>Engineered intelligent 3-round geo-dispatch engine with dynamic pricing (8 multipliers), real-time worker tracking, SOS emergency system and 18 production pages with 6 API routes</li>
+            <li>Engineered intelligent 3-round geo-dispatch engine with dynamic pricing (8 multipliers), real-time tracking, SOS system and 18 production pages with 6 API routes</li>
         </ul>
     </div>
 
@@ -204,10 +152,10 @@
             <span class="date-right">Jan 2026 – Present</span>
         </div>
         <div class="exp-role">AI Career Intelligence Platform | Next.js 14, FastAPI, PostgreSQL, Claude AI, pgvector, Redis</div>
-        <div class="exp-links">Live: synaptiqq.vercel.app</div>
+        <div class="exp-links">Live: <a href="https://synaptiqq.vercel.app">synaptiqq.vercel.app</a></div>
         <ul>
-            <li>Developed full-stack career intelligence platform with 15+ features including AI counselor, coding arena (Judge0), aptitude engine, 4D career profiling, Mentixy Score, Campus Wars and community network</li>
-            <li>Built CareerDNA vector profiling using pgvector with 256-dimensional embeddings, LLM-driven course recommendations, skill gap analysis and interview prep models</li>
+            <li>Developed career intelligence platform with 15+ features: AI counselor, coding arena (Judge0), aptitude engine, 4D career profiling, Mentixy Score, Campus Wars and community network</li>
+            <li>Built CareerDNA vector profiling using pgvector with 256-dimensional embeddings, LLM-driven course recommendations and skill gap analysis</li>
         </ul>
     </div>
 
@@ -216,11 +164,11 @@
             <h3>Founder — KadaiGPT</h3>
             <span class="date-right">Jan 2026 – Present</span>
         </div>
-        <div class="exp-role">AI-Powered Smart Shop Assistant | React PWA, FastAPI, LangChain, Gemini, PostgreSQL</div>
-        <div class="exp-links">GitHub: github.com/Lokii1211/kadaigpt</div>
+        <div class="exp-role">Smart Shop Assistant | React PWA, FastAPI, LangChain, Gemini, PostgreSQL</div>
+        <div class="exp-links">GitHub: <a href="https://github.com/Lokii1211/kadaigpt">github.com/Lokii1211/kadaigpt</a></div>
         <ul>
-            <li>Architected multi-agent system (Billing, Inventory, Analytics, WhatsApp agents) for 12M+ Indian kirana stores with automated GST invoicing and real-time inventory management</li>
-            <li>Implemented bilingual voice commerce in Tamil and English with Gemini-powered NLP, offline-first PWA, OCR scanning and smart product categorization across 190+ production commits</li>
+            <li>Architected multi-agent system (Billing, Inventory, Analytics, WhatsApp agents) for 12M+ Indian kirana stores with GST invoicing and real-time inventory management</li>
+            <li>Implemented bilingual voice commerce in Tamil/English with Gemini NLP, offline-first PWA, OCR scanning across 190+ production commits</li>
         </ul>
     </div>
 
@@ -247,7 +195,7 @@
 
 <div class="section">
     <div class="section-title">Achievements</div>
-    <ul style="padding-left:16px; font-size:9.5pt; line-height:1.35;">
+    <ul style="padding-left:14px; font-size:9pt; line-height:1.25;">
         <li>UIDAI National Hackathon 2026 — Led Team Neural Breach, analyzed 4.94M+ Aadhaar enrollment records</li>
         <li>VEL IDEAFORGE 2K26 Finalist — SkillSync AI Career Guidance Platform</li>
         <li>Shipped 4 production AI products serving real users 24/7 with 310+ total production commits</li>
