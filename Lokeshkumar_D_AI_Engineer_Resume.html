@@ -38,7 +38,7 @@
         padding-bottom: 4px;
         border-bottom: 1.5px solid #000;
     }
-    .contact-row a { color: #0563C1; text-decoration: underline; }
+    .contact-row a { color: #0563C1; text-decoration: none; }
 
     /* ── Sections ── */
     .section { margin-bottom: 4px; }
@@ -53,28 +53,20 @@
     }
 
     /* ── Summary ── */
-    .summary { font-size: 8.5pt; line-height: 1.3; }
+    .summary { font-size: 8.5pt; line-height: 1.32; }
 
-    /* ── Skills — Pipe-Separated (older template) ── */
-    .skills-block {
-        font-size: 8.5pt;
-        line-height: 1.35;
-    }
+    /* ── Skills ── */
+    .skills-block { font-size: 8.5pt; line-height: 1.35; }
     .skill-row { margin-bottom: 1px; }
     .skill-row b { font-weight: 700; }
 
     /* ── Experience ── */
     .exp { margin-bottom: 4px; }
-    .exp-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-    }
+    .exp-top { display: flex; justify-content: space-between; align-items: baseline; }
     .exp-top h3 { font-size: 9.5pt; font-weight: 700; }
+    .exp-top h3 a { color: #0563C1; text-decoration: none; }
     .exp-top .dates { font-size: 8pt; font-style: italic; white-space: nowrap; }
     .exp-sub { font-size: 8.5pt; font-style: italic; color: #222; }
-    .exp-links { font-size: 8pt; color: #555; margin-bottom: 1px; }
-    .exp-links a { color: #0563C1; text-decoration: underline; }
     .exp ul { padding-left: 13px; font-size: 8.5pt; line-height: 1.22; }
     .exp li { margin-bottom: 0.5px; }
 
@@ -102,19 +94,21 @@
     <div class="contact-row">
         <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> |
         +91-9003360494 |
-        <a href="https://linkedin.com/in/lokiiii1211">linkedin.com/in/lokiiii1211</a> |
-        <a href="https://github.com/Lokii1211">github.com/Lokii1211</a> |
-        <a href="https://lokii1211.github.io">lokii1211.github.io</a>
+        <a href="https://linkedin.com/in/lokiiii1211">LinkedIn</a> |
+        <a href="https://github.com/Lokii1211">GitHub</a> |
+        <a href="https://lokii1211.github.io">Portfolio</a>
     </div>
 </header>
 
 <div class="section">
     <div class="section-title">Professional Summary</div>
     <div class="summary">
-        <b>AI Engineer</b> specializing in <b>production-grade Agentic AI systems</b>, <b>LLM orchestration</b>, and <b>full-stack product development</b>.
-        Built and shipped <b>4 live production products</b> — <b>Viya AI, Kaizy, Mentixy, KadaiGPT</b> — serving real users 24/7 with <b>99.5% uptime</b> across <b>310+ production commits</b>.
-        Led <b>UIDAI National Hackathon</b> team analyzing <b>4.94M+ Aadhaar records</b>. <b>VEL IDEAFORGE 2K26 Finalist</b>.
-        Infrastructure: <b>Vercel + Supabase + n8n</b>.
+        Results-driven <b>AI Engineer</b> with hands-on expertise in <b>production-grade Agentic AI systems</b>, <b>LLM orchestration</b>, <b>RAG pipelines</b>, and <b>end-to-end full-stack product development</b>.
+        Independently architected, built, and deployed <b>4 live AI-powered products from scratch to production</b> — each serving real users 24/7 with <b>99.5% uptime</b> and backed by <b>310+ production commits</b>.
+        Proven ability to translate complex business problems into <b>scalable, revenue-ready AI solutions</b> using <b>LangChain, Gemini, Claude AI, Next.js, FastAPI, and Supabase</b>.
+        Strong track record in <b>multi-agent system design</b>, <b>real-time data processing</b>, <b>multilingual NLP</b>, and <b>cloud-native deployment (Vercel + n8n)</b>.
+        Led <b>UIDAI National Hackathon</b> team analyzing <b>4.94M+ records</b>. <b>VEL IDEAFORGE 2K26 Finalist</b>.
+        Actively seeking <b>challenging AI Engineering roles</b> to build production-scale intelligent systems.
     </div>
 </div>
 
@@ -137,53 +131,49 @@
 
     <div class="exp">
         <div class="exp-top">
-            <h3>Freelance AI Engineer — Viya AI</h3>
+            <h3>Freelance AI Engineer — <a href="https://heyviya.vercel.app" target="_blank">Viya AI</a></h3>
             <span class="dates">Jan 2025 – Present</span>
         </div>
         <div class="exp-sub">AI Life and Wealth Partner (Virtual Assistant) | Next.js, FastAPI, LangChain, Gemini, Supabase, n8n, PWA</div>
-        <div class="exp-links">Live: <a href="https://heyviya.vercel.app">heyviya.vercel.app</a> | GitHub: <a href="https://github.com/Lokii1211/vittasaathi">github.com/Lokii1211/vittasaathi</a></div>
         <ul>
-            <li>Built <b>AI-powered virtual assistant</b> serving as a personal <b>life and wealth partner</b> with real-time <b>expense tracking</b>, <b>habit building</b>, <b>budgeting</b>, <b>goal management</b>, daily reminders, and <b>personalized financial advice</b> via conversational AI across <b>5 Indian languages</b></li>
-            <li>Architected <b>4-stage LangChain agentic workflow</b> with <b>n8n orchestration</b>, <b>ChromaDB vector RAG</b>, tool execution; deployed as <b>installable PWA + WhatsApp bot</b> with <b>voice-to-text (Whisper)</b>, <b>Google TTS</b>, <b>WebSocket streaming</b> and <b>sub-2s latency</b> across <b>121+ commits</b></li>
+            <li>Built <b>AI-powered virtual assistant</b> serving as a personal <b>life and wealth partner</b> with real-time <b>expense tracking</b>, <b>habit building</b>, <b>budgeting</b>, <b>goal management</b>, daily reminders, and <b>personalized financial advice</b> via conversational AI across <b>5 Indian languages</b> with <b>95%+ intent accuracy</b></li>
+            <li>Architected <b>4-stage LangChain agentic workflow</b> with <b>n8n orchestration</b>, <b>ChromaDB vector RAG</b>, and tool execution; deployed as <b>installable PWA + WhatsApp bot</b> with <b>voice-to-text (Whisper)</b>, <b>Google TTS</b>, <b>WebSocket streaming</b>, and <b>sub-2s response latency</b> across <b>121+ commits</b></li>
         </ul>
     </div>
 
     <div class="exp">
         <div class="exp-top">
-            <h3>Freelance Full-Stack Developer — Kaizy</h3>
+            <h3>Freelance Full-Stack Developer — <a href="https://kaizyy.vercel.app" target="_blank">Kaizy</a></h3>
             <span class="dates">Mar 2026 – Present</span>
         </div>
         <div class="exp-sub">India's Workforce OS | Next.js 14, TypeScript, Supabase, Razorpay, Mapbox</div>
-        <div class="exp-links">Live: <a href="https://kaizyy.vercel.app">kaizyy.vercel.app</a></div>
         <ul>
-            <li>Built <b>end-to-end workforce marketplace</b> connecting users with <b>verified skilled workers</b> across <b>35 service categories</b> with <b>same-day UPI payouts</b> via <b>Razorpay escrow</b></li>
-            <li>Engineered <b>3-round geo-dispatch engine</b> with <b>dynamic pricing (8 multipliers)</b>, <b>real-time worker tracking</b>, <b>SOS emergency system</b> and <b>18 production pages</b> with <b>6 API routes</b></li>
+            <li>Built <b>end-to-end workforce marketplace</b> connecting users with <b>verified skilled workers</b> across <b>35 service categories</b> with <b>same-day UPI payouts</b> via <b>Razorpay escrow</b> integration</li>
+            <li>Engineered <b>3-round geo-dispatch engine</b> with <b>dynamic pricing (8 multipliers)</b>, <b>real-time worker tracking</b>, <b>SOS emergency system</b>, and <b>18 production pages</b> with <b>6 API routes</b></li>
         </ul>
     </div>
 
     <div class="exp">
         <div class="exp-top">
-            <h3>Freelance AI Engineer — Mentixy</h3>
+            <h3>Freelance AI Engineer — <a href="https://synaptiqq.vercel.app" target="_blank">Mentixy</a></h3>
             <span class="dates">Jan 2026 – Present</span>
         </div>
         <div class="exp-sub">AI Career Intelligence Platform | Next.js 14, FastAPI, PostgreSQL, Claude AI, pgvector, Redis</div>
-        <div class="exp-links">Live: <a href="https://synaptiqq.vercel.app">synaptiqq.vercel.app</a></div>
         <ul>
-            <li>Developed <b>career intelligence platform</b> with <b>15+ features</b>: <b>AI counselor</b>, <b>coding arena (Judge0)</b>, <b>aptitude engine</b>, <b>4D career profiling</b>, <b>Mentixy Score</b>, <b>Campus Wars</b> and community network</li>
-            <li>Built <b>CareerDNA vector profiling</b> using <b>pgvector (256-dim embeddings)</b>, <b>LLM-driven course recommendations</b>, <b>skill gap analysis</b> and <b>interview prep</b></li>
+            <li>Developed <b>career intelligence platform</b> with <b>15+ features</b>: <b>AI counselor</b>, <b>coding arena (Judge0)</b>, <b>aptitude engine</b>, <b>4D career profiling</b>, <b>Mentixy Score</b>, <b>Campus Wars</b>, and community network</li>
+            <li>Built <b>CareerDNA vector profiling</b> using <b>pgvector (256-dim embeddings)</b>, <b>LLM-driven course recommendations</b>, <b>skill gap analysis</b>, and <b>interview prep</b> models</li>
         </ul>
     </div>
 
     <div class="exp">
         <div class="exp-top">
-            <h3>Freelance AI Engineer — KadaiGPT</h3>
+            <h3>Freelance AI Engineer — <a href="https://github.com/Lokii1211/kadaigpt" target="_blank">KadaiGPT</a></h3>
             <span class="dates">Jan 2026 – Present</span>
         </div>
         <div class="exp-sub">AI-Powered Smart Shop Assistant | React PWA, FastAPI, LangChain, Gemini, PostgreSQL</div>
-        <div class="exp-links">GitHub: <a href="https://github.com/Lokii1211/kadaigpt">github.com/Lokii1211/kadaigpt</a></div>
         <ul>
             <li>Architected <b>multi-agent system</b> (Billing, Inventory, Analytics, WhatsApp agents) for <b>12M+ Indian kirana stores</b> with <b>automated GST invoicing</b> and <b>real-time inventory management</b></li>
-            <li>Implemented <b>bilingual voice commerce (Tamil/English)</b> with <b>Gemini NLP</b>, <b>offline-first PWA</b>, <b>OCR scanning</b> across <b>190+ production commits</b></li>
+            <li>Implemented <b>bilingual voice commerce (Tamil/English)</b> with <b>Gemini NLP</b>, <b>offline-first PWA</b>, <b>OCR scanning</b>, and smart product categorization across <b>190+ production commits</b></li>
         </ul>
     </div>
 
