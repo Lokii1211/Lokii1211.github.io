@@ -240,34 +240,55 @@
             </div>
         </div>
         <div class="hero-visual animate-scale-in">
-            <div class="code-window">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <span class="window-title">lokesh:~/agent — pipeline.py</span>
+            <div class="product-ecosystem">
+                <div class="eco-header">
+                    <div class="eco-indicator"></div>
+                    <span class="eco-title">PRODUCT ECOSYSTEM</span>
+                    <span class="eco-status">4 LIVE</span>
                 </div>
-                <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">ViyaAgent</span><span class="keyword">(</span><span class="class-name">BaseAgent</span><span class="keyword">)</span>:
-  <span class="string">"""Multi-agent orchestrator"""</span>
-
-  <span class="keyword">def</span> <span class="function">pipeline</span>(self, query):
-    intent  = <span class="var">self.classify</span>(query)
-    context = <span class="var">self.rag</span>.retrieve(
-      <span class="string">db=</span><span class="class-name">ChromaDB</span>, <span class="string">k=</span><span class="function">5</span>
-    )
-    result = <span class="var">self.chain</span>.invoke(
-      intent, context,
-      <span class="string">tools=</span>[<span class="class-name">Finance</span>, <span class="class-name">Stock</span>, <span class="class-name">Budget</span>]
-    )
-    <span class="keyword">return</span> result  <span class="comment"># 99.5% uptime</span></code></pre>
-            </div>
-            <div class="floating-badges">
-                <div class="float-badge badge-1">🤖 LangChain</div>
-                <div class="float-badge badge-2">⚡ FastAPI</div>
-                <div class="float-badge badge-3">🧠 LLMs</div>
-                <div class="float-badge badge-4">🔄 n8n</div>
+                <div class="eco-grid">
+                    <a href="https://heyviya.vercel.app" target="_blank" class="eco-card eco-viya">
+                        <div class="eco-card-top">
+                            <span class="eco-icon">💰</span>
+                            <span class="eco-live-dot"></span>
+                        </div>
+                        <div class="eco-card-name">Viya AI</div>
+                        <div class="eco-card-desc">AI Life & Wealth Partner</div>
+                        <div class="eco-card-tags"><span>PWA</span><span>WhatsApp</span><span>LangChain</span></div>
+                    </a>
+                    <a href="https://kaizyy.vercel.app" target="_blank" class="eco-card eco-kaizy">
+                        <div class="eco-card-top">
+                            <span class="eco-icon">🔧</span>
+                            <span class="eco-live-dot"></span>
+                        </div>
+                        <div class="eco-card-name">Kaizy</div>
+                        <div class="eco-card-desc">India's Workforce OS</div>
+                        <div class="eco-card-tags"><span>Next.js</span><span>Razorpay</span><span>Mapbox</span></div>
+                    </a>
+                    <a href="https://synaptiqq.vercel.app" target="_blank" class="eco-card eco-mentixy">
+                        <div class="eco-card-top">
+                            <span class="eco-icon">🎯</span>
+                            <span class="eco-live-dot"></span>
+                        </div>
+                        <div class="eco-card-name">Mentixy</div>
+                        <div class="eco-card-desc">Career Intelligence AI</div>
+                        <div class="eco-card-tags"><span>Claude AI</span><span>pgvector</span><span>Redis</span></div>
+                    </a>
+                    <a href="https://github.com/Lokii1211/kadaigpt" target="_blank" class="eco-card eco-kadai">
+                        <div class="eco-card-top">
+                            <span class="eco-icon">🛒</span>
+                            <span class="eco-live-dot"></span>
+                        </div>
+                        <div class="eco-card-name">KadaiGPT</div>
+                        <div class="eco-card-desc">Smart Shop Assistant</div>
+                        <div class="eco-card-tags"><span>Multi-Agent</span><span>Tamil NLP</span><span>PWA</span></div>
+                    </a>
+                </div>
+                <div class="eco-footer">
+                    <span>310+ commits</span>
+                    <span>99.5% uptime</span>
+                    <span>Vercel · Supabase · n8n</span>
+                </div>
             </div>
         </div>
     </header>
