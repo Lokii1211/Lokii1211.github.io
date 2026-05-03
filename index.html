@@ -247,20 +247,21 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="window-title">lokesh:~/systems — status.log</span>
+                    <span class="window-title">lokesh:~/agent — pipeline.py</span>
                 </div>
-                <pre class="code-content"><code><span class="comment">┌─────────────────────────────────────────┐</span>
-<span class="comment">│</span>  <span class="function">PRODUCTION SYSTEMS</span>        <span class="keyword">● ALL ONLINE</span>  <span class="comment">│</span>
-<span class="comment">├─────────────────────────────────────────┤</span>
-<span class="comment">│</span>  <span class="string">Viya AI</span>    <span class="var">PWA·WhatsApp·Android</span>    <span class="keyword">●</span>  <span class="comment">│</span>
-<span class="comment">│</span>  <span class="string">Kaizy</span>      <span class="var">Workforce OS · 18pg</span>     <span class="keyword">●</span>  <span class="comment">│</span>
-<span class="comment">│</span>  <span class="string">Mentixy</span>    <span class="var">Career AI · SaaS</span>        <span class="keyword">●</span>  <span class="comment">│</span>
-<span class="comment">│</span>  <span class="string">KadaiGPT</span>   <span class="var">Shop Agent · NLP</span>        <span class="keyword">●</span>  <span class="comment">│</span>
-<span class="comment">├─────────────────────────────────────────┤</span>
-<span class="comment">│</span>  <span class="class-name">uptime</span>  99.5%   <span class="class-name">latency</span>  &lt;200ms    <span class="comment">│</span>
-<span class="comment">│</span>  <span class="class-name">agents</span>  4 live  <span class="class-name">users</span>    10K+      <span class="comment">│</span>
-<span class="comment">│</span>  <span class="class-name">stack</span>   LangChain · FastAPI · RAG   <span class="comment">│</span>
-<span class="comment">└─────────────────────────────────────────┘</span></code></pre>
+                <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">ViyaAgent</span><span class="keyword">(</span><span class="class-name">BaseAgent</span><span class="keyword">)</span>:
+  <span class="string">"""Multi-agent orchestrator"""</span>
+
+  <span class="keyword">def</span> <span class="function">pipeline</span>(self, query):
+    intent  = <span class="var">self.classify</span>(query)
+    context = <span class="var">self.rag</span>.retrieve(
+      <span class="string">db=</span><span class="class-name">ChromaDB</span>, <span class="string">k=</span><span class="function">5</span>
+    )
+    result = <span class="var">self.chain</span>.invoke(
+      intent, context,
+      <span class="string">tools=</span>[<span class="class-name">Finance</span>, <span class="class-name">Stock</span>, <span class="class-name">Budget</span>]
+    )
+    <span class="keyword">return</span> result  <span class="comment"># 99.5% uptime</span></code></pre>
             </div>
             <div class="floating-badges">
                 <div class="float-badge badge-1">🤖 LangChain</div>
@@ -441,7 +442,8 @@
                         <span class="tech-tag">LangChain</span>
                         <span class="tech-tag">n8n</span>
                         <span class="tech-tag">Gemini</span>
-                        <span class="tech-tag">Railway</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Vercel</span>
                     </div>
                     <div class="featured-actions">
                         <a href="https://heyviya.vercel.app" target="_blank" rel="noopener noreferrer"
@@ -626,7 +628,7 @@
                 <article class="bento-card bento-large animate-on-scroll">
                     <div class="bento-header"><span class="bento-icon">☁️</span><h3>DevOps & Tools</h3></div>
                     <div class="bento-tags">
-                        <span class="tag tag-primary">Docker</span><span class="tag tag-primary">Railway</span><span class="tag tag-primary">Vercel</span>
+                        <span class="tag tag-primary">Docker</span><span class="tag tag-primary">Vercel</span><span class="tag tag-primary">Vercel</span>
                         <span class="tag tag-accent">AWS</span><span class="tag tag-accent">Git</span><span class="tag">CI/CD</span>
                         <span class="tag">GitHub Actions</span><span class="tag">Razorpay</span><span class="tag">WhatsApp API</span>
                         <span class="tag">Mapbox</span><span class="tag">Judge0</span><span class="tag">Gupshup</span>
@@ -730,8 +732,8 @@
                 <div class="arch-card animate-on-scroll">
                     <div class="arch-icon-wrap"><span class="arch-icon">🚀</span></div>
                     <h3>Production Deployment</h3>
-                    <p>Cloud-native AI services with FastAPI, Docker, Railway, async processing, and 99.5% uptime</p>
-                    <div class="arch-tags"><span>FastAPI</span><span>Docker</span><span>Railway</span></div>
+                    <p>Cloud-native AI services with FastAPI, Docker, Vercel, async processing, and 99.5% uptime</p>
+                    <div class="arch-tags"><span>FastAPI</span><span>Docker</span><span>Vercel</span></div>
                 </div>
             </div>
         </div>
@@ -938,4 +940,5 @@
 </body>
 
 </html>
+
 
