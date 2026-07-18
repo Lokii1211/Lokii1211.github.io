@@ -16,28 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initCounterAnimation();
     initScrollProgress();
-    initCursorGlow();
     initTimelineFill();
     initTiltCards();
     initMagneticButtons();
     initCommandPalette();
     initChatbot();
     initTitleReveal();
-    initProductDeck();
     initFloatCardFlip();
     initHeroParallax();
     initRevealStagger();
 });
 
-// ---------- Dark mode (dark-first) ----------
+// ---------- Theme (light-first, editorial) ----------
 function initDarkMode() {
     const btn = document.getElementById('dark-mode-btn');
     const saved = localStorage.getItem('theme');
-    // Dark is the default brand experience; light only if explicitly chosen
-    if (saved === 'light') {
-        document.documentElement.removeAttribute('data-theme');
-    } else {
+    // Paper-white is the default brand experience; dark only if explicitly chosen
+    if (saved === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
     }
     if (!btn) return;
     btn.addEventListener('click', () => {
@@ -124,9 +122,11 @@ function initParticleCanvas() {
     function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
 
     function frame() {
+        // Canvas is only visible in dark theme; skip the work otherwise
+        if (!isDark()) { requestAnimationFrame(frame); return; }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const hue = isDark() ? 235 : 243;
-        const dotAlpha = isDark() ? 0.7 : 0.45;
+        const hue = 235;
+        const dotAlpha = 0.7;
 
         for (const p of particles) {
             p.x += p.vx; p.y += p.vy;
@@ -312,20 +312,6 @@ function initScrollProgress() {
     }, 40));
 }
 
-// ---------- Cursor glow ----------
-function initCursorGlow() {
-    const glow = document.getElementById('cursor-glow');
-    if (!glow || prefersReducedMotion || 'ontouchstart' in window) { if (glow) glow.remove(); return; }
-    let x = 0, y = 0, tx = 0, ty = 0;
-    window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; glow.style.opacity = ''; });
-    (function loop() {
-        x += (tx - x) * 0.08; y += (ty - y) * 0.08;
-        glow.style.left = x + 'px';
-        glow.style.top = y + 'px';
-        requestAnimationFrame(loop);
-    })();
-}
-
 // ---------- Timeline progressive fill ----------
 function initTimelineFill() {
     const line = document.getElementById('timeline-line');
@@ -397,58 +383,6 @@ function initTitleReveal() {
         });
     }, { threshold: 0.6 });
     titles.forEach(h => io.observe(h));
-}
-
-// ---------- 3D product deck (card swap) ----------
-function initProductDeck() {
-    const deck = document.getElementById('product-deck');
-    const dotsWrap = document.getElementById('deck-dots');
-    if (!deck) return;
-    const cards = [...deck.querySelectorAll('.deck-card')];
-    let order = cards.map((_, i) => i);
-    let timer = null;
-
-    cards.forEach((c, i) => c.setAttribute('data-pos', i));
-
-    if (dotsWrap) {
-        cards.forEach((c, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'deck-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Show ' + c.querySelector('h3').textContent);
-            dot.addEventListener('click', () => {
-                while (order[0] !== i) swap(true);
-                restart();
-            });
-            dotsWrap.appendChild(dot);
-        });
-    }
-
-    function render() {
-        order.forEach((cardIdx, pos) => cards[cardIdx].setAttribute('data-pos', pos));
-        if (dotsWrap) {
-            [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === order[0]));
-        }
-    }
-
-    function swap(instant) {
-        const front = cards[order[0]];
-        order.push(order.shift());
-        if (instant || prefersReducedMotion) { render(); return; }
-        front.classList.add('deck-leaving');
-        setTimeout(() => {
-            front.classList.remove('deck-leaving');
-            render();
-        }, 520);
-    }
-
-    function restart() {
-        if (timer) clearInterval(timer);
-        if (!prefersReducedMotion) timer = setInterval(swap, 3800);
-    }
-
-    deck.addEventListener('mouseenter', () => timer && clearInterval(timer));
-    deck.addEventListener('mouseleave', restart);
-    restart();
 }
 
 // ---------- Hero float card content flip ----------
