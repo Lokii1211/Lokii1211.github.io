@@ -1,0 +1,25 @@
+# Lokeshkumar D — Agentic AI Engineer
+
+> Portfolio of Lokeshkumar D (Loki), an Agentic AI Engineer and founder from Coimbatore, Tamil Nadu, India. He has shipped 4 live AI products and is available for full-time AI Engineering roles, freelance AI/ML projects, and startup consulting.
+
+## Who he is
+
+- Agentic AI Engineer specializing in LangChain, LangGraph, CrewAI, RAG, multi-agent systems, MCP, and function calling
+- Full-stack: Python, FastAPI, Next.js 14, TypeScript, PostgreSQL, Supabase, pgvector, ChromaDB, Redis, Docker, Vercel
+- B.Tech IT, Sri Krishna College of Technology, Coimbatore (2023–2027)
+- Recognition: UIDAI Data Hackathon 2026 (led team analyzing 4.94M+ Aadhaar records), VEL IDEAFORGE 2K26 national finalist
+
+## Products (all live in production)
+
+- Viya AI (https://heyviya.vercel.app): AI life & wealth partner — personal finance via natural conversation in 5 Indian languages, on PWA, WhatsApp, and Android. Python, FastAPI, LangChain, Gemini, Supabase.
+- Kaizy (https://kaizyy.vercel.app): India's workforce OS connecting homeowners with verified skilled workers — 3-round dispatch engine, Razorpay escrow, GPS tracking. Next.js 14, TypeScript, Supabase, Mapbox.
+- Mentixy (https://synaptiqq.vercel.app): AI career intelligence platform — Claude-powered counselor, live coding arena (Judge0), CareerDNA vector profiling. Next.js, FastAPI, pgvector, Redis.
+- KadaiGPT (https://github.com/Lokii1211/kadaigpt): WhatsApp smart shop assistant for local retailers — Tamil/English NLP, automated GST invoicing, inventory AI. Python, LangChain, Gemini, PostgreSQL.
+
+## Hire him
+
+- Email: lokiiii1211@gmail.com
+- WhatsApp: +91 9003360494
+- GitHub: https://github.com/Lokii1211
+- LinkedIn: https://linkedin.com/in/lokiiii1211
+- Resume: https://lokii1211.github.io/Lokeshkumar_D_AI_Engineer_Resume.html
