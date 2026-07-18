@@ -173,7 +173,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -528,6 +528,41 @@
                 <span class="section-tag animate-on-scroll">03 · Featured Work</span>
                 <h2 class="section-title animate-on-scroll" id="projects-title">Products in Production, Not Prototypes</h2>
                 <p class="section-desc animate-on-scroll">Every project below is live, with real users and real infrastructure.</p>
+            </div>
+
+            <!-- 3D swapping product deck -->
+            <div class="deck-wrap animate-on-scroll">
+                <div class="product-deck" id="product-deck" aria-label="Product spotlight — auto-rotating deck">
+                    <a class="deck-card" href="https://heyviya.vercel.app" target="_blank" rel="noopener noreferrer">
+                        <div class="deck-top"><span class="deck-icon">💰</span><span class="deck-live"><span class="live-pulse"></span>LIVE</span></div>
+                        <h3>Viya AI</h3>
+                        <p>AI Life &amp; Wealth Partner — natural-language finance in 5 Indian languages, across PWA, WhatsApp &amp; Android.</p>
+                        <div class="deck-tags"><span>LangChain</span><span>FastAPI</span><span>Gemini</span></div>
+                        <span class="deck-cta">Open product ↗</span>
+                    </a>
+                    <a class="deck-card" href="https://kaizyy.vercel.app" target="_blank" rel="noopener noreferrer">
+                        <div class="deck-top"><span class="deck-icon">⚡</span><span class="deck-live"><span class="live-pulse"></span>LIVE</span></div>
+                        <h3>Kaizy</h3>
+                        <p>India's Workforce OS — 3-round dispatch engine, Razorpay escrow payments, GPS tracking, 35 service types.</p>
+                        <div class="deck-tags"><span>Next.js 14</span><span>Supabase</span><span>Razorpay</span></div>
+                        <span class="deck-cta">Open product ↗</span>
+                    </a>
+                    <a class="deck-card" href="https://synaptiqq.vercel.app" target="_blank" rel="noopener noreferrer">
+                        <div class="deck-top"><span class="deck-icon">🧠</span><span class="deck-live"><span class="live-pulse"></span>LIVE</span></div>
+                        <h3>Mentixy</h3>
+                        <p>AI career intelligence — Claude-powered counselor, live coding arena, CareerDNA™ vector profiling.</p>
+                        <div class="deck-tags"><span>Claude AI</span><span>pgvector</span><span>FastAPI</span></div>
+                        <span class="deck-cta">Open product ↗</span>
+                    </a>
+                    <a class="deck-card" href="https://github.com/Lokii1211/kadaigpt" target="_blank" rel="noopener noreferrer">
+                        <div class="deck-top"><span class="deck-icon">🏪</span><span class="deck-live"><span class="live-pulse"></span>LIVE</span></div>
+                        <h3>KadaiGPT</h3>
+                        <p>WhatsApp shop assistant — Tamil NLP, automated GST invoicing, inventory AI for local retailers.</p>
+                        <div class="deck-tags"><span>LangChain</span><span>Tamil NLP</span><span>PostgreSQL</span></div>
+                        <span class="deck-cta">View on GitHub ↗</span>
+                    </a>
+                </div>
+                <div class="deck-dots" id="deck-dots" role="tablist" aria-label="Deck navigation"></div>
             </div>
 
             <!-- Featured: Viya AI -->

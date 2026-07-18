@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagneticButtons();
     initCommandPalette();
     initChatbot();
+    initTitleReveal();
+    initProductDeck();
+    initFloatCardFlip();
+    initHeroParallax();
+    initRevealStagger();
 });
 
 // ---------- Dark mode (dark-first) ----------
@@ -332,17 +337,193 @@ function initTimelineFill() {
     }, 60));
 }
 
-// ---------- 3D tilt cards ----------
+// ---------- 3D tilt cards with cursor glare ----------
 function initTiltCards() {
     if (prefersReducedMotion || 'ontouchstart' in window) return;
-    document.querySelectorAll('.tilt-card, .project-card').forEach(card => {
+    const targets = document.querySelectorAll(
+        '.tilt-card, .project-card, .arch-card, .cert-card, .bento-card, .contact-card'
+    );
+    targets.forEach(card => {
+        card.classList.add('glare-host');
+        const glare = document.createElement('span');
+        glare.className = 'card-glare';
+        card.appendChild(glare);
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.12s ease-out';
+        });
         card.addEventListener('mousemove', e => {
             const r = card.getBoundingClientRect();
             const px = (e.clientX - r.left) / r.width - 0.5;
             const py = (e.clientY - r.top) / r.height - 0.5;
             card.style.transform = `perspective(900px) rotateY(${px * 7}deg) rotateX(${-py * 7}deg) translateY(-4px)`;
+            card.style.setProperty('--gx', `${(px + 0.5) * 100}%`);
+            card.style.setProperty('--gy', `${(py + 0.5) * 100}%`);
         });
-        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        card.addEventListener('mouseleave', () => {
+            card.style.transition = '';
+            card.style.transform = '';
+        });
+    });
+}
+
+// ---------- Per-letter 3D title reveal ----------
+function initTitleReveal() {
+    if (prefersReducedMotion) return;
+    const titles = document.querySelectorAll('.section-title');
+    titles.forEach(h => {
+        const text = h.textContent;
+        h.setAttribute('aria-label', text);
+        const wrap = document.createElement('span');
+        wrap.setAttribute('aria-hidden', 'true');
+        let ci = 0;
+        for (const ch of text) {
+            if (ch.trim() === '') {
+                wrap.appendChild(document.createTextNode(ch));
+            } else {
+                const s = document.createElement('span');
+                s.className = 'tl-char';
+                s.style.setProperty('--ci', ci++);
+                s.textContent = ch;
+                wrap.appendChild(s);
+            }
+        }
+        h.textContent = '';
+        h.appendChild(wrap);
+    });
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('title-revealed'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.6 });
+    titles.forEach(h => io.observe(h));
+}
+
+// ---------- 3D product deck (card swap) ----------
+function initProductDeck() {
+    const deck = document.getElementById('product-deck');
+    const dotsWrap = document.getElementById('deck-dots');
+    if (!deck) return;
+    const cards = [...deck.querySelectorAll('.deck-card')];
+    let order = cards.map((_, i) => i);
+    let timer = null;
+
+    cards.forEach((c, i) => c.setAttribute('data-pos', i));
+
+    if (dotsWrap) {
+        cards.forEach((c, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'deck-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Show ' + c.querySelector('h3').textContent);
+            dot.addEventListener('click', () => {
+                while (order[0] !== i) swap(true);
+                restart();
+            });
+            dotsWrap.appendChild(dot);
+        });
+    }
+
+    function render() {
+        order.forEach((cardIdx, pos) => cards[cardIdx].setAttribute('data-pos', pos));
+        if (dotsWrap) {
+            [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === order[0]));
+        }
+    }
+
+    function swap(instant) {
+        const front = cards[order[0]];
+        order.push(order.shift());
+        if (instant || prefersReducedMotion) { render(); return; }
+        front.classList.add('deck-leaving');
+        setTimeout(() => {
+            front.classList.remove('deck-leaving');
+            render();
+        }, 520);
+    }
+
+    function restart() {
+        if (timer) clearInterval(timer);
+        if (!prefersReducedMotion) timer = setInterval(swap, 3800);
+    }
+
+    deck.addEventListener('mouseenter', () => timer && clearInterval(timer));
+    deck.addEventListener('mouseleave', restart);
+    restart();
+}
+
+// ---------- Hero float card content flip ----------
+function initFloatCardFlip() {
+    if (prefersReducedMotion) return;
+    const sets = [
+        { el: document.querySelector('.float-1'), items: [
+            ['🧠', 'LangGraph', 'Agent Orchestration'],
+            ['🔍', 'RAG', 'pgvector · ChromaDB'],
+            ['🤝', 'MCP', 'Tool Protocols']
+        ]},
+        { el: document.querySelector('.float-2'), items: [
+            ['⚡', 'FastAPI', '40+ Production APIs'],
+            ['🐳', 'Docker', 'Cloud Deployments'],
+            ['💬', 'WhatsApp AI', 'Multi-channel Bots']
+        ]}
+    ];
+    sets.forEach(({ el, items }, si) => {
+        if (!el) return;
+        const inner = document.createElement('span');
+        inner.className = 'flip-inner';
+        inner.style.display = 'flex';
+        inner.style.alignItems = 'center';
+        inner.style.gap = '12px';
+        while (el.firstChild) inner.appendChild(el.firstChild);
+        el.appendChild(inner);
+        let i = 0;
+        setInterval(() => {
+            el.classList.add('flipping');
+            setTimeout(() => {
+                i = (i + 1) % items.length;
+                const [icon, title, sub] = items[i];
+                inner.innerHTML = `<span class="float-icon">${icon}</span><div><strong>${title}</strong><span>${sub}</span></div>`;
+                el.classList.remove('flipping');
+            }, 300);
+        }, 3400 + si * 900);
+    });
+}
+
+// ---------- Hero terminal mouse parallax ----------
+function initHeroParallax() {
+    if (prefersReducedMotion || 'ontouchstart' in window) return;
+    const hero = document.querySelector('.hero');
+    const terminal = document.querySelector('.agent-terminal');
+    if (!hero || !terminal) return;
+    hero.addEventListener('mousemove', e => {
+        const r = hero.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        terminal.style.transform =
+            `perspective(1200px) rotateY(${px * 5}deg) rotateX(${-py * 4}deg) translateZ(6px)`;
+    });
+    hero.addEventListener('mouseleave', () => { terminal.style.transform = ''; });
+}
+
+// ---------- Staggered grid reveals ----------
+function initRevealStagger() {
+    if (prefersReducedMotion) return;
+    const grids = document.querySelectorAll(
+        '.projects-grid, .arch-grid, .certs-grid, .contact-grid, .skills-bento, .about-highlights, .faq-list'
+    );
+    grids.forEach(grid => {
+        [...grid.children].forEach((child, i) => {
+            if (!child.classList.contains('animate-on-scroll')) return;
+            const delay = i * 85;
+            child.style.transitionDelay = delay + 'ms';
+            // Clear the delay once revealed so hover transitions stay snappy
+            const obs = new MutationObserver(() => {
+                if (child.classList.contains('visible')) {
+                    setTimeout(() => { child.style.transitionDelay = ''; }, 800 + delay);
+                    obs.disconnect();
+                }
+            });
+            obs.observe(child, { attributes: true, attributeFilter: ['class'] });
+        });
     });
 }
 
