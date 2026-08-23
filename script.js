@@ -1,8 +1,8 @@
 /**
  * LOKESH.AI — Personal Portfolio & Engineering Showcase
  * Senior UI/UX & Creative Engineering Client Logic
- * Features: Pure White Default Theme, Scroll Progress, Cmd+K Command Palette,
- *           Click-to-Copy Feedback, Dynamic Card Glow, Stagger Scroll Reveals.
+ * Features: Pure White Default Theme, Interactive FAQ Accordion, Scroll Progress,
+ *           Cmd+K Command Palette, Dynamic Card Glow, Stagger Scroll Reveals.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initMobileNav();
     initScrollSpy();
+    initAccordion();
     initCopyButtons();
     initCommandPalette();
     initCardSpotlights();
@@ -111,7 +112,40 @@ function initScrollSpy() {
 }
 
 /**
- * 5. Click-to-Copy with Micro-Toast Notice
+ * 5. Interactive FAQ Accordion
+ */
+function initAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        if (!trigger) return;
+
+        trigger.addEventListener('click', () => {
+            const isOpen = item.classList.contains('is-open');
+            
+            // Close other accordion items for clean focus
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('is-open');
+                    const otherTrigger = otherItem.querySelector('.faq-trigger');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            if (isOpen) {
+                item.classList.remove('is-open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('is-open');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+}
+
+/**
+ * 6. Click-to-Copy with Micro-Toast Notice
  */
 function initCopyButtons() {
     const copyBtns = document.querySelectorAll('[data-email], .copy-trigger');
@@ -130,7 +164,7 @@ function initCopyButtons() {
 }
 
 /**
- * 6. Global Toast Notice
+ * 7. Global Toast Notice
  */
 function showToast(message) {
     let toast = document.getElementById('toast-notice');
@@ -150,7 +184,7 @@ function showToast(message) {
 }
 
 /**
- * 7. Quick Command Palette (Cmd + K / Ctrl + K)
+ * 8. Quick Command Palette (Cmd + K / Ctrl + K)
  */
 function initCommandPalette() {
     const backdrop = document.getElementById('cmd-palette-backdrop');
@@ -164,7 +198,7 @@ function initCommandPalette() {
         { label: 'Engineering Stack & Multi-Agent Architecture', target: '#stack', shortcut: 'S' },
         { label: 'Founder Profile & Technical Philosophy', target: '#about', shortcut: 'A' },
         { label: 'Technical Arsenal & Skill Matrix', target: '#skills', shortcut: 'K' },
-        { label: 'Answer-First FAQ for Engineering Leaders', target: '#faq', shortcut: 'F' },
+        { label: 'Frequently Asked Questions (FAQ)', target: '#faq', shortcut: 'F' },
         { label: 'Direct Contact & Hiring Channels', target: '#contact', shortcut: 'C' },
         { label: 'View Verified Resume (PDF / Web)', url: 'Lokeshkumar_D_AI_Engineer_Resume.html', shortcut: 'R' },
         { label: 'Copy Email (lokiiii1211@gmail.com)', action: 'copy_email', shortcut: 'E' },
@@ -270,10 +304,10 @@ function initCommandPalette() {
 }
 
 /**
- * 8. Dynamic Card Mouse-Following Spotlight / Glare
+ * 9. Dynamic Card Mouse-Following Spotlight / Glare
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card');
+    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
