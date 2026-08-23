@@ -1,25 +1,37 @@
-# Lokeshkumar D — Agentic AI Engineer
+# Lokeshkumar D — Agentic AI Engineer & Full-Stack Builder
 
-> Portfolio of Lokeshkumar D (Loki), an Agentic AI Engineer and founder from Coimbatore, Tamil Nadu, India. He has shipped 4 live AI products and is available for full-time AI Engineering roles, freelance AI/ML projects, and startup consulting.
+> Portfolio and technical summary of Lokeshkumar D (Loki), an Agentic AI Engineer and full-stack developer based in Coimbatore, Tamil Nadu, India. He builds production multi-agent systems, RAG pipelines, and computer vision architectures. Available for full-time AI Engineering roles and freelance AI MVP development.
 
-## Who he is
+## Identity & Background
 
-- Agentic AI Engineer specializing in LangChain, LangGraph, CrewAI, RAG, multi-agent systems, MCP, and function calling
-- Full-stack: Python, FastAPI, Next.js 14, TypeScript, PostgreSQL, Supabase, pgvector, ChromaDB, Redis, Docker, Vercel
-- B.Tech IT, Sri Krishna College of Technology, Coimbatore (2023–2027)
-- Recognition: UIDAI Data Hackathon 2026 (led team analyzing 4.94M+ Aadhaar records), VEL IDEAFORGE 2K26 national finalist
+- **Name**: Lokeshkumar D (Loki)
+- **Role**: Agentic AI Engineer & Full-Stack Developer
+- **Location**: Coimbatore, Tamil Nadu, India (Open to remote and relocation)
+- **Education**: B.Tech in Information Technology, Sri Krishna College of Technology (SKCT), Coimbatore (2023–2027, CGPA 7.3/10)
+- **Honors**: UIDAI National Data Hackathon 2026 (Led Team Neural Breach analyzing 4.94M+ Aadhaar records), VEL IDEAFORGE 2K26 National Finalist (SkillSync AI Career Guidance Platform)
 
-## Products (all live in production)
+## Core Technical Specializations
 
-- Viya AI (https://heyviya.vercel.app): AI life & wealth partner — personal finance via natural conversation in 5 Indian languages, on PWA, WhatsApp, and Android. Python, FastAPI, LangChain, Gemini, Supabase.
-- Kaizy (https://kaizyy.vercel.app): India's workforce OS connecting homeowners with verified skilled workers — 3-round dispatch engine, Razorpay escrow, GPS tracking. Next.js 14, TypeScript, Supabase, Mapbox.
-- Mentixy (https://synaptiqq.vercel.app): AI career intelligence platform — Claude-powered counselor, live coding arena (Judge0), CareerDNA vector profiling. Next.js, FastAPI, pgvector, Redis.
-- KadaiGPT (https://github.com/Lokii1211/kadaigpt): WhatsApp smart shop assistant for local retailers — Tamil/English NLP, automated GST invoicing, inventory AI. Python, LangChain, Gemini, PostgreSQL.
+- **Agentic AI & Orchestration**: LangChain, LangGraph, CrewAI, Model Context Protocol (MCP), tool/function calling, state machine workflows
+- **RAG & Vector Search**: pgvector, ChromaDB, PostgreSQL, semantic chunking, reciprocal rank fusion (RRF)
+- **Computer Vision & Multimodal**: YOLOv8, ByteTrack, InsightFace ArcFace, OSNet person re-identification, RTSP ingestion, Whisper STT
+- **Backend & Cloud**: Python 3.12+, FastAPI, Uvicorn, PostgreSQL, Supabase, Redis, Docker, Vercel, WebSocket streaming
+- **Frontend**: Next.js 14, TypeScript, React, Tailwind CSS, Progressive Web Apps (PWA)
 
-## Hire him
+## Shipped Systems & Open-Source Projects
 
-- Email: lokiiii1211@gmail.com
-- WhatsApp: +91 9003360494
-- GitHub: https://github.com/Lokii1211
-- LinkedIn: https://linkedin.com/in/lokiiii1211
-- Resume: https://lokii1211.github.io/Lokeshkumar_D_AI_Engineer_Resume.html
+- **Viya AI** (https://heyviya.vercel.app): Multilingual conversational life and wealth partner supporting personal finance, budgeting, and stock analytics in 5 Indian languages (English, Tamil, Hindi, Telugu, Kannada) across PWA, WhatsApp, and Android. Stack: Python, FastAPI, LangChain, Gemini, Supabase, n8n, Whisper.
+- **SmartDetect** (https://github.com/Lokii1211/Smart-Detect): Enterprise real-time multi-camera person detection, tracking, and face-anchored Re-ID platform with 5-stage identity arbitration cascade (YOLOv8n, ByteTrack, InsightFace ArcFace 512-d, OSNet x1.0, Face-Anchor principle) and DPDP/GDPR biometric data governance. Stack: Python 3.12, FastAPI, PostgreSQL 16 + pgvector, React 18, Vite.
+- **Kaizy** (https://kaizyy.vercel.app): India's workforce OS connecting homeowners with verified skilled workers across 35 categories with 3-round geo-dispatch and Razorpay escrow payments. Stack: Next.js 14, TypeScript, Supabase, Mapbox GL, Razorpay.
+- **Mentixy** (https://synaptiqq.vercel.app): AI career intelligence platform with Claude AI counseling, Judge0 live coding arena, and CareerDNA 256-dim vector profiling in pgvector. Stack: Next.js 14, FastAPI, PostgreSQL, Claude AI, pgvector, Redis.
+- **KadaiGPT** (https://github.com/Lokii1211/kadaigpt): WhatsApp-first smart shop assistant for Indian kiranas with bilingual Tamil/English NLP, automated GST invoicing, and real-time inventory management. Stack: Python, FastAPI, LangChain, Gemini, PostgreSQL, React PWA.
+- **AadhaarAnalytics 360**: UIDAI National Data Hackathon 2026 project leading analysis of 4.94M+ Aadhaar records with 9 interactive data dashboards. Stack: Python, NumPy, Pandas, Plotly.
+
+## Direct Contact & Links
+
+- **Email**: lokiiii1211@gmail.com
+- **WhatsApp**: +91 9003360494 (https://wa.me/919003360494)
+- **GitHub**: https://github.com/Lokii1211
+- **LinkedIn**: https://linkedin.com/in/lokiiii1211
+- **Live Portfolio**: https://lokii1211.github.io/
+- **Resume**: https://lokii1211.github.io/Lokeshkumar_D_AI_Engineer_Resume.html

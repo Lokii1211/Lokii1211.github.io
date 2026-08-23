@@ -1,10 +1,10 @@
-# robots.txt for lokii1211.github.io
-# Portfolio of Lokeshkumar D — Agentic AI Engineer, Coimbatore, India
+# robots.txt for https://lokii1211.github.io/
+# Lokeshkumar D — Agentic AI Engineer Portfolio
 
 User-agent: *
 Allow: /
 
-# AI answer engines — explicitly welcome (AEO/GEO)
+# Explicitly allow all major AI Search & Answer Engine Crawlers (AEO / GEO)
 User-agent: GPTBot
 Allow: /
 
@@ -35,4 +35,5 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# XML Sitemap
 Sitemap: https://lokii1211.github.io/sitemap.xml
