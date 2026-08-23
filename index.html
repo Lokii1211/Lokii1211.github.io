@@ -225,17 +225,23 @@
     }
     </script>
 
-    <!-- Google Fonts Preconnect -->
+    <!-- Google Fonts Preconnect & Luxury Editorial Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=2.2.0">
+    <link rel="stylesheet" href="styles.css?v=2.3.0">
 </head>
 
 <body>
+    <!-- Blueprint Canvas Grid Background -->
+    <div class="canvas-grid-bg" aria-hidden="true"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Skip to main navigation for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -243,9 +249,11 @@
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-shell">
             <a href="#home" class="brand-logo" aria-label="Lokeshkumar D Homepage">
-                <span class="brand-dot"></span>
-                <span class="brand-name">Lokeshkumar D</span>
-                <span class="brand-role">AI Engineer</span>
+                <div class="brand-icon-box">LK</div>
+                <div class="brand-title-group">
+                    <span class="brand-name">Lokeshkumar D</span>
+                    <span class="brand-role">Agentic AI Engineer</span>
+                </div>
             </a>
 
             <div class="nav-links" id="nav-links">
@@ -258,6 +266,10 @@
             </div>
 
             <div class="nav-controls">
+                <button class="cmd-k-trigger" id="cmd-k-trigger" aria-label="Quick Command Palette" title="Press ⌘K to open">
+                    <span>Quick Find</span>
+                    <kbd class="cmd-kbd">⌘K</kbd>
+                </button>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark and light mode" title="Toggle theme">
                     <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="12" cy="12" r="5" />
@@ -285,30 +297,30 @@
         <header class="hero-section" id="home">
             <div class="hero-container">
                 <div class="hero-meta-badge">
-                    <span class="status-indicator"></span>
-                    <span>Available for Full-Time Roles &amp; Freelance AI Engineering</span>
+                    <span class="status-pulse-dot"></span>
+                    <span>Available for Full-Time AI Engineering &amp; Freelance MVPs</span>
                 </div>
 
                 <h1 class="hero-headline">
-                    Engineering autonomous AI agents, production RAG pipelines, and vision systems that ship.
+                    Engineering <span class="serif-accent">autonomous</span> AI agents, production RAG &amp; <span class="serif-accent">vision</span> systems that ship.
                 </h1>
 
                 <p class="hero-summary">
-                    I am <strong>Lokeshkumar D</strong>, an Agentic AI Engineer and founder based in Coimbatore, India.
+                    I am <strong>Lokeshkumar D</strong>, an Agentic AI Engineer and builder based in Coimbatore, India.
                     I take systems from architecture to production — orchestrating multi-agent state machines with LangGraph,
                     building low-latency RAG with pgvector, and deploying real-time vision Re-ID pipelines.
                 </p>
 
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">
-                        <span>Explore Featured Work</span>
+                        <span>Explore Shipped Work</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </a>
                     <a href="#stack" class="btn btn-secondary">
-                        <span>System Architecture</span>
+                        <span>System Architecture ⚡</span>
                     </a>
                     <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -317,6 +329,13 @@
                         </svg>
                         <span>Resume (PDF/Web)</span>
                     </a>
+                    <button class="btn-copy-email copy-trigger" data-email="lokiiii1211@gmail.com" title="Click to copy email">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span>lokiiii1211@gmail.com</span>
+                    </button>
                 </div>
 
                 <!-- Verified Stats Bar (Server-Side Rendered directly in HTML) -->
@@ -1322,8 +1341,26 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js?v=2.2.0"></script>
+    <!-- Command Palette Modal (Cmd + K) -->
+    <div class="cmd-palette-backdrop" id="cmd-palette-backdrop" role="dialog" aria-modal="true" aria-label="Quick Command Palette">
+        <div class="cmd-palette-modal">
+            <div class="cmd-search-input-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" class="cmd-search-input" id="cmd-search-input" placeholder="Type to search projects, stack, resume, or actions..." autocomplete="off" />
+                <kbd class="cmd-kbd">ESC</kbd>
+            </div>
+            <ul class="cmd-results-list" id="cmd-results-list"></ul>
+        </div>
+    </div>
+
+    <!-- Global Toast Notice -->
+    <div class="toast-notice" id="toast-notice" role="status" aria-live="polite"></div>
+
+    <!-- Client Engineering Scripts -->
+    <script src="script.js?v=2.3.0"></script>
 </body>
 
 </html>
