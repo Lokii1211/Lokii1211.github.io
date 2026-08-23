@@ -2,7 +2,7 @@
  * LOKESH.AI — Personal Portfolio & Engineering Showcase
  * Senior UI/UX & Creative Engineering Client Logic
  * Features: Pure White Default Theme, Interactive FAQ Accordion, Scroll Progress,
- *           Cmd+K Command Palette, Dynamic Card Glow, Stagger Scroll Reveals.
+ *           Cmd+K Command Palette, Dynamic Card Spotlights, Scroll Reveal Stagger.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCopyButtons();
     initCommandPalette();
     initCardSpotlights();
+    initScrollReveals();
 });
 
 /**
@@ -38,7 +39,7 @@ function initTheme() {
     const themeBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('loki_theme');
 
-    // Default to pure white (no data-theme="dark" attribute) unless user explicitly chose dark
+    // Default to pure white unless user explicitly chose dark
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
     } else {
@@ -123,7 +124,7 @@ function initAccordion() {
         trigger.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
             
-            // Close other accordion items for clean focus
+            // Close other accordion items for clean single focus
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('is-open');
@@ -194,10 +195,11 @@ function initCommandPalette() {
     if (!backdrop || !input || !list) return;
 
     const commands = [
-        { label: 'Featured Projects (Viya AI, SmartDetect, Kaizy...)', target: '#projects', shortcut: 'P' },
-        { label: 'Engineering Stack & Multi-Agent Architecture', target: '#stack', shortcut: 'S' },
-        { label: 'Founder Profile & Technical Philosophy', target: '#about', shortcut: 'A' },
+        { label: 'Featured Systems (Viya AI, SmartDetect, Kaizy...)', target: '#projects', shortcut: 'P' },
+        { label: 'Engineering Stack & Architecture', target: '#stack', shortcut: 'S' },
+        { label: 'Engineering Profile & Philosophy', target: '#about', shortcut: 'A' },
         { label: 'Technical Arsenal & Skill Matrix', target: '#skills', shortcut: 'K' },
+        { label: 'Engineering Journey & Timeline', target: '#journey', shortcut: 'J' },
         { label: 'Frequently Asked Questions (FAQ)', target: '#faq', shortcut: 'F' },
         { label: 'Direct Contact & Hiring Channels', target: '#contact', shortcut: 'C' },
         { label: 'View Verified Resume (PDF / Web)', url: 'Lokeshkumar_D_AI_Engineer_Resume.html', shortcut: 'R' },
@@ -261,13 +263,11 @@ function initCommandPalette() {
     });
 
     document.addEventListener('keydown', (e) => {
-        // Cmd+K or Ctrl+K
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             if (backdrop.classList.contains('is-open')) closePalette();
             else openPalette();
         }
-        // Escape
         if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
             closePalette();
         }
@@ -304,10 +304,10 @@ function initCommandPalette() {
 }
 
 /**
- * 9. Dynamic Card Mouse-Following Spotlight / Glare
+ * 9. Dynamic Card Mouse-Following Spotlight
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item');
+    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .recognition-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -317,4 +317,31 @@ function initCardSpotlights() {
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+}
+
+/**
+ * 10. Scroll Reveals Stagger
+ */
+function initScrollReveals() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal-fade-up').forEach(el => el.classList.add('is-revealed'));
+        return;
+    }
+
+    const revealElements = document.querySelectorAll('.reveal-fade-up');
+    if (!revealElements.length) return;
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
 }
