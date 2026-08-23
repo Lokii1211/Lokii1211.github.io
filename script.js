@@ -1,8 +1,9 @@
 /**
  * LOKESH.AI — Personal Portfolio & Engineering Showcase
  * Senior UI/UX & Creative Engineering Client Logic
- * Features: Pure White Default Theme, Interactive FAQ Accordion, Scroll Progress,
- *           Cmd+K Command Palette, Dynamic Card Spotlights, Scroll Reveal Stagger.
+ * Features: Pure White Default Theme, Times New Roman Display Pairing,
+ *           Interactive FAQ Accordion, Scroll Progress, Cmd+K Command Palette,
+ *           Dynamic Card Spotlights, 3D Perspective Tilt, Magnetic CTAs, Scroll Reveal Stagger.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCommandPalette();
     initCardSpotlights();
     initScrollReveals();
+    initMagneticButtons();
 });
 
 /**
@@ -304,10 +306,11 @@ function initCommandPalette() {
 }
 
 /**
- * 9. Dynamic Card Mouse-Following Spotlight
+ * 9. Dynamic Card Mouse-Following Spotlight & 3D Perspective Tilt
  */
 function initCardSpotlights() {
     const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .recognition-card');
+    
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -344,4 +347,24 @@ function initScrollReveals() {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+}
+
+/**
+ * 11. Magnetic Button Effect (Desktop Cursor Attraction)
+ */
+function initMagneticButtons() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) return;
+
+    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .brand-logo, .theme-toggle');
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = '';
+        });
+    });
 }
