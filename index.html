@@ -997,6 +997,61 @@
         </div>
     </footer>
 
+    <!-- ============ AI ASSISTANT CHATBOT WIDGET ============ -->
+    <div class="ai-chatbot-widget" id="ai-chatbot-widget">
+        <!-- Floating Trigger Button -->
+        <button class="ai-chatbot-trigger" id="ai-chatbot-trigger" aria-label="Open Lokesh AI Assistant" title="Chat with Lokesh AI Assistant">
+            <span class="ai-chatbot-avatar">🤖</span>
+            <span class="ai-chatbot-pulse"></span>
+            <span>Ask Lokesh AI</span>
+        </button>
+
+        <!-- Chat Window Modal -->
+        <div class="ai-chatbot-window" id="ai-chatbot-window" role="dialog" aria-label="Lokesh AI Chat Window">
+            <!-- Header -->
+            <div class="ai-chat-header">
+                <div class="ai-chat-header-info">
+                    <div class="ai-chat-avatar-large">LK</div>
+                    <div class="ai-chat-header-title">
+                        <span class="ai-chat-bot-name">Lokesh AI Assistant</span>
+                        <span class="ai-chat-bot-status">
+                            <span class="status-pulse-dot" style="width: 6px; height: 6px;"></span>
+                            Online · Knowledge v3.0
+                        </span>
+                    </div>
+                </div>
+                <div class="ai-chat-header-actions">
+                    <button class="ai-chat-btn-icon ai-chat-reset-btn" id="ai-chat-reset-btn" title="Reset Conversation" aria-label="Reset Conversation">↺</button>
+                    <button class="ai-chat-btn-icon ai-chat-close-btn" id="ai-chat-close-btn" title="Close Chat" aria-label="Close Chat">✕</button>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="ai-chat-suggestions">
+                <button class="ai-chip-btn" data-prompt="Tell me about Viya AI">💡 Viya AI Flagship</button>
+                <button class="ai-chip-btn" data-prompt="What is SmartDetect Re-ID?">👁️ SmartDetect Re-ID</button>
+                <button class="ai-chip-btn" data-prompt="What is your tech stack?">🛠️ Tech Stack</button>
+                <button class="ai-chip-btn" data-prompt="How can I contact or hire Lokesh?">📄 Contact &amp; Resume</button>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="ai-chat-messages" id="ai-chat-messages">
+                <div class="chat-msg chat-msg-bot">
+                    <div class="chat-bubble">
+                        Hello! I am <strong>Lokesh AI Assistant</strong>. Ask me anything about Lokesh's production systems (<strong>Viya AI</strong>, <strong>SmartDetect</strong>, <strong>Kaizy</strong>, <strong>Mentixy</strong>), technical stack, architecture blueprints, or direct contact channels!
+                    </div>
+                    <span class="chat-msg-time">Just now</span>
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <form class="ai-chat-input-form" id="ai-chat-input-form">
+                <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Ask about projects, stack, or experience..." autocomplete="off" spellcheck="false" required>
+                <button type="submit" class="ai-chat-send-btn" id="ai-chat-send-btn" aria-label="Send Message">➤</button>
+            </form>
+        </div>
+    </div>
+
     <!-- ============ QUICK COMMAND PALETTE (MODAL) ============ -->
     <div class="cmd-palette-backdrop" id="cmd-palette-backdrop" aria-modal="true" role="dialog" aria-label="Command Palette">
         <div class="cmd-palette-modal">
