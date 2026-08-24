@@ -1,14 +1,13 @@
 /**
- * LOKESH.AI — Personal Portfolio & Engineering Showcase
- * Senior UI/UX & Creative Engineering Client Logic
- * Features: Pure White Default Theme, Times New Roman Display Pairing,
- *           Interactive FAQ Accordion, Scroll Progress, Cmd+K Command Palette,
- *           Dynamic Card Spotlights, 3D Perspective Tilt, Magnetic CTAs, Scroll Reveal Stagger.
+ * LOKESH.AI — Cinematic Dark Glass & Neon Portfolio Engine
+ * Client Logic: Unified Ambient Particle Canvas, Dynamic Neon Glow Spotlights,
+ *               Magnetic Button Physics, Interactive FAQ Accordion, Command Palette (⌘K),
+ *               and Staggered Scroll Reveals.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initAmbientNeonCanvas();
     initScrollProgress();
-    initTheme();
     initMobileNav();
     initScrollSpy();
     initAccordion();
@@ -20,7 +19,134 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Scroll Progress Bar
+ * 1. Interactive Ambient Neon Particle Canvas
+ */
+function initAmbientNeonCanvas() {
+    const canvas = document.getElementById('ambient-neon-canvas');
+    if (!canvas) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        canvas.style.display = 'none';
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    let particles = [];
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 35 : 75;
+    const maxConnectionDistance = isMobile ? 90 : 135;
+
+    let mouse = { x: null, y: null, radius: 140 };
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }, { passive: true });
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    }, { passive: true });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.45;
+            this.vy = (Math.random() - 0.5) * 0.45;
+            this.radius = Math.random() * 1.6 + 0.8;
+            this.color = Math.random() > 0.4 ? 'rgba(0, 247, 255, ' : 'rgba(139, 92, 246, ';
+            this.alpha = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            // Subtle mouse repulsion
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= (dx / dist) * force * 1.8;
+                    this.y -= (dy / dist) * force * 1.8;
+                }
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `${this.color}${this.alpha})`;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color.includes('247') ? '#00f7ff' : '#8b5cf6';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    let isVisible = true;
+    document.addEventListener('visibilitychange', () => {
+        isVisible = !document.hidden;
+    });
+
+    function animate() {
+        if (!isVisible) {
+            requestAnimationFrame(animate);
+            return;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connecting laser threads
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < maxConnectionDistance) {
+                    const opacity = (1 - dist / maxConnectionDistance) * 0.16;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(0, 247, 255, ${opacity})`;
+                    ctx.lineWidth = 0.85;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+/**
+ * 2. Scroll Progress Bar
  */
 function initScrollProgress() {
     const progressBar = document.getElementById('scroll-progress');
@@ -32,36 +158,6 @@ function initScrollProgress() {
         const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         progressBar.style.width = `${progress}%`;
     }, { passive: true });
-}
-
-/**
- * 2. Theme Toggle (Pure White Default, Obsidian Night on Demand)
- */
-function initTheme() {
-    const themeBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('loki_theme');
-
-    // Default to pure white unless user explicitly chose dark
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-    }
-
-    if (!themeBtn) return;
-
-    themeBtn.addEventListener('click', () => {
-        const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (isCurrentlyDark) {
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('loki_theme', 'light');
-            showToast('Switched to Gallery White Mode');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('loki_theme', 'dark');
-            showToast('Switched to Obsidian Night Mode');
-        }
-    });
 }
 
 /**
@@ -77,7 +173,6 @@ function initMobileNav() {
         toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close on navigation link click
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('is-open');
@@ -115,7 +210,7 @@ function initScrollSpy() {
 }
 
 /**
- * 5. Interactive FAQ Accordion
+ * 5. Interactive FAQ Accordion (Single-Focus with Rotating Chevron)
  */
 function initAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -126,7 +221,7 @@ function initAccordion() {
         trigger.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
             
-            // Close other accordion items for clean single focus
+            // Close other accordion items for clean focus
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('is-open');
@@ -199,14 +294,13 @@ function initCommandPalette() {
     const commands = [
         { label: 'Featured Systems (Viya AI, SmartDetect, Kaizy...)', target: '#projects', shortcut: 'P' },
         { label: 'Engineering Stack & Architecture', target: '#stack', shortcut: 'S' },
-        { label: 'Engineering Profile & Philosophy', target: '#about', shortcut: 'A' },
+        { label: 'Engineering Profile & Manifesto', target: '#about', shortcut: 'A' },
         { label: 'Technical Arsenal & Skill Matrix', target: '#skills', shortcut: 'K' },
         { label: 'Engineering Journey & Timeline', target: '#journey', shortcut: 'J' },
         { label: 'Frequently Asked Questions (FAQ)', target: '#faq', shortcut: 'F' },
         { label: 'Direct Contact & Hiring Channels', target: '#contact', shortcut: 'C' },
         { label: 'View Verified Resume (PDF / Web)', url: 'Lokeshkumar_D_AI_Engineer_Resume.html', shortcut: 'R' },
-        { label: 'Copy Email (lokiiii1211@gmail.com)', action: 'copy_email', shortcut: 'E' },
-        { label: 'Toggle Obsidian / White Theme', action: 'toggle_theme', shortcut: 'T' }
+        { label: 'Copy Email (lokiiii1211@gmail.com)', action: 'copy_email', shortcut: 'E' }
     ];
 
     function renderResults(filterText = '') {
@@ -247,9 +341,6 @@ function initCommandPalette() {
         if (cmd.action === 'copy_email') {
             navigator.clipboard.writeText('lokiiii1211@gmail.com');
             showToast('Email copied: lokiiii1211@gmail.com ✓');
-        } else if (cmd.action === 'toggle_theme') {
-            const themeBtn = document.getElementById('theme-toggle');
-            if (themeBtn) themeBtn.click();
         } else if (cmd.url) {
             window.open(cmd.url, '_blank');
         } else if (cmd.target) {
@@ -306,10 +397,10 @@ function initCommandPalette() {
 }
 
 /**
- * 9. Dynamic Card Mouse-Following Spotlight & 3D Perspective Tilt
+ * 9. Dynamic Card Mouse-Following Spotlight
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .recognition-card');
+    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -323,7 +414,7 @@ function initCardSpotlights() {
 }
 
 /**
- * 10. Scroll Reveals Stagger
+ * 10. Staggered Scroll Reveals
  */
 function initScrollReveals() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -350,12 +441,12 @@ function initScrollReveals() {
 }
 
 /**
- * 11. Magnetic Button Effect (Desktop Cursor Attraction)
+ * 11. Magnetic Button Physics (Desktop)
  */
 function initMagneticButtons() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) return;
 
-    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .brand-logo, .theme-toggle');
+    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .brand-logo, .btn-nav-cta');
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
