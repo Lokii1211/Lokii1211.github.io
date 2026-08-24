@@ -2,7 +2,7 @@
  * LOKESH.AI — Engineering Portfolio & Interactive AI Assistant
  * Client Logic: Dynamic Spotlights, Magnetic Physics,
  *               Interactive FAQ Accordion, Command Palette (⌘K), Staggered Scroll Reveals,
- *               and Intelligent Knowledge-Powered AI Chatbot Assistant.
+ *               and High-Intelligence Knowledge-Powered AI Chatbot Assistant.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -259,7 +259,7 @@ function initCommandPalette() {
  * 7. Dynamic Card Spotlight Cursor Follower
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.bento-tile, .project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card');
+    const cards = document.querySelectorAll('.bento-tile, .project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card, .cap-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -402,7 +402,7 @@ function initAIChatbot() {
             hideTypingIndicator();
             const botResponse = generateAIResponse(userText);
             appendMessage(botResponse, 'bot');
-        }, 450 + Math.random() * 250);
+        }, 400 + Math.random() * 200);
     }
 
     function appendMessage(content, sender) {
@@ -454,7 +454,7 @@ function initAIChatbot() {
     }
 
     /**
-     * Broad-Comprehension NLP Knowledge Engine
+     * Broad-Comprehension NLP Knowledge Engine for Founders, CTOs, and Engineers
      */
     function generateAIResponse(query) {
         const raw = query.toLowerCase().trim();
@@ -465,130 +465,182 @@ function initAIChatbot() {
             return words.some(w => raw.includes(w) || tokens.includes(w));
         }
 
-        // 1. NLP / Natural Language Processing / LLM / Voice AI
+        // 1. Executive Pitch / Why Hire / Value Proposition (CTO, CEO, Founder, Recruiter)
+        if (hasAny('why hire', 'why should we hire', 'value', 'differentiator', 'difference', 'roi', 'pitch', 'stand out', 'potential', 'strengths')) {
+            return `<strong>Why Founders &amp; CTOs Hire Lokesh:</strong><br><br>
+            • <strong>Production Over Prototypes:</strong> 5 live systems in 24/7 production with a 92.5% SLA guarantee — not toy wrappers.<br>
+            • <strong>Deterministic Multi-Agent Graphs:</strong> Replaces fragile prompts with stateful LangGraph cyclical state machines, fallback routing, and strict Pydantic schema validation.<br>
+            • <strong>Multilingual Voice &amp; Vision:</strong> Engineered sub-2s voice latency across 5 Indian languages (Whisper STT) and 5-stage identity arbitration cascades in computer vision (ArcFace + OSNet).<br>
+            • <strong>High-Velocity Execution:</strong> 310+ production commits, sub-100ms vector search on pgvector, and rapid MVP turnarounds (2–4 weeks).<br>
+            <div class="chat-action-buttons">
+                <a href="#project-viya" class="chat-action-btn chat-action-btn-primary">Explore Viya AI Flagship ↓</a>
+                <a href="mailto:lokiiii1211@gmail.com" class="chat-action-btn">Email Lokesh ↗</a>
+                <a href="https://wa.me/919003360494" target="_blank" class="chat-action-btn">WhatsApp Direct ↗</a>
+            </div>`;
+        }
+
+        // 2. Freelance / MVP Development / Turnaround Timeline / Rates
+        if (hasAny('freelance', 'freelancing', 'contract', 'contractor', 'hire', 'available', 'availability', 'mvp', 'build', 'timeline', 'estimate', 'cost', 'pricing', 'rate', 'rates', 'quote', 'work together', 'project', 'start a project')) {
+            return `<strong>Yes! Lokesh is actively available for Freelance AI Contracts &amp; Production MVPs:</strong><br><br>
+            • <strong>Rapid MVP Turnaround:</strong> Typically <strong>2 to 4 weeks</strong> from architecture blueprint to live deployed system with CI/CD and automated tests.<br>
+            • <strong>Scope Capabilities:</strong> Autonomous agentic workflows, custom RAG pipelines (pgvector/ChromaDB), multilingual voice agents, and real-time computer vision pipelines.<br>
+            • <strong>Full-Stack Handover:</strong> Typed FastAPI backends, PostgreSQL schemas, and responsive Next.js 14 dashboards.<br>
+            • <strong>Also Available For:</strong> Full-Time AI Engineering positions (Worldwide Remote or On-site Relocation).<br>
+            <div class="chat-action-buttons">
+                <a href="mailto:lokiiii1211@gmail.com" class="chat-action-btn chat-action-btn-primary">Email Project Inquiries ↗</a>
+                <a href="https://wa.me/919003360494" target="_blank" class="chat-action-btn">Chat on WhatsApp ↗</a>
+                <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" class="chat-action-btn">Download Resume ↗</a>
+            </div>`;
+        }
+
+        // 3. NLP, Natural Language Processing, LLMs, Voice AI & RAG
         if (hasAny('nlp', 'natural language', 'llm', 'language model', 'whisper', 'stt', 'tts', 'speech', 'voice', 'audio', 'transcription', 'bilingual', 'multilingual', 'tamil', 'hindi', 'rag', 'token', 'transformer', 'prompt', 'langchain', 'langgraph')) {
-            return `<strong>Yes! Lokesh has extensive production expertise in Natural Language Processing (NLP), LLM Orchestration, and Multilingual Voice AI:</strong><br><br>
-            • <strong>Multilingual Voice Pipelines:</strong> Engineered <strong>Viya AI</strong> and <strong>KadaiGPT</strong> supporting 5 Indian languages (Tamil, English, Hindi, Telugu, Kannada) with Whisper STT &amp; sub-2s latency.<br>
-            • <strong>Stateful Agentic Workflows:</strong> LangChain &amp; LangGraph multi-stage graph architectures with tool-routing, schema validation, and fallback deterministic state machines.<br>
-            • <strong>High-Precision RAG:</strong> Chunked semantic search &amp; vector retrieval via <strong>pgvector</strong> and <strong>ChromaDB</strong> with sub-100ms vector lookups.<br>
-            • <strong>Vector Profiling:</strong> Built CareerDNA™ 256-dimension vector embedding evaluation in <strong>Mentixy</strong>.<br><br>
-            👉 <a href="#stack">Explore Architecture Blueprint ↓</a> | <a href="#project-viya">Inspect Viya AI Flagship ↓</a>`;
+            return `<strong>Lokesh's Production NLP, LLM &amp; Voice Arsenal:</strong><br><br>
+            • <strong>Multilingual Voice Pipelines:</strong> Built <strong>Viya AI</strong> and <strong>KadaiGPT</strong> handling 5 Indian languages (Tamil, English, Hindi, Telugu, Kannada) with Whisper STT &amp; sub-2s streaming audio.<br>
+            • <strong>Deterministic Agent Graphs:</strong> Multi-stage LangChain / LangGraph state workflows with tool calling, schema guardrails, and deterministic fallbacks.<br>
+            • <strong>Sub-100ms Vector RAG:</strong> Chunked semantic search and embedding retrieval via <strong>pgvector</strong> and <strong>ChromaDB</strong>.<br>
+            • <strong>Vector Profiling:</strong> Built CareerDNA™ 256-dim embedding representations in <strong>Mentixy</strong>.<br>
+            <div class="chat-action-buttons">
+                <a href="#project-viya" class="chat-action-btn chat-action-btn-primary">Launch Viya AI Demo ↓</a>
+                <a href="#stack" class="chat-action-btn">Inspect RAG Blueprint ↓</a>
+            </div>`;
         }
 
-        // 2. Freelance / Contract / Hiring / Availability / Rates
-        if (hasAny('freelance', 'freelancing', 'contract', 'contractor', 'hire', 'available', 'availability', 'build', 'mvp', 'consulting', 'rates', 'quote', 'pricing', 'work together', 'full time', 'fulltime', 'part time', 'hourly', 'remote')) {
-            return `<strong>Yes! Lokesh is actively available for:</strong><br><br>
-            1. <strong>Freelance AI Engineering Contracts:</strong> Production MVPs, multi-agent LLM systems, custom RAG pipelines, and computer vision integrations.<br>
-            2. <strong>Full-Time AI Engineering Roles:</strong> Open to remote worldwide or on-site relocation.<br>
-            3. <strong>Architecture Advisory &amp; Code Audits:</strong> Fast turnaround on system design and latency optimizations.<br><br>
-            <strong>Direct Channels:</strong><br>
-            • <strong>Email:</strong> <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> (Response &lt; 24h)<br>
-            • <strong>WhatsApp:</strong> <a href="https://wa.me/919003360494" target="_blank">+91 90033 60494 ↗</a><br>
-            • <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/lokiiii1211" target="_blank">linkedin.com/in/lokiiii1211 ↗</a><br><br>
-            📄 <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank"><strong>Download Verified 1-Page Resume ↗</strong></a>`;
-        }
-
-        // 3. SmartDetect & Computer Vision / YOLO / Re-ID
+        // 4. SmartDetect & Computer Vision / YOLO / Re-ID
         if (hasAny('smartdetect', 'smart detect', 'vision', 'cv', 'yolo', 'yolov8', 're-id', 'reid', 'arcface', 'insightface', 'osnet', 'bytetrack', 'tracking', 'detection', 'biometric', 'camera', 'cctv', 'face', 'dpdp', 'gdpr')) {
-            return `<strong>SmartDetect (v2.0.0)</strong> is an enterprise multi-camera person detection, tracking, and Re-ID platform engineered with strict DPDP Act &amp; GDPR biometric privacy standards.<br><br>
-            <strong>Arbitration Cascade:</strong><br>
-            • <strong>Stage 1 (Primary Anchor):</strong> InsightFace ArcFace 512-d embeddings (cosine &ge; 0.56). Under the <em>Face-Anchor principle</em>, fallback Re-ID is blocked if a face is unmatched.<br>
-            • <strong>Stage 2:</strong> Torso HSV color distance &le; 30 within a 10-min window.<br>
-            • <strong>Stage 3:</strong> OSNet deep Re-ID 512-d body embeddings (cosine &ge; 0.68 within 12h).<br>
-            • <strong>Stage 4:</strong> ID-Switch guard &amp; verifiable Right-to-be-Forgotten erasure receipts.<br><br>
-            👉 <a href="https://github.com/Lokii1211/Smart-Detect" target="_blank">Inspect SmartDetect Repository ↗</a>`;
+            return `<strong>SmartDetect (v2.0.0) — Enterprise Multi-Camera Re-ID Platform:</strong><br><br>
+            • <strong>5-Stage Arbitration Cascade:</strong><br>
+              1. <em>Primary Face-Anchor:</em> InsightFace ArcFace 512-d embeddings (cosine &ge; 0.56). Fallback is blocked if face is unmatched.<br>
+              2. <em>Torso Metric:</em> HSV color distance &le; 30 within a 10-min window.<br>
+              3. <em>Deep Re-ID:</em> OSNet 512-d body embeddings (cosine &ge; 0.68 within 12h).<br>
+              4. <em>ID-Switch Guard:</em> ByteTrack drops tracklets on 2 consecutive contradictions.<br>
+            • <strong>Biometric Governance:</strong> Verifiable Right-to-be-Forgotten erasure receipts &amp; auto-purging under DPDP Act / GDPR.<br>
+            <div class="chat-action-buttons">
+                <a href="https://github.com/Lokii1211/Smart-Detect" target="_blank" class="chat-action-btn chat-action-btn-primary">View GitHub Repo ↗</a>
+                <a href="#project-smartdetect" class="chat-action-btn">Inspect Vision Specs ↓</a>
+            </div>`;
         }
 
-        // 4. Viya AI
+        // 5. Viya AI
         if (hasAny('viya', 'moneyviya', 'wealth', 'expense', 'finance', 'fintech')) {
-            return `<strong>Viya AI</strong> is Lokesh's flagship 24/7 conversational life and wealth partner operating across <strong>5 Indian languages</strong> (Tamil, English, Hindi, Telugu, Kannada).<br><br>
-            <strong>Key Architecture:</strong><br>
-            • 4-stage LangChain agentic workflow with n8n event triggers<br>
-            • ChromaDB vector memory with sub-2s voice latency<br>
-            • Whisper STT + WebSocket audio streaming + WhatsApp bot<br>
-            • 121+ verified production commits.<br><br>
-            👉 <a href="https://heyviya.vercel.app" target="_blank">Launch Viya AI ↗</a> | <a href="https://github.com/Lokii1211/MoneyViya" target="_blank">View GitHub Repo ↗</a>`;
+            return `<strong>Viya AI — 24/7 Multilingual Conversational Wealth Partner:</strong><br><br>
+            • <strong>Multi-Agent Graph:</strong> 4-stage LangChain arbitration with n8n event webhooks.<br>
+            • <strong>5 Indian Languages:</strong> Tamil, English, Hindi, Telugu, and Kannada.<br>
+            • <strong>Low Latency:</strong> Sub-2s audio response via Whisper STT + WebSocket streaming + ChromaDB memory.<br>
+            • <strong>Production Status:</strong> 121+ verified commits, live deployment on Vercel.<br>
+            <div class="chat-action-buttons">
+                <a href="https://heyviya.vercel.app" target="_blank" class="chat-action-btn chat-action-btn-primary">Launch Live Web App ↗</a>
+                <a href="https://github.com/Lokii1211/MoneyViya" target="_blank" class="chat-action-btn">View Code on GitHub ↗</a>
+            </div>`;
         }
 
-        // 5. Kaizy
+        // 6. Kaizy
         if (hasAny('kaizy', 'workforce', 'marketplace', 'gig', 'worker', 'blue collar', 'razorpay', 'escrow', 'dispatch', 'surge')) {
-            return `<strong>Kaizy</strong> is India's workforce operating system connecting consumers with verified skilled blue-collar workers across <strong>35 service categories</strong>.<br><br>
-            <strong>Highlights:</strong><br>
-            • 3-round proximity geo-dispatch engine with rating weighting<br>
-            • Dynamic surge pricing calculated using 8 real-time multipliers<br>
-            • Automated milestone escrow &amp; same-day UPI worker settlement via Razorpay<br>
-            • Real-time Mapbox GL worker tracking &amp; SOS safety architecture.<br><br>
-            👉 <a href="https://kaizyy.vercel.app" target="_blank">Launch Kaizy App ↗</a> | <a href="https://github.com/Lokii1211/kaizy" target="_blank">View Repo ↗</a>`;
+            return `<strong>Kaizy — Blue-Collar Workforce Operating System:</strong><br><br>
+            • <strong>Smart Geo-Dispatch:</strong> 3-round proximity matching engine across 35 service categories.<br>
+            • <strong>Surge Pricing:</strong> 8 dynamic real-time demand/supply multipliers.<br>
+            • <strong>Milestone Escrow:</strong> Automated UPI payouts upon service completion via Razorpay.<br>
+            • <strong>Worker Tracking:</strong> Real-time Mapbox GL navigation with SOS safety architecture.<br>
+            <div class="chat-action-buttons">
+                <a href="https://kaizyy.vercel.app" target="_blank" class="chat-action-btn chat-action-btn-primary">Launch Kaizy App ↗</a>
+                <a href="https://github.com/Lokii1211/kaizy" target="_blank" class="chat-action-btn">View Repository ↗</a>
+            </div>`;
         }
 
-        // 6. Mentixy
+        // 7. Mentixy
         if (hasAny('mentixy', 'synaptiq', 'career', 'careerdna', 'judge0', 'claude', 'coding arena', 'edtech')) {
-            return `<strong>Mentixy</strong> is an AI career intelligence platform with 15+ integrated modules and conversational Claude AI counselors.<br><br>
-            <strong>Core Tech:</strong><br>
-            • <strong>CareerDNA™</strong> 256-dimension vector profiling via pgvector<br>
-            • Multi-language sandboxed remote code execution arena (Judge0)<br>
-            • 4D skill evaluations, automated gap remediations, and Campus Wars tournaments.<br><br>
-            👉 <a href="https://synaptiqq.vercel.app" target="_blank">Launch Mentixy ↗</a> | <a href="https://github.com/Lokii1211/SynaptiQ" target="_blank">View Repo ↗</a>`;
+            return `<strong>Mentixy — AI Career Intelligence Platform:</strong><br><br>
+            • <strong>CareerDNA™:</strong> 256-dimension vector embedding skill evaluations via pgvector.<br>
+            • <strong>Judge0 Coding Arena:</strong> Sandboxed multi-language remote code execution with automated test case evaluation.<br>
+            • <strong>15+ Modules:</strong> Claude AI conversational counseling, skill gap remediation, and Campus Wars.<br>
+            <div class="chat-action-buttons">
+                <a href="https://synaptiqq.vercel.app" target="_blank" class="chat-action-btn chat-action-btn-primary">Launch Mentixy App ↗</a>
+                <a href="https://github.com/Lokii1211/SynaptiQ" target="_blank" class="chat-action-btn">View Repository ↗</a>
+            </div>`;
         }
 
-        // 7. KadaiGPT
+        // 8. KadaiGPT
         if (hasAny('kadai', 'kadaigpt', 'kirana', 'grocery', 'retail', 'billing', 'gst')) {
-            return `<strong>KadaiGPT</strong> is an AI smart retail assistant engineered for India's 12M+ local kirana grocery stores.<br><br>
-            <strong>Features:</strong><br>
-            • Bilingual voice-activated billing in Tamil &amp; English<br>
-            • 4 specialized agents (Billing, Inventory, Analytics, WhatsApp Dispatcher)<br>
-            • Automated GST line invoicing + offline-first PWA with IndexedDB sync across 190+ commits.<br><br>
-            👉 <a href="https://github.com/Lokii1211/kadaigpt" target="_blank">View KadaiGPT Repo ↗</a>`;
+            return `<strong>KadaiGPT — Kirana Smart Retail Voice AI:</strong><br><br>
+            • <strong>Bilingual Voice Billing:</strong> Tamil &amp; English voice parsing for fast inventory checkouts.<br>
+            • <strong>4 Specialized Agents:</strong> Billing Agent, Inventory Agent, Analytics Agent, WhatsApp Dispatcher.<br>
+            • <strong>Offline-First PWA:</strong> IndexedDB sync + automated GST line invoicing across 190+ commits.<br>
+            <div class="chat-action-buttons">
+                <a href="https://github.com/Lokii1211/kadaigpt" target="_blank" class="chat-action-btn chat-action-btn-primary">View GitHub Repo ↗</a>
+            </div>`;
         }
 
-        // 8. AadhaarAnalytics 360
+        // 9. AadhaarAnalytics 360
         if (hasAny('aadhaar', 'uidai', 'hackathon', 'neural breach', 'big data', '4.94m', 'migration')) {
-            return `<strong>AadhaarAnalytics 360</strong> was engineered by Team Neural Breach (led by Lokeshkumar D) for the UIDAI National Hackathon 2026.<br><br>
-            <strong>Scope:</strong> Chunked pandas ETL processing <strong>4,942,668 official records</strong>, uncovering a 28% update-to-enrollment surge in tier-1 urban hubs and delivering 9 interactive policy dashboards.`;
+            return `<strong>AadhaarAnalytics 360 (UIDAI National Hackathon):</strong><br><br>
+            • <strong>Big Data Scale:</strong> Processed <strong>4,942,668 official records</strong> via chunked pandas ETL.<br>
+            • <strong>Insights:</strong> Uncovered a 28% update-to-enrollment surge in tier-1 urban centers.<br>
+            • <strong>Deliverables:</strong> 9 interactive policy dashboards for biometric update trends.`;
         }
 
-        // 9. Tech Stack, Skills & Backend Architecture
+        // 10. Technical Arsenal & Full-Stack Architecture
         if (hasAny('stack', 'skills', 'technologies', 'python', 'fastapi', 'backend', 'fullstack', 'nextjs', 'next.js', 'react', 'typescript', 'docker', 'postgres', 'postgresql', 'supabase', 'redis', 'pgvector')) {
             return `<strong>Lokesh's Core Technical Arsenal:</strong><br><br>
-            • <strong>Agentic AI &amp; LLM Orchestration:</strong> LangChain, LangGraph, CrewAI, n8n, Gemini Pro, Claude AI, Whisper STT<br>
-            • <strong>Vector DBs &amp; Search:</strong> pgvector, ChromaDB, PostgreSQL, Redis<br>
+            • <strong>Agentic AI &amp; Orchestration:</strong> LangChain, LangGraph, CrewAI, n8n, Gemini Pro, Claude AI, Whisper STT<br>
+            • <strong>Vector DBs &amp; Retrieval:</strong> pgvector, ChromaDB, PostgreSQL, Redis<br>
             • <strong>Computer Vision &amp; ML:</strong> YOLOv8, InsightFace (ArcFace), ByteTrack, OSNet, OpenCV, PyTorch<br>
-            • <strong>Full-Stack &amp; Cloud:</strong> Next.js 14, TypeScript, FastAPI, Python 3.12, Docker, Supabase, Tailwind CSS.`;
+            • <strong>Full-Stack &amp; Cloud:</strong> Next.js 14, TypeScript, FastAPI, Python 3.12, Docker, Supabase, Tailwind CSS.<br>
+            <div class="chat-action-buttons">
+                <a href="#skills" class="chat-action-btn chat-action-btn-primary">View Full Skills Matrix ↓</a>
+                <a href="#stack" class="chat-action-btn">Architecture Flow ↓</a>
+            </div>`;
         }
 
-        // 10. Experience, SLAs & Metrics
-        if (hasAny('experience', 'uptime', 'sla', 'metrics', 'commits', 'stats', 'how many', 'systems built', 'track record')) {
-            return `<strong>Verified Production Metrics:</strong><br>
-            • <strong>5 Live Production Systems</strong> deployed<br>
-            • <strong>40+ Microservices &amp; APIs</strong> orchestrated<br>
-            • <strong>310+ Verified Production Commits</strong><br>
-            • <strong>92.5% Uptime SLA Guarantee</strong> across live services.`;
+        // 11. Experience, SLAs & Metrics
+        if (hasAny('experience', 'uptime', 'sla', 'metrics', 'commits', 'stats', 'how many', 'systems built', 'track record', 'proof')) {
+            return `<strong>Verified System Deliverables:</strong><br><br>
+            • <strong>5 Live Production Systems:</strong> Viya AI, SmartDetect, Kaizy, Mentixy, KadaiGPT.<br>
+            • <strong>40+ Microservices &amp; APIs:</strong> High-throughput FastAPI endpoints &amp; WebSockets.<br>
+            • <strong>310+ Verified Commits:</strong> Robust, continuous production delivery.<br>
+            • <strong>92.5% Uptime SLA:</strong> Hardened serverless and microservice deployments.<br>
+            <div class="chat-action-buttons">
+                <a href="#journey" class="chat-action-btn chat-action-btn-primary">View Milestones Timeline ↓</a>
+                <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" class="chat-action-btn">Verified Resume ↗</a>
+            </div>`;
         }
 
-        // 11. Who is Lokesh / Intro / Greetings
+        // 12. Who is Lokesh / Intro / Greetings / Location
         if (hasAny('who are you', 'who is lokesh', 'about', 'intro', 'introduce', 'bio', 'hi', 'hello', 'hey', 'good morning', 'good evening', 'howdy', 'what do you do', 'sup', 'yo')) {
-            return `Hello! I am the interactive AI assistant for <strong>Lokeshkumar D</strong> — an <strong>Agentic AI Engineer &amp; Full-Stack Architect</strong> based in Chennai, India (open worldwide).<br><br>
-            Lokesh has shipped <strong>5 live production AI systems</strong> spanning autonomous multi-agent graphs, multilingual voice NLP, and enterprise computer vision Re-ID cascades with a <strong>92.5% uptime SLA guarantee</strong>.<br><br>
-            Would you like to explore his <strong>flagship systems</strong>, review his <strong>tech stack</strong>, or discuss <strong>freelance/full-time opportunities</strong>?`;
+            return `Hello! I am the interactive AI assistant for <strong>Lokeshkumar D</strong> — an <strong>Agentic AI Engineer &amp; Full-Stack Architect</strong> based in Chennai, India (open to worldwide remote &amp; relocation).<br><br>
+            Lokesh has shipped <strong>5 live production AI platforms</strong> spanning autonomous multi-agent graphs, multilingual voice AI, and enterprise computer vision Re-ID with a <strong>92.5% uptime SLA</strong>.<br><br>
+            He is actively available for <strong>Full-Time AI Engineering roles and Freelance Production MVPs</strong>.<br>
+            <div class="chat-action-buttons">
+                <a href="#projects" class="chat-action-btn chat-action-btn-primary">View 5 Live Systems ↓</a>
+                <a href="mailto:lokiiii1211@gmail.com" class="chat-action-btn">Send Direct Email ↗</a>
+                <a href="https://wa.me/919003360494" target="_blank" class="chat-action-btn">WhatsApp Chat ↗</a>
+            </div>`;
         }
 
-        // 12. Contact / Resume / Location
+        // 13. Direct Contact & Resume
         if (hasAny('contact', 'email', 'phone', 'whatsapp', 'resume', 'cv', 'pdf', 'reach', 'location', 'chennai', 'social')) {
             return `<strong>Direct Contact Channels:</strong><br><br>
-            • <strong>Email:</strong> <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a><br>
+            • <strong>Email:</strong> <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> (Response SLA &lt; 24h)<br>
             • <strong>WhatsApp:</strong> <a href="https://wa.me/919003360494" target="_blank">+91 90033 60494 ↗</a><br>
             • <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/lokiiii1211" target="_blank">linkedin.com/in/lokiiii1211 ↗</a><br>
             • <strong>GitHub:</strong> <a href="https://github.com/Lokii1211" target="_blank">github.com/Lokii1211 ↗</a><br>
-            • <strong>Location:</strong> Chennai, Tamil Nadu, India (Available Worldwide Remote)<br><br>
-            📄 <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank"><strong>Download Verified 1-Page Resume (PDF / Print) ↗</strong></a>`;
+            • <strong>Location:</strong> Chennai, Tamil Nadu, India (Worldwide Remote)<br>
+            <div class="chat-action-buttons">
+                <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" class="chat-action-btn chat-action-btn-primary">Download Verified 1-Page Resume (PDF) ↗</a>
+                <a href="mailto:lokiiii1211@gmail.com" class="chat-action-btn">Compose Email ↗</a>
+            </div>`;
         }
 
-        // 13. Smart Fallback with Guided Follow-ups
-        return `I can help you with anything regarding Lokesh's AI engineering work! What would you like to explore?<br><br>
-        1. <strong>NLP &amp; Voice AI:</strong> Multilingual pipelines &amp; Whisper STT in Viya AI &amp; KadaiGPT<br>
-        2. <strong>Computer Vision &amp; Re-ID:</strong> 5-stage identity cascade in SmartDetect v2.0<br>
-        3. <strong>Workforce &amp; Career Systems:</strong> Kaizy geo-dispatch &amp; Mentixy CareerDNA™<br>
-        4. <strong>Freelance &amp; Full-Time:</strong> Project availability, MVP builds, &amp; contract rates<br>
-        5. <strong>Verified Resume &amp; Contact Channels:</strong> Direct email &amp; WhatsApp`;
+        // 14. Smart Fallback with Guided Action Links
+        return `I can give you immediate technical details on any part of Lokesh's AI engineering work! What would you like to explore?<br><br>
+        1. <strong>Why Hire Lokesh:</strong> Production track record, multi-agent graphs, &amp; ROI<br>
+        2. <strong>Freelance &amp; MVP Builds:</strong> 2–4 week turnaround timelines &amp; contract terms<br>
+        3. <strong>NLP &amp; Voice Pipelines:</strong> Viya AI &amp; Whisper STT across 5 Indian languages<br>
+        4. <strong>Computer Vision:</strong> SmartDetect v2.0 5-stage Re-ID cascade<br>
+        5. <strong>Verified Resume:</strong> Print-ready 1-page A4 engineering resume<br>
+        <div class="chat-action-buttons">
+            <a href="mailto:lokiiii1211@gmail.com" class="chat-action-btn chat-action-btn-primary">Email Direct ↗</a>
+            <a href="https://wa.me/919003360494" target="_blank" class="chat-action-btn">WhatsApp Chat ↗</a>
+            <a href="#projects" class="chat-action-btn">View Projects ↓</a>
+        </div>`;
     }
 }

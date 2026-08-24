@@ -540,11 +540,11 @@ code {
     transform: translateY(0) scale(0.98);
 }
 
-/* ---------- SECTION BASE ---------- */
+/* ---------- SECTION BASE (HIGH-DENSITY COMPACT FLOW) ---------- */
 .section {
     position: relative;
     z-index: 1;
-    padding: 108px 0;
+    padding: 78px 0;
     border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -555,7 +555,7 @@ code {
 }
 
 .section-header {
-    margin-bottom: 56px;
+    margin-bottom: 38px;
 }
 
 .section-kicker {
@@ -563,7 +563,7 @@ code {
     align-items: center;
     gap: 8px;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -572,13 +572,13 @@ code {
     border: 1px solid var(--border-neon);
     padding: 4px 14px;
     border-radius: var(--radius-pill);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     box-shadow: 0 2px 8px rgba(2, 132, 199, 0.10);
 }
 
 .section-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3.8vw, 2.85rem);
+    font-size: clamp(1.9rem, 3.4vw, 2.65rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.2;
@@ -586,18 +586,18 @@ code {
 }
 
 .section-subtitle {
-    margin-top: 14px;
-    font-size: 1.15rem;
+    margin-top: 10px;
+    font-size: 1.08rem;
     color: var(--text-secondary);
     max-width: 780px;
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
-/* ---------- HERO SECTION ---------- */
+/* ---------- HERO SECTION (HIGH-IMPACT EXECUTIVE HEADLINE) ---------- */
 .hero-section {
     position: relative;
     z-index: 1;
-    padding: clamp(72px, 12vw, 120px) 0 clamp(64px, 10vw, 100px) 0;
+    padding: clamp(52px, 8vw, 84px) 0 clamp(48px, 6vw, 68px) 0;
     border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -613,13 +613,26 @@ code {
     gap: 10px;
     background: #ffffff;
     border: 1px solid var(--border-medium);
-    padding: 6px 18px;
+    padding: 6px 16px;
     border-radius: var(--radius-pill);
-    font-size: 0.86rem;
+    font-size: 0.84rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.hero-badge-divider {
+    color: var(--border-strong);
+    font-weight: 700;
+}
+
+.hero-badge-location {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    font-weight: 600;
 }
 
 .status-pulse-dot {
@@ -639,13 +652,13 @@ code {
 
 .hero-headline {
     font-family: var(--font-heading);
-    font-size: clamp(2.75rem, 5.4vw, 4.4rem);
+    font-size: clamp(2.5rem, 4.8vw, 4.1rem);
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.12;
     color: var(--text-pure-white);
-    max-width: 1060px;
-    margin-bottom: 28px;
+    max-width: 1080px;
+    margin-bottom: 20px;
 }
 
 .hero-headline .text-gradient {
@@ -655,11 +668,11 @@ code {
 }
 
 .hero-summary {
-    font-size: clamp(1.05rem, 1.8vw, 1.24rem);
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
     color: var(--text-primary);
-    max-width: 860px;
-    line-height: 1.72;
-    margin-bottom: 44px;
+    max-width: 880px;
+    line-height: 1.68;
+    margin-bottom: 32px;
 }
 
 .hero-summary strong {
@@ -671,16 +684,63 @@ code {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 64px;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+/* Executive Capabilities Quick Matrix */
+.hero-capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.cap-card {
+    background: #ffffff;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-fast) var(--ease-spring);
+}
+
+.cap-card:hover {
+    border-color: var(--neon-cyan);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cap-icon-box {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 2px;
+}
+
+.cap-content h4 {
+    font-family: var(--font-heading);
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: var(--text-pure-white);
+    margin-bottom: 3px;
+}
+
+.cap-content p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
 }
 
 /* Hero Proof Bar */
 .hero-proof-bar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 32px;
+    gap: 16px;
+    padding: 24px 30px;
     background: #ffffff;
     border: 1px solid var(--border-medium);
     border-radius: var(--radius-xl);
@@ -701,7 +761,7 @@ code {
 
 .proof-card {
     border-right: 1px solid var(--border-subtle);
-    padding-right: 20px;
+    padding-right: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -716,12 +776,12 @@ code {
     display: flex;
     align-items: baseline;
     gap: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .proof-number {
     font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 3.2vw, 2.75rem);
+    font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 800;
     letter-spacing: -0.035em;
     color: var(--text-pure-white);
@@ -730,16 +790,16 @@ code {
 
 .proof-unit {
     font-family: var(--font-mono);
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: var(--neon-cyan);
 }
 
 .proof-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.35;
 }
 
 /* ---------- ABOUT SECTION ---------- */
@@ -2323,6 +2383,45 @@ code {
     border-bottom-right-radius: 4px;
 }
 
+/* Embedded Action Buttons in Chat Messages */
+.chat-action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.chat-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: #ffffff;
+    color: var(--neon-cyan);
+    border: 1px solid var(--border-medium);
+    text-decoration: none !important;
+    transition: all var(--duration-fast);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.chat-action-btn:hover {
+    background: var(--neon-cyan);
+    color: #ffffff !important;
+    border-color: var(--neon-cyan);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.28);
+}
+
+.chat-action-btn-primary {
+    background: var(--neon-cyan-soft);
+    border-color: var(--border-neon);
+}
+
 .chat-msg-time {
     font-size: 0.68rem;
     font-family: var(--font-mono);
@@ -2481,6 +2580,10 @@ code {
         max-width: 400px;
     }
 
+    .hero-capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2495,7 +2598,7 @@ code {
     }
 
     .contact-channels-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-grid-layout {
@@ -2561,10 +2664,14 @@ code {
         width: 100%;
     }
 
+    .hero-capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero-proof-bar {
         grid-template-columns: 1fr 1fr;
-        padding: 20px;
-        gap: 18px;
+        padding: 18px;
+        gap: 16px;
     }
 
     .proof-card {
