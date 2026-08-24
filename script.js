@@ -63,8 +63,8 @@ function initAmbientNeonCanvas() {
             this.vx = (Math.random() - 0.5) * 0.45;
             this.vy = (Math.random() - 0.5) * 0.45;
             this.radius = Math.random() * 1.6 + 0.8;
-            this.color = Math.random() > 0.4 ? 'rgba(0, 247, 255, ' : 'rgba(139, 92, 246, ';
-            this.alpha = Math.random() * 0.5 + 0.2;
+            this.color = Math.random() > 0.3 ? 'rgba(0, 216, 240, ' : 'rgba(112, 89, 194, ';
+            this.alpha = Math.random() * 0.45 + 0.15;
         }
 
         update() {
@@ -91,8 +91,8 @@ function initAmbientNeonCanvas() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fillStyle = `${this.color}${this.alpha})`;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = this.color.includes('247') ? '#00f7ff' : '#8b5cf6';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = this.color.includes('216') ? '#00d8f0' : '#7059c2';
             ctx.fill();
             ctx.shadowBlur = 0;
         }
@@ -123,11 +123,11 @@ function initAmbientNeonCanvas() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < maxConnectionDistance) {
-                    const opacity = (1 - dist / maxConnectionDistance) * 0.16;
+                    const opacity = (1 - dist / maxConnectionDistance) * 0.14;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(0, 247, 255, ${opacity})`;
+                    ctx.strokeStyle = `rgba(0, 216, 240, ${opacity})`;
                     ctx.lineWidth = 0.85;
                     ctx.stroke();
                 }
