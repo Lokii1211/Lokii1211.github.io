@@ -950,76 +950,72 @@ code {
     color: var(--text-secondary);
 }
 
-/* ---------- 2. PROJECT SPREAD (PURPOSEFUL TARGETED GLASS PANELS) ---------- */
-.project-showcase-list {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+/* ---------- 2. PROJECTS SECTION (CUSTOM ASYMMETRIC BENTO GRID) ---------- */
+.projects-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
 }
 
-.project-spread {
+.bento-tile {
     /* Glass Panel Spec: 12% opacity, 20px blur, 1px semi-transparent border */
     background: var(--bg-glass-panel);
     backdrop-filter: blur(var(--glass-blur)) saturate(150%);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
     border: 1px solid var(--border-glass);
     border-radius: var(--radius-xl);
-    padding: clamp(28px, 4.5vw, 48px);
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 48px;
-    align-items: start;
+    padding: clamp(24px, 3.2vw, 36px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
     box-shadow: var(--shadow-md);
     transition: all var(--duration-normal) var(--ease-smooth);
     position: relative;
 }
 
-.project-spread.spread-reversed {
-    grid-template-columns: 1fr 1.3fr;
-}
-
-.project-spread.spread-reversed .spread-main {
-    order: 2;
-}
-
-.project-spread.spread-reversed .spread-aside {
-    order: 1;
-}
-
-.project-spread:hover {
+.bento-tile:hover {
     background: var(--bg-glass-panel-hover);
     border-color: var(--border-neon);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
 }
 
-.spread-main {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
+/* Asymmetric Bento Proportions Communicating Importance */
+.bento-hero-tile {
+    grid-column: span 7;
+    background: linear-gradient(135deg, rgba(0, 216, 240, 0.06) 0%, var(--bg-glass-panel) 100%);
 }
 
-.spread-aside {
+.bento-vision-tile {
+    grid-column: span 5;
+    background: linear-gradient(135deg, rgba(112, 89, 194, 0.06) 0%, var(--bg-glass-panel) 100%);
+}
+
+.bento-medium-tile {
+    grid-column: span 6;
+}
+
+.bento-tile-header {
     display: flex;
     flex-direction: column;
-    min-width: 0;
-    position: sticky;
-    top: 100px;
+    gap: 12px;
 }
 
 .spread-badge-group {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .badge-flagship, .badge-computer-vision, .badge-marketplace, .badge-ai-career, .badge-retail, .badge-hackathon {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 5px 14px;
+    padding: 4px 12px;
     border-radius: var(--radius-pill);
 }
 
@@ -1032,173 +1028,89 @@ code {
 
 .badge-status {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 600;
     color: var(--text-tertiary);
 }
 
-.spread-title {
+.bento-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.65rem, 2.6vw, 2.05rem);
+    font-size: clamp(1.45rem, 2.2vw, 1.85rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.28;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
     color: var(--text-pure-white);
-    margin-bottom: 18px;
 }
 
-.spread-summary {
-    font-size: 1.05rem;
+.bento-pull-line {
+    font-size: 0.98rem;
     color: var(--text-primary);
-    line-height: 1.75;
-    margin-bottom: 24px;
+    line-height: 1.68;
 }
 
-.spread-summary strong {
+.bento-pull-line strong {
     color: var(--text-pure-white);
 }
 
-/* High-Contrast Callout Box (Solid Dark Container inside Glass to Avoid Muddy Glass-on-Glass) */
-.spread-callout {
+.bento-callout-mini {
     background: rgba(11, 14, 24, 0.85);
-    border-left: 4px solid var(--neon-cyan);
+    border-left: 3px solid var(--neon-cyan);
     border-top: 1px solid var(--border-subtle);
     border-right: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 16px 22px;
+    padding: 12px 16px;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 0.96rem;
-    color: var(--text-primary);
-    margin-bottom: 26px;
-    line-height: 1.68;
-    box-shadow: var(--shadow-sm);
-}
-
-.spread-callout strong {
-    color: var(--text-pure-white);
-}
-
-.spread-spec-table {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 32px;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 22px;
-}
-
-.spec-row {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 16px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
     line-height: 1.55;
 }
 
-.spec-name {
-    font-family: var(--font-mono);
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.spec-data {
+.bento-callout-mini strong {
     color: var(--text-pure-white);
-    font-weight: 600;
 }
 
-.spread-actions {
+.bento-tile-footer {
     display: flex;
-    gap: 14px;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: auto;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 18px;
 }
 
-/* Architecture Diagram Aside (Solid Dark Matte Container to Prevent Glass-on-Glass Artifacts) */
-.architecture-diagram-card {
-    background: #0d101a;
-    border: 1px solid var(--border-medium);
-    border-radius: var(--radius-lg);
-    padding: 26px;
-    box-shadow: var(--shadow-sm);
-}
-
-.card-diagram-header {
+.bento-tags {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 16px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
-.diagram-tag {
+.bento-tag {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 800;
-    color: var(--neon-cyan);
-    letter-spacing: 0.08em;
-}
-
-.diagram-id {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--text-muted);
-}
-
-.flow-step-box {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    background: #121626;
+    background: var(--bg-surface-subtle);
+    color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
+    padding: 4px 10px;
     border-radius: var(--radius-sm);
-    padding: 16px;
     transition: all var(--duration-fast);
 }
 
-.flow-step-box:hover {
-    border-color: var(--border-neon);
-    background: #151b2e;
-    box-shadow: 0 0 14px rgba(0, 216, 240, 0.10);
-    transform: translateX(3px);
+.bento-tile:hover .bento-tag {
+    border-color: rgba(255, 255, 255, 0.14);
+    color: var(--text-primary);
 }
 
-.step-num {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 800;
-    color: var(--neon-cyan);
-    background: var(--neon-cyan-soft);
-    border: 1px solid var(--border-neon);
-    padding: 3px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
-.step-content {
+.bento-actions {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.step-content strong {
-    font-size: 0.92rem;
-    color: var(--text-pure-white);
-    margin-bottom: 3px;
-    font-weight: 700;
-}
-
-.step-content span {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.45;
-}
-
-.flow-connector {
-    text-align: center;
-    color: var(--neon-cyan);
-    font-size: 1.1rem;
-    padding: 8px 0;
-    line-height: 1;
-    opacity: 0.6;
+.bento-actions .btn {
+    padding: 10px 20px;
+    font-size: 0.88rem;
 }
 
 /* ---------- SKILLS GRID (SOLID MATTE CARDS) ---------- */
@@ -1890,25 +1802,8 @@ code {
         border-right: none;
     }
 
-    .project-spread {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .project-spread.spread-reversed {
-        grid-template-columns: 1fr;
-    }
-
-    .project-spread.spread-reversed .spread-main {
-        order: 1;
-    }
-
-    .project-spread.spread-reversed .spread-aside {
-        order: 2;
-    }
-
-    .spread-aside {
-        position: static;
+    .bento-hero-tile, .bento-vision-tile, .bento-medium-tile {
+        grid-column: span 12;
     }
 
     .about-grid {

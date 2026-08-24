@@ -427,7 +427,7 @@
             </div>
         </section>
 
-        <!-- ============ FEATURED SYSTEMS & PROJECTS ============ -->
+        <!-- ============ FEATURED SYSTEMS & PROJECTS (BENTO GRID) ============ -->
         <section class="section" id="projects">
             <div class="section-container">
                 <div class="section-header reveal-fade-up">
@@ -436,427 +436,194 @@
                     <p class="section-subtitle">Battle-tested applications operating with real users, live telemetry, and verifiable repositories.</p>
                 </div>
 
-                <div class="project-showcase-list">
+                <div class="projects-bento-grid">
 
-                    <!-- PROJECT 1: VIYA AI (FLAGSHIP) -->
-                    <article class="project-spread reveal-fade-up" id="project-viya">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 1: VIYA AI (DOMINANT LARGE HERO TILE) -->
+                    <article class="bento-tile bento-hero-tile reveal-fade-up" id="project-viya">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-flagship">Flagship System</span>
                                 <span class="badge-status">● Live in Production</span>
                             </div>
-                            <h3 class="spread-title">Viya AI — Conversational Wealth &amp; Life Partner</h3>
-                            <p class="spread-summary">
-                                An intelligent conversational virtual assistant that acts as a 24/7 personal life and financial wealth partner. Handles <strong>real-time voice expense logging</strong>, dynamic budget arbitration, habit tracking, and goal planning across <strong>5 Indian languages</strong> with <strong>95%+ intent classification accuracy</strong> and <strong>sub-2s voice latency</strong>.
+                            <h3 class="bento-title">Viya AI — Conversational Wealth &amp; Life Partner</h3>
+                            <p class="bento-pull-line">
+                                <strong>4-stage LangChain agentic workflow</strong> with n8n orchestration, ChromaDB vector RAG, and sub-2s voice latency across <strong>5 Indian languages</strong> (95%+ intent accuracy).
                             </p>
-                            <div class="spread-callout">
-                                <strong>Core Architecture:</strong> 4-stage LangChain agentic workflow with n8n event triggers, ChromaDB vector memory, Whisper speech-to-text, Google Cloud TTS, and WebSocket streaming deployed across <strong>121+ verified commits</strong>.
-                            </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">Next.js, FastAPI, LangChain, Gemini, Supabase, n8n, Whisper</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Languages</span>
-                                    <span class="spec-data">Tamil, English, Hindi, Telugu, Kannada</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Channels</span>
-                                    <span class="spec-data">Progressive Web App (PWA) + WhatsApp Bot</span>
-                                </div>
-                            </div>
-                            <div class="spread-actions">
-                                <a href="https://heyviya.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch Live App ↗</a>
-                                <a href="https://github.com/Lokii1211/MoneyViya" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
+                            <div class="bento-callout-mini">
+                                <strong>Production Scale:</strong> PWA + WhatsApp bot handling real-time voice expense logging, budget arbitration, and Whisper STT across <strong>121+ verified commits</strong>.
                             </div>
                         </div>
 
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">PIPELINE FLOW</span>
-                                    <span class="diagram-id">VIYA-SYS-v2</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">01</span>
-                                    <div class="step-content">
-                                        <strong>Voice / Text Input</strong>
-                                        <span>Whisper STT multilingual streaming transcription</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">02</span>
-                                    <div class="step-content">
-                                        <strong>4-Stage LangChain Agent</strong>
-                                        <span>Intent classifier + n8n financial routing tool</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">03</span>
-                                    <div class="step-content">
-                                        <strong>ChromaDB Vector RAG</strong>
-                                        <span>Contextual recall for user budget &amp; habit goals</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">04</span>
-                                    <div class="step-content">
-                                        <strong>Dual-Channel Response</strong>
-                                        <span>Real-time WebSocket audio + WhatsApp message dispatch</span>
-                                    </div>
-                                </div>
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">Next.js PWA</span>
+                                <span class="bento-tag">FastAPI</span>
+                                <span class="bento-tag">LangChain</span>
+                                <span class="bento-tag">Gemini Pro</span>
+                                <span class="bento-tag">Supabase</span>
+                                <span class="bento-tag">ChromaDB</span>
+                                <span class="bento-tag">n8n</span>
+                                <span class="bento-tag">Whisper STT</span>
+                            </div>
+                            <div class="bento-actions">
+                                <a href="https://heyviya.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch App ↗</a>
+                                <a href="https://github.com/Lokii1211/MoneyViya" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Repository ↗</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- PROJECT 2: SMARTDETECT v2.0.0 -->
-                    <article class="project-spread spread-reversed reveal-fade-up" id="project-smartdetect">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 2: SMARTDETECT v2.0.0 (MAJOR COMPUTER VISION HERO TILE) -->
+                    <article class="bento-tile bento-vision-tile reveal-fade-up" id="project-smartdetect">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-computer-vision">Computer Vision &amp; Re-ID</span>
-                                <span class="badge-status">● Production Engine v2.0.0</span>
+                                <span class="badge-status">● Engine v2.0.0</span>
                             </div>
-                            <h3 class="spread-title">SmartDetect — Enterprise Multi-Camera Re-ID Platform</h3>
-                            <p class="spread-summary">
-                                Enterprise-grade, real-time person detection, multi-camera tracking, and face-anchored re-identification platform. Implements a <strong>5-stage identity arbitration cascade</strong> for continuous cross-camera trail continuity with strict <strong>DPDP Act (India) and GDPR biometric privacy compliance</strong>.
+                            <h3 class="bento-title">SmartDetect — Multi-Camera Re-ID Platform</h3>
+                            <p class="bento-pull-line">
+                                <strong>5-stage identity arbitration cascade</strong> (YOLOv8 + ByteTrack + ArcFace 512-d + OSNet Re-ID) enforcing the Face-Anchor principle with strict <strong>DPDP/GDPR biometric governance</strong>.
                             </p>
-                            <div class="spread-callout">
-                                <strong>Arbitration Cascade:</strong> YOLOv8n object detection + ByteTrack MOT + InsightFace ArcFace 512-d embeddings + OSNet deep Re-ID. Enforces the <em>Face-Anchor principle</em> (stranger face blocks fallbacks), sliced high-res frame tiling, automated retention purging, and verifiable Right-to-be-Forgotten erasure receipts.
+                            <div class="bento-callout-mini">
+                                <strong>Performance:</strong> Sub-50ms inference per frame, sliced high-res tiling, automated retention purging, and verifiable Right-to-be-Forgotten receipts.
                             </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">Python 3.12, FastAPI, YOLOv8n, InsightFace, OSNet, pgvector, React 18</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Latency</span>
-                                    <span class="spec-data">Sub-50ms inference per frame · Multi-stream RTSP</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Compliance</span>
-                                    <span class="spec-data">DPDP / GDPR Automated Purging &amp; Audit Logging</span>
-                                </div>
+                        </div>
+
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">Python 3.12</span>
+                                <span class="bento-tag">FastAPI</span>
+                                <span class="bento-tag">YOLOv8n</span>
+                                <span class="bento-tag">InsightFace</span>
+                                <span class="bento-tag">OSNet</span>
+                                <span class="bento-tag">pgvector</span>
+                                <span class="bento-tag">React 18</span>
                             </div>
-                            <div class="spread-actions">
+                            <div class="bento-actions">
                                 <a href="https://github.com/Lokii1211/Smart-Detect" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
                             </div>
                         </div>
-
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">ARBITRATION CASCADE</span>
-                                    <span class="diagram-id">SDT-CASCADE-v2</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">S1</span>
-                                    <div class="step-content">
-                                        <strong>Face Anchor (Primary)</strong>
-                                        <span>InsightFace ArcFace 512-d (Cosine similarity &ge; 0.56)</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">S2</span>
-                                    <div class="step-content">
-                                        <strong>Torso HSV Metric</strong>
-                                        <span>Color distance &le; 30 (Temporal window &le; 10 min)</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">S3</span>
-                                    <div class="step-content">
-                                        <strong>OSNet Deep Re-ID</strong>
-                                        <span>512-d body embedding (Cosine &ge; 0.68 within 12h)</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">S4</span>
-                                    <div class="step-content">
-                                        <strong>ID-Switch Guard</strong>
-                                        <span>Drop ByteTrack tracklet on 2 contradictions (&lt; 0.35)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </article>
 
-                    <!-- PROJECT 3: KAIZY -->
-                    <article class="project-spread reveal-fade-up" id="project-kaizy">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 3: KAIZY (MEDIUM TILE) -->
+                    <article class="bento-tile bento-medium-tile reveal-fade-up" id="project-kaizy">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-marketplace">Marketplace OS</span>
                                 <span class="badge-status">● Live in Production</span>
                             </div>
-                            <h3 class="spread-title">Kaizy — India's Workforce Operating System</h3>
-                            <p class="spread-summary">
-                                End-to-end blue-collar workforce marketplace connecting consumers with verified skilled workers across <strong>35 service categories</strong>. Engineered with an automated <strong>3-round geo-dispatch engine</strong>, dynamic surge pricing (8 multipliers), real-time Mapbox tracking, and <strong>same-day UPI worker payouts</strong> via Razorpay escrow.
+                            <h3 class="bento-title">Kaizy — India's Workforce Operating System</h3>
+                            <p class="bento-pull-line">
+                                <strong>3-round proximity geo-dispatch engine</strong> with dynamic surge pricing (8 multipliers) and same-day UPI worker payouts via <strong>Razorpay escrow</strong> across 35 service categories.
                             </p>
-                            <div class="spread-callout">
-                                <strong>Scale &amp; Complexity:</strong> 18 production pages, 6 API route handlers, real-time worker safety SOS system, and automated dispute resolution workflows.
-                            </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">Next.js 14, TypeScript, Supabase, Tailwind CSS, Razorpay, Mapbox</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Dispatch</span>
-                                    <span class="spec-data">3-Round Proximity &amp; Rating Geo-Dispatch Engine</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Escrow</span>
-                                    <span class="spec-data">Automated milestone escrow &amp; same-day UPI settlement</span>
-                                </div>
-                            </div>
-                            <div class="spread-actions">
-                                <a href="https://kaizyy.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch Live App ↗</a>
-                                <a href="https://github.com/Lokii1211/kaizy" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
+                            <div class="bento-callout-mini">
+                                <strong>Architecture:</strong> 18 production pages, 6 API routes, real-time worker safety SOS, and Mapbox GL tracking.
                             </div>
                         </div>
 
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">DISPATCH PIPELINE</span>
-                                    <span class="diagram-id">KZ-DISPATCH-v1</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">01</span>
-                                    <div class="step-content">
-                                        <strong>Service Request</strong>
-                                        <span>Dynamic pricing calculated with 8 real-time multipliers</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">02</span>
-                                    <div class="step-content">
-                                        <strong>Geo-Dispatch Engine</strong>
-                                        <span>Radial matching across 5km radius with rating weighting</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">03</span>
-                                    <div class="step-content">
-                                        <strong>Escrow Lock</strong>
-                                        <span>Razorpay automated escrow pre-authorization</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">04</span>
-                                    <div class="step-content">
-                                        <strong>Instant Payout</strong>
-                                        <span>OTP job sign-off triggers automated UPI payout</span>
-                                    </div>
-                                </div>
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">Next.js 14</span>
+                                <span class="bento-tag">TypeScript</span>
+                                <span class="bento-tag">Supabase</span>
+                                <span class="bento-tag">Razorpay Escrow</span>
+                                <span class="bento-tag">Mapbox GL</span>
+                            </div>
+                            <div class="bento-actions">
+                                <a href="https://kaizyy.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch App ↗</a>
+                                <a href="https://github.com/Lokii1211/kaizy" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Repository ↗</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- PROJECT 4: MENTIXY -->
-                    <article class="project-spread spread-reversed reveal-fade-up" id="project-mentixy">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 4: MENTIXY (MEDIUM TILE) -->
+                    <article class="bento-tile bento-medium-tile reveal-fade-up" id="project-mentixy">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-ai-career">Career Intelligence</span>
                                 <span class="badge-status">● Live in Production</span>
                             </div>
-                            <h3 class="spread-title">Mentixy — AI Career Intelligence Platform</h3>
-                            <p class="spread-summary">
-                                Full-spectrum career intelligence and skill evaluation ecosystem with <strong>15+ integrated features</strong>. Includes conversational Claude AI counselors, remote code execution arena (Judge0), algorithmic aptitude testing, and <strong>CareerDNA™ 4D vector profiling</strong>.
+                            <h3 class="bento-title">Mentixy — AI Career Intelligence Platform</h3>
+                            <p class="bento-pull-line">
+                                <strong>CareerDNA™ 256-dimension vector profiling</strong> via pgvector with Claude AI career counseling and sandboxed remote code execution arena (Judge0).
                             </p>
-                            <div class="spread-callout">
-                                <strong>Vector Intelligence:</strong> Leverages pgvector with 256-dimension embeddings to map student skill vectors against live job requirements, generating automated gap remediation paths.
-                            </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">Next.js 14, FastAPI, PostgreSQL, Claude AI, pgvector, Redis, Judge0</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Profiling</span>
-                                    <span class="spec-data">256-dim CareerDNA vector semantic similarity matching</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Arena</span>
-                                    <span class="spec-data">Multi-language sandboxed code evaluation engine</span>
-                                </div>
-                            </div>
-                            <div class="spread-actions">
-                                <a href="https://synaptiqq.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch Live App ↗</a>
-                                <a href="https://github.com/Lokii1211/SynaptiQ" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
+                            <div class="bento-callout-mini">
+                                <strong>Features:</strong> 15+ modules including 4D skill evaluation, automated gap analysis, and Campus Wars arenas.
                             </div>
                         </div>
 
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">INTELLIGENCE FLOW</span>
-                                    <span class="diagram-id">MTX-DNA-v1</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">01</span>
-                                    <div class="step-content">
-                                        <strong>4D Skill Assessment</strong>
-                                        <span>Coding arena + aptitude + psychometric evaluation</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">02</span>
-                                    <div class="step-content">
-                                        <strong>pgvector Embedding</strong>
-                                        <span>256-dim vector generated for student profile</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">03</span>
-                                    <div class="step-content">
-                                        <strong>Claude AI Counsel</strong>
-                                        <span>Personalized interview prep &amp; milestone generation</span>
-                                    </div>
-                                </div>
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">Next.js 14</span>
+                                <span class="bento-tag">FastAPI</span>
+                                <span class="bento-tag">Claude AI</span>
+                                <span class="bento-tag">pgvector</span>
+                                <span class="bento-tag">Redis</span>
+                                <span class="bento-tag">Judge0</span>
+                            </div>
+                            <div class="bento-actions">
+                                <a href="https://synaptiqq.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Launch App ↗</a>
+                                <a href="https://github.com/Lokii1211/SynaptiQ" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Repository ↗</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- PROJECT 5: KADAIGPT -->
-                    <article class="project-spread reveal-fade-up" id="project-kadaigpt">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 5: KADAIGPT (MEDIUM TILE) -->
+                    <article class="bento-tile bento-medium-tile reveal-fade-up" id="project-kadaigpt">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-retail">Voice Commerce AI</span>
                                 <span class="badge-status">● Open Source System</span>
                             </div>
-                            <h3 class="spread-title">KadaiGPT — AI Smart Kirana Assistant</h3>
-                            <p class="spread-summary">
-                                Multi-agent retail intelligence system engineered for India's 12M+ local kirana grocery stores. Delivers <strong>bilingual voice-activated billing in Tamil &amp; English</strong>, automated GST invoicing, real-time inventory ledger synchronization, and customer WhatsApp engagement.
+                            <h3 class="bento-title">KadaiGPT — AI Smart Kirana Assistant</h3>
+                            <p class="bento-pull-line">
+                                <strong>Multi-agent retail intelligence</strong> with bilingual Tamil/English voice NLP, automated GST line invoicing, and real-time inventory ledger synchronization for kirana stores.
                             </p>
-                            <div class="spread-callout">
-                                <strong>Agentic Architecture:</strong> 4 specialized agents (Billing Agent, Inventory Agent, Analytics Agent, WhatsApp Dispatcher) operating over an offline-first PWA with OCR receipt scanning across <strong>190+ commits</strong>.
-                            </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">React PWA, FastAPI, LangChain, Gemini, PostgreSQL, Tesseract OCR</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Voice NLP</span>
-                                    <span class="spec-data">Bilingual Tamil &amp; English conversational product parsing</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">PWA Engine</span>
-                                    <span class="spec-data">Offline-first local IndexedDB cache with auto-sync</span>
-                                </div>
-                            </div>
-                            <div class="spread-actions">
-                                <a href="https://github.com/Lokii1211/kadaigpt" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
+                            <div class="bento-callout-mini">
+                                <strong>Agentic System:</strong> 4 specialized agents (Billing, Inventory, Analytics, WhatsApp Dispatcher) over offline-first PWA across <strong>190+ commits</strong>.
                             </div>
                         </div>
 
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">MULTI-AGENT FLOW</span>
-                                    <span class="diagram-id">KADAI-SYS-v1</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">01</span>
-                                    <div class="step-content">
-                                        <strong>Tamil / English Voice</strong>
-                                        <span>Bilingual acoustic capture + Gemini intent parser</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">02</span>
-                                    <div class="step-content">
-                                        <strong>Billing &amp; Stock Agent</strong>
-                                        <span>Automated GST line calculation &amp; ledger update</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">03</span>
-                                    <div class="step-content">
-                                        <strong>WhatsApp Invoicing</strong>
-                                        <span>Automated PDF invoice generation &amp; customer dispatch</span>
-                                    </div>
-                                </div>
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">React PWA</span>
+                                <span class="bento-tag">LangChain</span>
+                                <span class="bento-tag">Gemini Pro</span>
+                                <span class="bento-tag">FastAPI</span>
+                                <span class="bento-tag">PostgreSQL</span>
+                                <span class="bento-tag">OCR</span>
+                            </div>
+                            <div class="bento-actions">
+                                <a href="https://github.com/Lokii1211/kadaigpt" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Inspect Repository ↗</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- PROJECT 6: AADHAARANALYTICS 360 -->
-                    <article class="project-spread spread-reversed reveal-fade-up" id="project-aadhaar">
-                        <div class="spread-main">
+                    <!-- BENTO TILE 6: AADHAARANALYTICS 360 (MEDIUM TILE) -->
+                    <article class="bento-tile bento-medium-tile reveal-fade-up" id="project-aadhaar">
+                        <div class="bento-tile-header">
                             <div class="spread-badge-group">
                                 <span class="badge-hackathon">National Hackathon</span>
                                 <span class="badge-status">● UIDAI 2026</span>
                             </div>
-                            <h3 class="spread-title">AadhaarAnalytics 360 — Big Data Demographic Intelligence</h3>
-                            <p class="spread-summary">
-                                Led <strong>Team Neural Breach</strong> in the UIDAI National Hackathon 2026, analyzing <strong>4.94M+ official Aadhaar registration records</strong>. Uncovered critical population migration trajectories and biometric update patterns across Indian districts.
+                            <h3 class="bento-title">AadhaarAnalytics 360 — Big Data Demographic Intelligence</h3>
+                            <p class="bento-pull-line">
+                                Led <strong>Team Neural Breach</strong> analyzing <strong>4.94M+ official Aadhaar records</strong>, discovering a 28% update-to-enrollment ratio and delivering 9 interactive policy dashboards.
                             </p>
-                            <div class="spread-callout">
-                                <strong>Key Insights:</strong> Discovered a 28% update-to-enrollment ratio surge in urban hubs and identified that 64.2% of new enrollments were children aged 0–5, delivering 9 interactive dashboards.
-                            </div>
-                            <div class="spread-spec-table">
-                                <div class="spec-row">
-                                    <span class="spec-name">Stack</span>
-                                    <span class="spec-data">Python, NumPy, Pandas, Plotly, Streamlit, Seaborn</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Data Volume</span>
-                                    <span class="spec-data">4,942,668 Official Aadhaar Records Processed</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-name">Role</span>
-                                    <span class="spec-data">Team Lead &amp; Core Data Architect</span>
-                                </div>
-                            </div>
-                            <div class="spread-actions">
-                                <a href="https://github.com/Lokii1211" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Research Repository ↗</a>
+                            <div class="bento-callout-mini">
+                                <strong>Scope:</strong> Chunked pandas ETL processing 4,942,668 records with regional migration correlation and child enrollment extraction.
                             </div>
                         </div>
 
-                        <div class="spread-aside">
-                            <div class="architecture-diagram-card">
-                                <div class="card-diagram-header">
-                                    <span class="diagram-tag">DATA PIPELINE</span>
-                                    <span class="diagram-id">UIDAI-ANALYTICS</span>
-                                </div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">01</span>
-                                    <div class="step-content">
-                                        <strong>4.94M+ Records Ingestion</strong>
-                                        <span>High-throughput pandas ETL with chunked memory buffers</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">02</span>
-                                    <div class="step-content">
-                                        <strong>Demographic Clustering</strong>
-                                        <span>Age cohort extraction &amp; regional migration correlation</span>
-                                    </div>
-                                </div>
-                                <div class="flow-connector">↓</div>
-                                <div class="flow-step-box">
-                                    <span class="step-num">03</span>
-                                    <div class="step-content">
-                                        <strong>9 Visual Dashboards</strong>
-                                        <span>Interactive spatial Plotly visualizers for policy insights</span>
-                                    </div>
-                                </div>
+                        <div class="bento-tile-footer">
+                            <div class="bento-tags">
+                                <span class="bento-tag">Python 3.12</span>
+                                <span class="bento-tag">Pandas</span>
+                                <span class="bento-tag">NumPy</span>
+                                <span class="bento-tag">Plotly</span>
+                                <span class="bento-tag">Streamlit</span>
+                            </div>
+                            <div class="bento-actions">
+                                <a href="https://github.com/Lokii1211" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Research ↗</a>
                             </div>
                         </div>
                     </article>

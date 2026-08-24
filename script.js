@@ -400,7 +400,7 @@ function initCommandPalette() {
  * 9. Dynamic Card Mouse-Following Spotlight
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card');
+    const cards = document.querySelectorAll('.bento-tile, .project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
