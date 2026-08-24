@@ -187,13 +187,7 @@
 </head>
 
 <body>
-    <!-- Interactive Ambient Neon Particle Canvas -->
-    <canvas id="ambient-neon-canvas" aria-hidden="true"></canvas>
-
-    <!-- Cyber Blueprint Grid Horizon -->
-    <div class="cyber-grid-horizon" aria-hidden="true"></div>
-
-    <!-- 3 Large, Soft Blurred Color-Mesh Gradients (Refracting Glass Backdrop) -->
+    <!-- 3 Large, Soft Blurred Color-Mesh Gradients (Refracting Backdrop) -->
     <div class="ambient-orb-top" aria-hidden="true"></div>
     <div class="ambient-orb-mid" aria-hidden="true"></div>
     <div class="ambient-orb-bottom" aria-hidden="true"></div>
@@ -216,26 +210,18 @@
             </a>
 
             <div class="nav-links" id="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#stack" class="nav-link">Architecture</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#stack" class="nav-link">Architecture</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#journey" class="nav-link">Experience</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-resume">Resume ↗</a>
             </div>
 
             <div class="nav-controls">
-                <button class="cmd-k-trigger" id="cmd-k-trigger" aria-label="Quick Command Palette" title="Press ⌘K to open">
-                    <span>Search</span>
-                    <kbd class="cmd-kbd">⌘K</kbd>
-                </button>
                 <a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" rel="noopener noreferrer" class="btn-nav-resume" aria-label="View Resume">
                     <span>Resume</span>
                     <span style="font-size: 0.82em;">↗</span>
                 </a>
-                <a href="#contact" class="btn-nav-cta">Get in Touch</a>
+                <a href="#contact" class="btn-nav-cta">Contact</a>
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="nav-links">
                     <span></span>
                     <span></span>
@@ -746,144 +732,234 @@
             </div>
         </section>
 
-        <!-- ============ ENGINEERING JOURNEY ============ -->
+        <!-- ============ ENGINEERING MILESTONES & EXPERIENCE ============ -->
         <section class="section" id="journey">
             <div class="section-container">
                 <div class="section-header reveal-fade-up">
-                    <span class="section-kicker">Milestones</span>
-                    <h2 class="section-title">Engineering Milestones &amp; Track Record</h2>
-                    <p class="section-subtitle">Chronological progression of production systems delivered, hackathon leadership, and technical releases.</p>
+                    <span class="section-kicker">Track Record</span>
+                    <h2 class="section-title">Engineering Milestones &amp; Production Deployments</h2>
+                    <p class="section-subtitle">Chronological progression of production systems delivered, national hackathon leadership, and live AI architecture releases.</p>
                 </div>
 
                 <div class="timeline-track-container">
+                    <!-- Milestone 1 -->
                     <div class="timeline-milestone-item reveal-fade-up">
                         <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-card">
-                            <span class="timeline-badge">Present · 2026</span>
+                            <div class="timeline-card-header">
+                                <div class="timeline-tag-group">
+                                    <span class="timeline-badge">Present · 2026</span>
+                                    <span class="timeline-category">Computer Vision &amp; Re-ID</span>
+                                </div>
+                                <span class="timeline-status-pill">● Production Release</span>
+                            </div>
                             <h3 class="timeline-title">SmartDetect v2.0.0 Architecture &amp; Re-ID Engine</h3>
                             <p class="timeline-desc">Engineered enterprise 5-stage identity arbitration cascade with YOLOv8, InsightFace ArcFace 512-d, and OSNet Re-ID, featuring strict DPDP/GDPR biometric governance.</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>Face-Anchor Principle:</strong> Blocked fallback Re-ID on face-unmatched frames, achieving zero cross-camera identity mixups.</li>
+                                <li><strong>Biometric Compliance:</strong> Automated retention purging (7d unconsented) and verified Right-to-be-Forgotten audit receipts.</li>
+                            </ul>
+                            <div class="timeline-tech-tags">
+                                <span>YOLOv8</span>
+                                <span>InsightFace</span>
+                                <span>OSNet</span>
+                                <span>ByteTrack</span>
+                                <span>FastAPI</span>
+                                <span>pgvector</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Milestone 2 -->
                     <div class="timeline-milestone-item reveal-fade-up">
                         <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-card">
-                            <span class="timeline-badge">2026</span>
+                            <div class="timeline-card-header">
+                                <div class="timeline-tag-group">
+                                    <span class="timeline-badge">2026</span>
+                                    <span class="timeline-category">Big Data &amp; GovTech AI</span>
+                                </div>
+                                <span class="timeline-status-pill">● National Finalist</span>
+                            </div>
                             <h3 class="timeline-title">UIDAI National Hackathon 2026 — Team Lead</h3>
                             <p class="timeline-desc">Led Team Neural Breach analyzing 4.94M+ official Aadhaar registration records, uncovering vital demographic migration patterns across 9 analytics dashboards.</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>Large-Scale ETL:</strong> Architected chunked streaming pipeline processing 4,942,668 official records with sub-second aggregate query times.</li>
+                                <li><strong>Demographic Intelligence:</strong> Discovered a 28% update-to-enrollment surge in tier-1 urban hubs and delivered 9 interactive Plotly dashboards.</li>
+                            </ul>
+                            <div class="timeline-tech-tags">
+                                <span>Python 3.12</span>
+                                <span>Pandas</span>
+                                <span>Plotly</span>
+                                <span>FastAPI</span>
+                                <span>PostgreSQL</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Milestone 3 -->
                     <div class="timeline-milestone-item reveal-fade-up">
                         <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-card">
-                            <span class="timeline-badge">2026</span>
-                            <h3 class="timeline-title">VEL IDEAFORGE 2K26 Finalist — SkillSync</h3>
-                            <p class="timeline-desc">Finalist for designing the SkillSync AI career intelligence platform with multi-dimensional vector evaluation.</p>
+                            <div class="timeline-card-header">
+                                <div class="timeline-tag-group">
+                                    <span class="timeline-badge">2026</span>
+                                    <span class="timeline-category">EdTech &amp; Vector Evaluation</span>
+                                </div>
+                                <span class="timeline-status-pill">● Platform Launch</span>
+                            </div>
+                            <h3 class="timeline-title">VEL IDEAFORGE 2K26 Finalist — SkillSync &amp; Mentixy</h3>
+                            <p class="timeline-desc">Architected CareerDNA™ 256-dimension vector skill evaluation platform with sandboxed multi-language code execution via Judge0 and conversational Claude AI counselors.</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>256-dim Vector Profiling:</strong> Semantic distance matching between student coding submissions and real-world enterprise engineering roles.</li>
+                                <li><strong>Judge0 Sandbox:</strong> Built isolated execution arena supporting Python, C++, Java, and Go with 4D metric evaluation.</li>
+                            </ul>
+                            <div class="timeline-tech-tags">
+                                <span>Claude AI</span>
+                                <span>pgvector</span>
+                                <span>Judge0</span>
+                                <span>Next.js 14</span>
+                                <span>FastAPI</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Milestone 4 -->
                     <div class="timeline-milestone-item reveal-fade-up">
                         <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-card">
-                            <span class="timeline-badge">2025</span>
+                            <div class="timeline-card-header">
+                                <div class="timeline-tag-group">
+                                    <span class="timeline-badge">2025</span>
+                                    <span class="timeline-category">Agentic AI &amp; Voice Systems</span>
+                                </div>
+                                <span class="timeline-status-pill">● 24/7 Production</span>
+                            </div>
                             <h3 class="timeline-title">Viya AI Production Launch</h3>
                             <p class="timeline-desc">Shipped conversational wealth and life partner PWA with LangChain 4-stage workflow and n8n orchestration across 5 Indian languages with sub-2s voice latency.</p>
+                            <ul class="timeline-bullets">
+                                <li><strong>Multilingual Voice NLP:</strong> Full pipeline supporting Tamil, English, Hindi, Telugu, and Kannada with Whisper STT &amp; TTS.</li>
+                                <li><strong>Vector Memory &amp; WhatsApp:</strong> Integrated ChromaDB vector memory for long-term user context with multi-channel WhatsApp bot integration.</li>
+                            </ul>
+                            <div class="timeline-tech-tags">
+                                <span>LangChain</span>
+                                <span>n8n</span>
+                                <span>ChromaDB</span>
+                                <span>Whisper STT</span>
+                                <span>FastAPI</span>
+                                <span>Next.js 14</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ INTERACTIVE FAQ ACCORDION ============ -->
+        <!-- ============ INTERACTIVE FAQ SECTION (2-COLUMN SPLIT) ============ -->
         <section class="section" id="faq">
             <div class="section-container">
-                <div class="section-header reveal-fade-up">
-                    <span class="section-kicker">Clarifications</span>
-                    <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p class="section-subtitle">Direct answers regarding production architectures, contracting models, and technical specializations.</p>
-                </div>
-
-                <div class="faq-accordion-list">
-
-                    <div class="faq-item reveal-fade-up">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span class="faq-question-text">What differentiates your Agentic AI architecture from basic LLM wrappers?</span>
-                            <div class="faq-icon-wrapper" aria-hidden="true">
-                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-body-container">
-                            <div class="faq-body-content">
-                                <div class="faq-answer-inner">
-                                    Basic wrappers simply feed a prompt into an LLM and stream the text. My systems employ <strong>stateful, deterministic multi-agent graphs (LangChain, LangGraph, n8n)</strong> equipped with fallback routing, strict schema validation, vector database memory (pgvector, ChromaDB), and sandboxed execution. For example, <strong>Viya AI</strong> utilizes a 4-stage arbitration pipeline that routes voice intents to specific financial tools with sub-2s latency across 5 Indian languages.
-                                </div>
+                <div class="faq-layout-grid">
+                    <!-- Left Sticky Info Column -->
+                    <div class="faq-info-col reveal-fade-up">
+                        <span class="section-kicker">Direct Answers</span>
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        <p class="section-subtitle">Straightforward specifics on multi-agent architectures, computer vision cascades, SLA guarantees, and engagement models.</p>
+                        
+                        <div class="faq-help-box">
+                            <div class="faq-help-icon">💡</div>
+                            <h4>Have a specific architecture question?</h4>
+                            <p>Ask the interactive AI bot or reach out directly for system reviews.</p>
+                            <div class="faq-help-actions">
+                                <button class="btn btn-secondary btn-sm" id="faq-open-ai-chat" type="button">Chat with AI 🤖</button>
+                                <a href="mailto:lokiiii1211@gmail.com" class="btn btn-primary btn-sm">Email Direct ↗</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="faq-item reveal-fade-up">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span class="faq-question-text">How does SmartDetect handle cross-camera Re-ID without mixing up identities?</span>
-                            <div class="faq-icon-wrapper" aria-hidden="true">
-                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
+                    <!-- Right Accordion Column -->
+                    <div class="faq-accordion-list">
+                        <div class="faq-item reveal-fade-up">
+                            <button class="faq-trigger" aria-expanded="false">
+                                <span class="faq-index-number">01</span>
+                                <span class="faq-question-text">What differentiates your Agentic AI architecture from basic LLM wrappers?</span>
+                                <div class="faq-icon-wrapper" aria-hidden="true">
+                                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="faq-body-container">
+                                <div class="faq-body-content">
+                                    <div class="faq-answer-inner">
+                                        Basic wrappers simply feed a prompt into an LLM and stream the text. My systems employ <strong>stateful, deterministic multi-agent graphs (LangChain, LangGraph, n8n)</strong> equipped with fallback routing, strict schema validation, vector database memory (pgvector, ChromaDB), and sandboxed execution. For example, <strong>Viya AI</strong> utilizes a 4-stage arbitration pipeline that routes voice intents to specific financial tools with sub-2s latency across 5 Indian languages.
+                                    </div>
+                                </div>
                             </div>
-                        </button>
-                        <div class="faq-body-container">
-                            <div class="faq-body-content">
-                                <div class="faq-answer-inner">
-                                    SmartDetect enforces a rigorous <strong>5-Stage Arbitration Cascade</strong>:
-                                    <ul>
-                                        <li><strong>Stage 1 (Primary Anchor):</strong> InsightFace ArcFace 512-d embedding matching (cosine similarity &ge; 0.56). Under the <em>Face-Anchor principle</em>, if a face is clearly seen but doesn't match, fallback Re-ID is blocked to eliminate identity confusion.</li>
-                                        <li><strong>Stage 2 (Torso Metric):</strong> Torso HSV color distance &le; 30 within a 10-minute temporal window.</li>
-                                        <li><strong>Stage 3 (Deep Re-ID):</strong> OSNet 512-d body feature cosine similarity &ge; 0.68 within a 12-hour window.</li>
-                                        <li><strong>Stage 4 (ID-Switch Guard):</strong> ByteTrack tracklet drops cached matches upon 2 consecutive contradictions (&lt; 0.35).</li>
-                                    </ul>
+                        </div>
+
+                        <div class="faq-item reveal-fade-up">
+                            <button class="faq-trigger" aria-expanded="false">
+                                <span class="faq-index-number">02</span>
+                                <span class="faq-question-text">How does SmartDetect handle cross-camera Re-ID without mixing up identities?</span>
+                                <div class="faq-icon-wrapper" aria-hidden="true">
+                                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="faq-body-container">
+                                <div class="faq-body-content">
+                                    <div class="faq-answer-inner">
+                                        SmartDetect enforces a rigorous <strong>5-Stage Arbitration Cascade</strong>:
+                                        <ul>
+                                            <li><strong>Stage 1 (Primary Anchor):</strong> InsightFace ArcFace 512-d embedding matching (cosine similarity &ge; 0.56). Under the <em>Face-Anchor principle</em>, if a face is clearly seen but doesn't match, fallback Re-ID is blocked to eliminate identity confusion.</li>
+                                            <li><strong>Stage 2 (Torso Metric):</strong> Torso HSV color distance &le; 30 within a 10-minute temporal window.</li>
+                                            <li><strong>Stage 3 (Deep Re-ID):</strong> OSNet 512-d body feature cosine similarity &ge; 0.68 within a 12-hour window.</li>
+                                            <li><strong>Stage 4 (ID-Switch Guard):</strong> ByteTrack tracklet drops cached matches upon 2 consecutive contradictions (&lt; 0.35).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item reveal-fade-up">
+                            <button class="faq-trigger" aria-expanded="false">
+                                <span class="faq-index-number">03</span>
+                                <span class="faq-question-text">Are you available for full-time engineering roles or freelance AI contracts?</span>
+                                <div class="faq-icon-wrapper" aria-hidden="true">
+                                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="faq-body-container">
+                                <div class="faq-body-content">
+                                    <div class="faq-answer-inner">
+                                        <strong>Yes.</strong> I am actively interviewing for <strong>Full-Time AI Engineering roles</strong> (open to remote worldwide or on-site relocation) and available for select <strong>freelance AI MVP engineering contracts</strong>. Inquiries sent via <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> or <a href="https://wa.me/919003360494" target="_blank" rel="noopener noreferrer">WhatsApp</a> receive responses within 24 hours.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item reveal-fade-up">
+                            <button class="faq-trigger" aria-expanded="false">
+                                <span class="faq-index-number">04</span>
+                                <span class="faq-question-text">How are data privacy and biometric compliance handled in your systems?</span>
+                                <div class="faq-icon-wrapper" aria-hidden="true">
+                                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="faq-body-container">
+                                <div class="faq-body-content">
+                                    <div class="faq-answer-inner">
+                                        All architectures follow strict data minimization and regulatory compliance (DPDP Act India &amp; GDPR). For instance, <strong>SmartDetect</strong> implements automated biometric retention purging (7-day unconsented / 365-day consented), verifiable Right-to-be-Forgotten erasure receipts that physically delete snapshot files and purge embeddings from pgvector, backed by an append-only audit trail.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="faq-item reveal-fade-up">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span class="faq-question-text">Are you available for full-time engineering roles or freelance AI contracts?</span>
-                            <div class="faq-icon-wrapper" aria-hidden="true">
-                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-body-container">
-                            <div class="faq-body-content">
-                                <div class="faq-answer-inner">
-                                    <strong>Yes.</strong> I am actively interviewing for <strong>Full-Time AI Engineering roles</strong> (open to remote worldwide or on-site relocation) and available for select <strong>freelance AI MVP engineering contracts</strong>. Inquiries sent via <a href="mailto:lokiiii1211@gmail.com">lokiiii1211@gmail.com</a> or <a href="https://wa.me/919003360494" target="_blank" rel="noopener noreferrer">WhatsApp</a> receive responses within 24 hours.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item reveal-fade-up">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span class="faq-question-text">How are data privacy and biometric compliance handled in your systems?</span>
-                            <div class="faq-icon-wrapper" aria-hidden="true">
-                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-body-container">
-                            <div class="faq-body-content">
-                                <div class="faq-answer-inner">
-                                    All architectures follow strict data minimization and regulatory compliance (DPDP Act India &amp; GDPR). For instance, <strong>SmartDetect</strong> implements automated biometric retention purging (7-day unconsented / 365-day consented), verifiable Right-to-be-Forgotten erasure receipts that physically delete snapshot files and purge embeddings from pgvector, backed by an append-only audit trail.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -898,24 +974,65 @@
                 </div>
 
                 <div class="contact-channels-grid">
-                    <a href="mailto:lokiiii1211@gmail.com" class="channel-card highlight-channel reveal-fade-up" data-email="lokiiii1211@gmail.com">
-                        <span class="channel-type">Direct Email (24h SLA)</span>
+                    <!-- Email -->
+                    <div class="channel-card highlight-channel reveal-fade-up" data-copy="lokiiii1211@gmail.com" data-copy-label="Email copied to clipboard!">
+                        <div class="channel-card-top">
+                            <div class="channel-icon-pill">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <span class="channel-status-badge">● Response SLA &lt; 24h</span>
+                        </div>
+                        <span class="channel-type">Direct Email</span>
                         <span class="channel-value">lokiiii1211@gmail.com</span>
-                    </a>
+                        <div class="channel-card-action">
+                            <a href="mailto:lokiiii1211@gmail.com" class="channel-action-link" onclick="event.stopPropagation()">Send Email ↗</a>
+                            <span class="channel-copy-hint">Click card to copy</span>
+                        </div>
+                    </div>
 
+                    <!-- WhatsApp -->
                     <a href="https://wa.me/919003360494" target="_blank" rel="noopener noreferrer" class="channel-card reveal-fade-up">
+                        <div class="channel-card-top">
+                            <div class="channel-icon-pill">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            </div>
+                            <span class="channel-status-badge">● Fast Response</span>
+                        </div>
                         <span class="channel-type">WhatsApp Quick Chat</span>
                         <span class="channel-value">+91 90033 60494</span>
+                        <div class="channel-card-action">
+                            <span class="channel-action-link">Open WhatsApp ↗</span>
+                        </div>
                     </a>
 
+                    <!-- LinkedIn -->
                     <a href="https://linkedin.com/in/lokiiii1211" target="_blank" rel="noopener noreferrer" class="channel-card reveal-fade-up">
-                        <span class="channel-type">LinkedIn Network</span>
+                        <div class="channel-card-top">
+                            <div class="channel-icon-pill">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </div>
+                            <span class="channel-status-badge">● Network</span>
+                        </div>
+                        <span class="channel-type">LinkedIn Profile</span>
                         <span class="channel-value">linkedin.com/in/lokiiii1211</span>
+                        <div class="channel-card-action">
+                            <span class="channel-action-link">Connect on LinkedIn ↗</span>
+                        </div>
                     </a>
 
+                    <!-- GitHub -->
                     <a href="https://github.com/Lokii1211" target="_blank" rel="noopener noreferrer" class="channel-card reveal-fade-up">
+                        <div class="channel-card-top">
+                            <div class="channel-icon-pill">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <span class="channel-status-badge">● 310+ Commits</span>
+                        </div>
                         <span class="channel-type">GitHub Repositories</span>
                         <span class="channel-value">github.com/Lokii1211</span>
+                        <div class="channel-card-action">
+                            <span class="channel-action-link">View Repositories ↗</span>
+                        </div>
                     </a>
                 </div>
 
@@ -977,10 +1094,10 @@
                 <div class="footer-col">
                     <h4 class="footer-col-title">Navigation</h4>
                     <ul class="footer-nav-list">
-                        <li><a href="#about">Manifesto</a></li>
-                        <li><a href="#stack">Architecture Blueprint</a></li>
-                        <li><a href="#skills">Technical Arsenal</a></li>
-                        <li><a href="#journey">Milestones</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#stack">Architecture</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#journey">Experience</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="Lokeshkumar_D_AI_Engineer_Resume.html" target="_blank" rel="noopener noreferrer">Verified Resume</a></li>
                     </ul>
@@ -1007,14 +1124,21 @@
 
     <!-- ============ AI ASSISTANT CHATBOT WIDGET ============ -->
     <div class="ai-chatbot-widget" id="ai-chatbot-widget">
-        <!-- Floating Trigger Button -->
+        <!-- Floating Bot Orb Trigger Button (Clean, Circular, No Clutter Text) -->
         <button class="ai-chatbot-trigger" id="ai-chatbot-trigger" aria-label="Open Lokesh AI Assistant" title="Chat with Lokesh AI Assistant">
-            <span class="ai-chatbot-avatar">🤖</span>
-            <span class="ai-chatbot-pulse"></span>
-            <span>Ask Lokesh AI</span>
+            <span class="ai-chatbot-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                    <circle cx="12" cy="5" r="2"></circle>
+                    <path d="M12 7v4"></path>
+                    <line x1="8" y1="16" x2="8" y2="16"></line>
+                    <line x1="16" y1="16" x2="16" y2="16"></line>
+                </svg>
+            </span>
+            <span class="ai-chatbot-pulse" aria-hidden="true"></span>
         </button>
 
-        <!-- Chat Window Modal -->
+        <!-- Tall Modern AI Chat Window Modal -->
         <div class="ai-chatbot-window" id="ai-chatbot-window" role="dialog" aria-label="Lokesh AI Chat Window">
             <!-- Header -->
             <div class="ai-chat-header">
@@ -1024,7 +1148,7 @@
                         <span class="ai-chat-bot-name">Lokesh AI Assistant</span>
                         <span class="ai-chat-bot-status">
                             <span class="status-pulse-dot" style="width: 6px; height: 6px;"></span>
-                            Online · Knowledge v3.0
+                            Online · System Knowledge Engine
                         </span>
                     </div>
                 </div>
@@ -1036,17 +1160,17 @@
 
             <!-- Quick Suggestions -->
             <div class="ai-chat-suggestions">
-                <button class="ai-chip-btn" data-prompt="Tell me about Viya AI">💡 Viya AI Flagship</button>
-                <button class="ai-chip-btn" data-prompt="What is SmartDetect Re-ID?">👁️ SmartDetect Re-ID</button>
+                <button class="ai-chip-btn" data-prompt="Tell me about Viya AI">💡 Viya AI</button>
+                <button class="ai-chip-btn" data-prompt="What is SmartDetect Re-ID?">👁️ SmartDetect</button>
                 <button class="ai-chip-btn" data-prompt="What is your tech stack?">🛠️ Tech Stack</button>
-                <button class="ai-chip-btn" data-prompt="How can I contact or hire Lokesh?">📄 Contact &amp; Resume</button>
+                <button class="ai-chip-btn" data-prompt="How can I contact or hire Lokesh?">📄 Contact / Resume</button>
             </div>
 
             <!-- Messages Area -->
             <div class="ai-chat-messages" id="ai-chat-messages">
                 <div class="chat-msg chat-msg-bot">
                     <div class="chat-bubble">
-                        Hello! I am <strong>Lokesh AI Assistant</strong>. Ask me anything about Lokesh's production systems (<strong>Viya AI</strong>, <strong>SmartDetect</strong>, <strong>Kaizy</strong>, <strong>Mentixy</strong>), technical stack, architecture blueprints, or direct contact channels!
+                        Hello! I am <strong>Lokesh AI Assistant</strong>. Ask me anything about Lokesh's production systems (<strong>Viya AI</strong>, <strong>SmartDetect</strong>, <strong>Kaizy</strong>, <strong>Mentixy</strong>), multi-agent architectures, SLAs, or direct contact channels!
                     </div>
                     <span class="chat-msg-time">Just now</span>
                 </div>
@@ -1054,7 +1178,7 @@
 
             <!-- Input Form -->
             <form class="ai-chat-input-form" id="ai-chat-input-form">
-                <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Ask about projects, stack, or experience..." autocomplete="off" spellcheck="false" required>
+                <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Ask anything about Lokesh's AI systems..." autocomplete="off" spellcheck="false" required>
                 <button type="submit" class="ai-chat-send-btn" id="ai-chat-send-btn" aria-label="Send Message">➤</button>
             </form>
         </div>

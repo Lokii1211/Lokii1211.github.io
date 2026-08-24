@@ -120,29 +120,7 @@ body {
     padding-right: env(safe-area-inset-right, 0);
 }
 
-/* Interactive Ambient Particle Canvas */
-#ambient-neon-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Subtle Light Blueprint Grid */
-.cyber-grid-horizon {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
-    background-size: 52px 52px;
-    mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.04) 90%);
-    -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.04) 90%);
-}
+/* ---------- STUDIO AMBIENT LIGHTING (SUBTLE PASTEL GRADIENTS) ---------- */
 
 /* ---------- 3 LARGE, SOFT PASTEL AMBIENT COLOR-MESH GRADIENTS ---------- */
 .ambient-orb-top {
@@ -1288,9 +1266,26 @@ code {
     background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), rgba(0,0,0,0.08));
 }
 
+.timeline-track-container {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 36px;
+}
+
+.timeline-track-container::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 11px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), rgba(0, 0, 0, 0.08));
+}
+
 .timeline-milestone-item {
     position: relative;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .timeline-milestone-item:last-child {
@@ -1336,6 +1331,21 @@ code {
     box-shadow: var(--shadow-md);
 }
 
+.timeline-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.timeline-tag-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .timeline-badge {
     font-family: var(--font-mono);
     font-size: 0.78rem;
@@ -1346,7 +1356,26 @@ code {
     padding: 3px 10px;
     border-radius: var(--radius-pill);
     display: inline-block;
-    margin-bottom: 12px;
+}
+
+.timeline-category {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.timeline-status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--neon-emerald);
+    background: rgba(5, 150, 105, 0.08);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
 }
 
 .timeline-title {
@@ -1363,13 +1392,112 @@ code {
     line-height: 1.7;
 }
 
-/* ---------- ACCORDION FAQ SECTION ---------- */
+.timeline-bullets {
+    margin: 12px 0 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.93rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.timeline-bullets strong {
+    color: var(--text-pure-white);
+}
+
+.timeline-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.timeline-tech-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 600;
+    background: #f1f5f9;
+    border: 1px solid var(--border-subtle);
+    padding: 3px 9px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+}
+
+/* ---------- 2-COLUMN SPLIT FAQ SECTION ---------- */
+.faq-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 48px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    align-items: start;
+}
+
+.faq-info-col {
+    position: sticky;
+    top: 96px;
+}
+
+.faq-help-box {
+    background: #ffffff;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    padding: 26px;
+    margin-top: 32px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-help-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+}
+
+.faq-help-icon {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.faq-help-box h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-pure-white);
+    margin-bottom: 6px;
+}
+
+.faq-help-box p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 18px;
+}
+
+.faq-help-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-sm {
+    padding: 8px 16px !important;
+    font-size: 0.84rem !important;
+}
+
 .faq-accordion-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: var(--container-narrow);
-    margin: 0 auto;
+    width: 100%;
 }
 
 .faq-item {
@@ -1392,11 +1520,11 @@ code {
 
 .faq-trigger {
     width: 100%;
-    padding: 24px 28px;
+    padding: 22px 26px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
     text-align: left;
     background: none;
     border: none;
@@ -1404,17 +1532,27 @@ code {
     user-select: none;
 }
 
+.faq-index-number {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: var(--neon-cyan);
+    opacity: 0.85;
+    flex-shrink: 0;
+}
+
 .faq-question-text {
     font-family: var(--font-heading);
-    font-size: 1.18rem;
+    font-size: 1.12rem;
     font-weight: 700;
     color: var(--text-pure-white);
     line-height: 1.35;
+    flex-grow: 1;
 }
 
 .faq-icon-wrapper {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: #f1f5f9;
     border: 1px solid var(--border-subtle);
@@ -1462,8 +1600,8 @@ code {
 }
 
 .faq-answer-inner {
-    padding: 0 28px 26px 28px;
-    font-size: 1.02rem;
+    padding: 0 26px 24px 26px;
+    font-size: 1rem;
     color: var(--text-primary);
     line-height: 1.75;
     border-top: 1px solid transparent;
@@ -1471,7 +1609,7 @@ code {
 
 .faq-item.is-open .faq-answer-inner {
     border-top-color: var(--border-subtle);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .faq-answer-inner strong {
@@ -1486,36 +1624,39 @@ code {
 }
 
 .faq-answer-inner ul {
-    margin: 14px 0 0 22px;
+    margin: 12px 0 0 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-/* ---------- CONTACT SECTION ---------- */
+/* ---------- 2x2 CONTACT HUB ---------- */
 .contact-channels-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    margin-bottom: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto 44px auto;
 }
 
 .channel-card {
     background: #ffffff;
     border: 1px solid var(--border-medium);
     border-radius: var(--radius-xl);
-    padding: 30px;
+    padding: 26px 28px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     transition: all var(--duration-fast) var(--ease-spring);
     box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .channel-card:hover {
     border-color: var(--neon-cyan);
     background: #f8fafc;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-card-hover);
 }
 
@@ -1524,8 +1665,34 @@ code {
     box-shadow: 0 4px 18px rgba(2, 132, 199, 0.12);
 }
 
-.channel-icon {
+.channel-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.channel-icon-pill {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--neon-cyan-soft);
+    border: 1px solid var(--neon-cyan-border);
     color: var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.channel-status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--neon-emerald);
+    background: rgba(5, 150, 105, 0.08);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
 }
 
 .channel-type {
@@ -1538,10 +1705,31 @@ code {
 }
 
 .channel-value {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-pure-white);
     word-break: break-all;
+}
+
+.channel-card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.channel-action-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+}
+
+.channel-copy-hint {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
 }
 
 /* Key Collaboration CTA Panel */
@@ -1559,6 +1747,8 @@ code {
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 .contact-collab-banner::before, .contact-resume-banner::before {
@@ -1883,59 +2073,63 @@ code {
     z-index: 99999;
 }
 
-/* Chat Trigger Button */
+/* Chat Trigger Button (Sleek Circular Floating Bot Orb) */
 .ai-chatbot-trigger {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.45);
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #0284c7, #0369a1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 12px 20px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
-    font-weight: 700;
-    font-size: 0.92rem;
+    justify-content: center;
     cursor: pointer;
+    position: relative;
     transition: all var(--duration-fast) var(--ease-spring);
 }
 
 .ai-chatbot-trigger:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.48);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 14px 36px rgba(2, 132, 199, 0.58);
+}
+
+.ai-chatbot-trigger:active {
+    transform: translateY(0) scale(0.95);
 }
 
 .ai-chatbot-avatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    color: #ffffff;
 }
 
 .ai-chatbot-pulse {
-    width: 8px;
-    height: 8px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: #10b981;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-    animation: pulse-ring 2s infinite ease-out;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse-ring 2.2s infinite ease-out;
 }
 
-/* Chat Window Modal */
+/* Chat Window Modal (Tall Expansive Modern Bot Drawer) */
 .ai-chatbot-window {
     position: fixed;
-    bottom: 92px;
+    bottom: 96px;
     right: 28px;
-    width: min(390px, 92vw);
-    height: min(580px, 80vh);
+    width: min(420px, 92vw);
+    height: min(680px, 86vh);
     background: #ffffff;
     border: 1px solid var(--border-medium);
     border-radius: var(--radius-xl);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15), 0 0 30px rgba(2, 132, 199, 0.12);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18), 0 0 35px rgba(2, 132, 199, 0.14);
     display: none;
     flex-direction: column;
     overflow: hidden;
@@ -1948,7 +2142,7 @@ code {
 }
 
 @keyframes chat-pop {
-    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
@@ -2282,6 +2476,15 @@ code {
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .faq-info-col {
+        position: static;
     }
 
     .contact-channels-grid {

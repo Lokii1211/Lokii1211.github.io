@@ -1,12 +1,11 @@
 /**
  * LOKESH.AI — Engineering Portfolio & Interactive AI Assistant
- * Client Logic: Ambient Particle Canvas, Dynamic Spotlights, Magnetic Physics,
+ * Client Logic: Dynamic Spotlights, Magnetic Physics,
  *               Interactive FAQ Accordion, Command Palette (⌘K), Staggered Scroll Reveals,
  *               and Knowledge-Powered AI Chatbot Assistant.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initAmbientNeonCanvas();
     initScrollProgress();
     initMobileNav();
     initScrollSpy();
@@ -20,120 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Interactive Ambient Particle Canvas (Optimized for White Theme)
- */
-function initAmbientNeonCanvas() {
-    const canvas = document.getElementById('ambient-neon-canvas');
-    if (!canvas) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        canvas.style.display = 'none';
-        return;
-    }
-
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    let particles = [];
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 30 : 65;
-    const maxConnectionDistance = isMobile ? 90 : 130;
-
-    let mouse = { x: null, y: null, radius: 140 };
-
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    }, { passive: true });
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    }, { passive: true });
-
-    window.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.45;
-            this.vy = (Math.random() - 0.5) * 0.45;
-            this.radius = Math.random() * 1.6 + 0.8;
-            this.color = Math.random() > 0.3 ? 'rgba(2, 132, 199, ' : 'rgba(99, 102, 241, ';
-            this.alpha = Math.random() * 0.35 + 0.12;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-
-            // Subtle mouse repulsion
-            if (mouse.x !== null && mouse.y !== null) {
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < mouse.radius) {
-                    const force = (mouse.radius - dist) / mouse.radius;
-                    const angle = Math.atan2(dy, dx);
-                    this.x -= Math.cos(angle) * force * 1.8;
-                    this.y -= Math.sin(angle) * force * 1.8;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `${this.color}${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-
-            // Connect nearby particles
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < maxConnectionDistance) {
-                    const linkAlpha = (1 - dist / maxConnectionDistance) * 0.18;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(2, 132, 199, ${linkAlpha})`;
-                    ctx.lineWidth = 0.8;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-}
-
-/**
- * 2. Top Scroll Progress Bar
+ * 1. Top Scroll Progress Bar
  */
 function initScrollProgress() {
     const progressBar = document.querySelector('.scroll-progress-bar');
@@ -148,7 +34,7 @@ function initScrollProgress() {
 }
 
 /**
- * 3. Mobile Navigation Drawer
+ * 2. Mobile Navigation Drawer
  */
 function initMobileNav() {
     const toggleBtn = document.querySelector('.mobile-toggle');
@@ -176,7 +62,7 @@ function initMobileNav() {
 }
 
 /**
- * 4. Active Scroll Spy Navigation
+ * 3. Active Scroll Spy Navigation
  */
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
@@ -204,7 +90,7 @@ function initScrollSpy() {
 }
 
 /**
- * 5. Single-Focus FAQ Accordion
+ * 4. Single-Focus FAQ Accordion
  */
 function initAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -239,7 +125,7 @@ function initAccordion() {
 }
 
 /**
- * 6. Copy to Clipboard Action with Toast Notice
+ * 5. Copy to Clipboard Action with Toast Notice
  */
 function initCopyButtons() {
     const copyTriggers = document.querySelectorAll('[data-copy]');
@@ -247,7 +133,6 @@ function initCopyButtons() {
 
     copyTriggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault();
             const textToCopy = btn.getAttribute('data-copy');
             if (!textToCopy) return;
 
@@ -278,7 +163,7 @@ function initCopyButtons() {
 }
 
 /**
- * 7. Command Palette HUD (⌘K / Ctrl+K)
+ * 6. Command Palette HUD (⌘K / Ctrl+K)
  */
 function initCommandPalette() {
     const backdrop = document.querySelector('.cmd-palette-backdrop');
@@ -294,9 +179,9 @@ function initCommandPalette() {
         { label: 'Review Mentixy Career Intelligence', url: '#project-mentixy', category: 'Project' },
         { label: 'Check KadaiGPT Retail AI', url: '#project-kadaigpt', category: 'Project' },
         { label: 'Inspect AadhaarAnalytics 360 Research', url: '#project-aadhaar', category: 'Hackathon' },
-        { label: 'Agentic AI & LLM Systems Architecture', url: '#manifesto', category: 'Architecture' },
+        { label: 'Agentic AI & LLM Systems Architecture', url: '#stack', category: 'Architecture' },
         { label: 'Categorized Technical Arsenal & Skills', url: '#skills', category: 'Skills' },
-        { label: 'Engineering Milestones & Timeline', url: '#journey', category: 'Journey' },
+        { label: 'Engineering Milestones & Timeline', url: '#journey', category: 'Experience' },
         { label: 'Frequently Asked Engineering Questions', url: '#faq', category: 'FAQ' },
         { label: 'Contact Lokeshkumar D (Direct Channels)', url: '#contact', category: 'Contact' },
         { label: 'Download Verified Engineering Resume (A4 Print)', url: 'Lokeshkumar_D_AI_Engineer_Resume.html', category: 'Resume' }
@@ -370,7 +255,7 @@ function initCommandPalette() {
 }
 
 /**
- * 8. Dynamic Card Spotlight Cursor Follower
+ * 7. Dynamic Card Spotlight Cursor Follower
  */
 function initCardSpotlights() {
     const cards = document.querySelectorAll('.bento-tile, .project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card');
@@ -387,7 +272,7 @@ function initCardSpotlights() {
 }
 
 /**
- * 9. Staggered Scroll Reveals (500ms duration, cubic-bezier(0.16, 1, 0.3, 1), 75ms stagger, once: true)
+ * 8. Staggered Scroll Reveals (500ms duration, cubic-bezier(0.16, 1, 0.3, 1), 75ms stagger, once: true)
  */
 function initScrollReveals() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -417,7 +302,7 @@ function initScrollReveals() {
 }
 
 /**
- * 10. Magnetic Button Physics (Desktop)
+ * 9. Magnetic Button Physics (Desktop)
  */
 function initMagneticButtons() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) return;
@@ -437,7 +322,7 @@ function initMagneticButtons() {
 }
 
 /**
- * 11. Interactive AI Assistant Chatbot (Lokesh AI)
+ * 10. Interactive AI Assistant Chatbot (Lokesh AI)
  */
 function initAIChatbot() {
     const triggerBtn = document.querySelector('.ai-chatbot-trigger');
@@ -448,17 +333,30 @@ function initAIChatbot() {
     const inputForm = document.querySelector('.ai-chat-input-form');
     const textInput = document.querySelector('.ai-chat-input');
     const chipButtons = document.querySelectorAll('.ai-chip-btn');
+    const faqChatTrigger = document.querySelector('#faq-open-ai-chat');
 
     if (!triggerBtn || !chatWindow || !inputForm || !textInput) return;
 
-    // Toggle Chat Window
-    triggerBtn.addEventListener('click', () => {
+    function openChat() {
+        chatWindow.classList.add('is-active');
+        setTimeout(() => textInput.focus(), 150);
+        scrollChatToBottom();
+    }
+
+    function toggleChat() {
         const isActive = chatWindow.classList.toggle('is-active');
         if (isActive) {
             setTimeout(() => textInput.focus(), 150);
             scrollChatToBottom();
         }
-    });
+    }
+
+    // Trigger buttons
+    triggerBtn.addEventListener('click', toggleChat);
+
+    if (faqChatTrigger) {
+        faqChatTrigger.addEventListener('click', openChat);
+    }
 
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -503,7 +401,7 @@ function initAIChatbot() {
             hideTypingIndicator();
             const botResponse = generateAIResponse(userText);
             appendMessage(botResponse, 'bot');
-        }, 600 + Math.random() * 400);
+        }, 500 + Math.random() * 300);
     }
 
     function appendMessage(content, sender) {
