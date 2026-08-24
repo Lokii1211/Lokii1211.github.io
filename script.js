@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardSpotlights();
     initScrollReveals();
     initMagneticButtons();
+    initStickyStackBlur();
     initAIChatbot();
 });
 
@@ -323,7 +324,40 @@ function initMagneticButtons() {
 }
 
 /**
- * 10. Intelligent Knowledge-Powered AI Assistant Chatbot (Lokesh AI)
+ * 10. Interactive Sticky Card Stack Blur & Depth
+ * Detects when a project tier card is overlapped by the subsequent sliding card,
+ * smoothly applying a frosted blur and scale depth to the background card underneath.
+ */
+function initStickyStackBlur() {
+    const tiers = Array.from(document.querySelectorAll('.project-sticky-tier'));
+    if (!tiers.length || tiers.length < 2) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function handleStackScroll() {
+        for (let i = 0; i < tiers.length - 1; i++) {
+            const currentTier = tiers[i];
+            const nextTier = tiers[i + 1];
+
+            const currentRect = currentTier.getBoundingClientRect();
+            const nextRect = nextTier.getBoundingClientRect();
+
+            // When the next tier slides up over the current tier (overlap threshold)
+            const overlap = currentRect.bottom - nextRect.top;
+            if (overlap > 48) {
+                currentTier.classList.add('is-underneath');
+            } else {
+                currentTier.classList.remove('is-underneath');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleStackScroll, { passive: true });
+    handleStackScroll();
+}
+
+/**
+ * 11. Intelligent Knowledge-Powered AI Assistant Chatbot (Lokesh AI)
  */
 function initAIChatbot() {
     const triggerBtn = document.querySelector('.ai-chatbot-trigger');

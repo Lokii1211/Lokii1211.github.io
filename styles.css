@@ -1045,7 +1045,7 @@ code {
     color: var(--text-secondary);
 }
 
-/* ---------- 2. PROJECTS SECTION (STICKY PINNING CARD STACK & ASYMMETRIC BENTO TILES) ---------- */
+/* ---------- 2. PROJECTS SECTION (STICKY PINNING CARD STACK WITH BACKGROUND BLUR) ---------- */
 .projects-sticky-stack {
     display: flex;
     flex-direction: column;
@@ -1055,8 +1055,11 @@ code {
 
 .project-sticky-tier {
     position: sticky;
-    will-change: transform;
-    transition: box-shadow var(--duration-normal) var(--ease-smooth);
+    will-change: transform, filter, opacity;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-sticky-tier.tier-1 {
@@ -1079,6 +1082,14 @@ code {
     z-index: 4;
 }
 
+/* Background card blur when covered/overlapped by the next sliding tier */
+.project-sticky-tier.is-underneath {
+    filter: blur(6px) saturate(80%);
+    opacity: 0.48;
+    transform: scale(0.96) translateY(-8px);
+    pointer-events: none;
+}
+
 .bento-dual-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1092,25 +1103,25 @@ code {
 }
 
 .bento-tile {
-    /* Glass Panel Spec: Frosted white glass with 1px border */
-    background: var(--bg-glass-panel);
-    backdrop-filter: blur(var(--glass-blur)) saturate(150%);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
-    border: 1px solid var(--border-glass);
+    /* Glass Panel Spec: High-end frosted white glass */
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid var(--border-medium);
     border-radius: var(--radius-xl);
     padding: clamp(24px, 3.2vw, 36px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 22px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
     transition: all var(--duration-normal) var(--ease-smooth);
     position: relative;
 }
 
 .bento-tile:hover {
-    background: var(--bg-glass-panel-hover);
-    border-color: var(--border-neon);
+    background: #ffffff;
+    border-color: var(--neon-cyan);
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
 }
