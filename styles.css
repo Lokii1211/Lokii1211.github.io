@@ -950,7 +950,46 @@ code {
     color: var(--text-secondary);
 }
 
-/* ---------- 2. PROJECTS SECTION (CUSTOM ASYMMETRIC BENTO GRID) ---------- */
+/* ---------- 2. PROJECTS SECTION (STICKY PINNING CARD STACK & ASYMMETRIC BENTO TILES) ---------- */
+.projects-sticky-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+}
+
+.project-sticky-tier {
+    position: sticky;
+    will-change: transform;
+    transition: box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.project-sticky-tier.tier-1 {
+    top: 90px;
+    z-index: 1;
+}
+
+.project-sticky-tier.tier-2 {
+    top: 106px;
+    z-index: 2;
+}
+
+.project-sticky-tier.tier-3 {
+    top: 122px;
+    z-index: 3;
+}
+
+.project-sticky-tier.tier-4 {
+    top: 138px;
+    z-index: 4;
+}
+
+.bento-dual-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
 .projects-bento-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -969,7 +1008,7 @@ code {
     flex-direction: column;
     justify-content: space-between;
     gap: 22px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.50);
     transition: all var(--duration-normal) var(--ease-smooth);
     position: relative;
 }
@@ -983,17 +1022,15 @@ code {
 
 /* Asymmetric Bento Proportions Communicating Importance */
 .bento-hero-tile {
-    grid-column: span 7;
-    background: linear-gradient(135deg, rgba(0, 216, 240, 0.06) 0%, var(--bg-glass-panel) 100%);
+    background: linear-gradient(135deg, rgba(0, 216, 240, 0.07) 0%, var(--bg-glass-panel) 100%);
 }
 
 .bento-vision-tile {
-    grid-column: span 5;
-    background: linear-gradient(135deg, rgba(112, 89, 194, 0.06) 0%, var(--bg-glass-panel) 100%);
+    background: linear-gradient(135deg, rgba(112, 89, 194, 0.07) 0%, var(--bg-glass-panel) 100%);
 }
 
 .bento-medium-tile {
-    grid-column: span 6;
+    width: 100%;
 }
 
 .bento-tile-header {
@@ -1759,11 +1796,11 @@ code {
     color: var(--text-muted);
 }
 
-/* ---------- SCROLL REVEAL ANIMATIONS ---------- */
+/* ---------- SCROLL REVEAL ANIMATIONS (500ms, confident cubic-bezier(0.16, 1, 0.3, 1)) ---------- */
 .reveal-fade-up {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    transform: translateY(20px);
+    transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
@@ -1775,19 +1812,28 @@ code {
 /* ---------- PREFERS REDUCED MOTION (ACCESSIBILITY) ---------- */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation: none !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    .project-sticky-tier {
+        position: static !important;
+        top: auto !important;
     }
 
     .reveal-fade-up {
         opacity: 1 !important;
         transform: none !important;
+        transition: none !important;
     }
 
     #ambient-neon-canvas, .ambient-orb-top, .ambient-orb-mid, .ambient-orb-bottom {
         display: none !important;
+    }
+
+    .bento-tile:hover, .arch-block:hover, .engineer-card:hover, .channel-card:hover, .timeline-card:hover {
+        transform: none !important;
     }
 }
 
@@ -1804,6 +1850,10 @@ code {
 
     .bento-hero-tile, .bento-vision-tile, .bento-medium-tile {
         grid-column: span 12;
+    }
+
+    .bento-dual-row {
+        grid-template-columns: 1fr;
     }
 
     .about-grid {

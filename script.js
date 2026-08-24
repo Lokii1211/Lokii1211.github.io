@@ -414,7 +414,7 @@ function initCardSpotlights() {
 }
 
 /**
- * 10. Staggered Scroll Reveals
+ * 10. Staggered Scroll Reveals (500ms duration, cubic-bezier(0.16, 1, 0.3, 1), 75ms stagger, once: true)
  */
 function initScrollReveals() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -426,15 +426,18 @@ function initScrollReveals() {
     if (!revealElements.length) return;
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                observer.unobserve(entry.target);
-            }
+        const intersecting = entries.filter(entry => entry.isIntersecting);
+        intersecting.forEach((entry, idx) => {
+            const el = entry.target;
+            const staggerDelay = Math.min(idx * 75, 400); // 75ms stagger per element
+            setTimeout(() => {
+                el.classList.add('is-revealed');
+            }, staggerDelay);
+            observer.unobserve(el); // once: true — never re-triggers distractingly on scroll-back
         });
     }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
