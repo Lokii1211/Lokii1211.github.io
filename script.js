@@ -1,8 +1,8 @@
 /**
- * LOKESH.AI — Engineering Portfolio & Interactive AI Assistant
- * Client Logic: Dynamic Spotlights, Magnetic Physics,
- *               Interactive FAQ Accordion, Command Palette (⌘K), Staggered Scroll Reveals,
- *               and High-Intelligence Knowledge-Powered AI Chatbot Assistant.
+ * LOKESHKUMAR D — Engineering Portfolio & Interactive AI Assistant
+ * Client Logic: Hero Word-Reveal, Magnetic CTA, Staggered Scroll Reveals,
+ *               Interactive FAQ Accordion, Command Palette (⌘K),
+ *               and Knowledge-Powered AI Chatbot Assistant.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,10 +14,87 @@ document.addEventListener('DOMContentLoaded', () => {
     initCommandPalette();
     initCardSpotlights();
     initScrollReveals();
+    initHeroWordReveal();
     initMagneticButtons();
     initStickyStackBlur();
     initAIChatbot();
 });
+
+/**
+ * 0. HERO WORD-REVEAL
+ * Splits the hero headline into per-word clip-path reveal wrappers,
+ * then stagger-triggers each word.
+ * Skipped when prefers-reduced-motion is set.
+ */
+function initHeroWordReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const headline = document.getElementById('hero-headline');
+    if (!headline) return;
+
+    // Collect text nodes and spans, wrapping each word
+    function wrapWords(el) {
+        const childNodes = Array.from(el.childNodes);
+        el.innerHTML = '';
+
+        childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                // Split text node into words
+                const words = node.textContent.split(/(\s+)/);
+                words.forEach(word => {
+                    if (!word.trim()) {
+                        el.appendChild(document.createTextNode(word));
+                    } else {
+                        const wrap = document.createElement('span');
+                        wrap.className = 'word-reveal-wrap';
+                        const inner = document.createElement('span');
+                        inner.className = 'word-inner';
+                        inner.textContent = word;
+                        wrap.appendChild(inner);
+                        el.appendChild(wrap);
+                    }
+                });
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                // Clone span, wrap its text content
+                const clone = node.cloneNode(false);
+                const textWords = node.textContent.split(/(\s+)/);
+                textWords.forEach(word => {
+                    if (!word.trim()) {
+                        clone.appendChild(document.createTextNode(word));
+                    } else {
+                        const inner = document.createElement('span');
+                        inner.className = 'word-inner';
+                        inner.textContent = word;
+                        const wrap = document.createElement('span');
+                        wrap.className = 'word-reveal-wrap';
+                        wrap.appendChild(inner);
+                        clone.appendChild(wrap);
+                    }
+                });
+                // Wrap the whole span in a word-reveal-wrap too
+                const outerWrap = document.createElement('span');
+                outerWrap.className = 'word-reveal-wrap';
+                const outerInner = document.createElement('span');
+                outerInner.className = 'word-inner';
+                outerInner.style.display = 'inline';
+                outerInner.appendChild(clone);
+                outerWrap.appendChild(outerInner);
+                el.appendChild(outerWrap);
+            }
+        });
+    }
+
+    wrapWords(headline);
+
+    // Trigger reveals staggered at 75ms per word
+    const wraps = headline.querySelectorAll('.word-reveal-wrap');
+    wraps.forEach((wrap, i) => {
+        setTimeout(() => {
+            wrap.classList.add('is-revealed');
+        }, 120 + i * 75);
+    });
+}
+
 
 /**
  * 1. Top Scroll Progress Bar
@@ -307,18 +384,24 @@ function initScrollReveals() {
  * 9. Magnetic Button Physics (Desktop)
  */
 function initMagneticButtons() {
+    // Only apply to hero CTAs — magnetic feels special when selective
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) return;
 
-    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .brand-logo, .btn-nav-cta, .btn-nav-resume, .ai-chatbot-trigger');
+    // Restrict to hero action buttons only
+    const magneticElements = document.querySelectorAll('#hero-cta-primary, #hero-cta-secondary');
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            el.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+            el.style.transform = `translate(${x * 0.14}px, ${y * 0.14}px)`;
         });
         el.addEventListener('mouseleave', () => {
             el.style.transform = '';
+            el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        el.addEventListener('mouseenter', () => {
+            el.style.transition = 'none';
         });
     });
 }

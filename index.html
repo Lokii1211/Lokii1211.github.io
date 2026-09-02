@@ -176,22 +176,17 @@
     }
     </script>
 
-    <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+    <!-- Google Fonts: Instrument Serif (display) + Plus Jakarta Sans (headings) + Inter (body) + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=3.0.0">
+    <link rel="stylesheet" href="styles.css?v=4.0.0">
 </head>
 
 <body>
-    <!-- 3 Large, Soft Blurred Color-Mesh Gradients (Refracting Backdrop) -->
-    <div class="ambient-orb-top" aria-hidden="true"></div>
-    <div class="ambient-orb-mid" aria-hidden="true"></div>
-    <div class="ambient-orb-bottom" aria-hidden="true"></div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
 
@@ -236,59 +231,30 @@
 
         <!-- ============ HERO SECTION ============ -->
         <header class="hero-section" id="home">
+            <!-- Ambient orbs scoped to hero only -->
+            <div class="hero-ambient-orb-a" aria-hidden="true"></div>
+            <div class="hero-ambient-orb-b" aria-hidden="true"></div>
+
             <div class="hero-container">
                 <div class="hero-meta-badge reveal-fade-up">
                     <span class="status-pulse-dot" aria-hidden="true"></span>
                     <span>Available for Full-Time Roles &amp; Freelance AI Projects</span>
                 </div>
 
-                <h1 class="hero-headline reveal-fade-up">
+                <h1 class="hero-headline" id="hero-headline">
                     Architecting Autonomous <span class="text-gradient">Multi-Agent Systems</span>, Real-Time Vision Pipelines &amp; Production RAG.
                 </h1>
 
                 <p class="hero-summary reveal-fade-up">
-                    Agentic AI Engineer &amp; Full-Stack Architect with <strong>5 live production systems</strong> deployed. Specializing in stateful <strong>LangChain / LangGraph workflows</strong>, sub-100ms <strong>pgvector RAG</strong>, and enterprise <strong>computer vision Re-ID cascades</strong> with strict biometric governance. Built for founders, CTOs, and enterprises requiring hardened, reliable AI infrastructure.
+                    Agentic AI Engineer &amp; Full-Stack Architect with <strong>5 live production systems</strong> deployed across multilingual voice AI, enterprise computer vision, and sub-100ms vector pipelines. Built for founders, CTOs, and teams who need hardened, reliable AI infrastructure — not prototypes.
                 </p>
 
                 <div class="hero-actions reveal-fade-up">
-                    <a href="#projects" class="btn btn-primary">Explore Live Systems ↓</a>
-                    <a href="#stack" class="btn btn-secondary">Architecture Blueprint</a>
-                    <a href="Lokeshkumar_D_AI_Engineer_Resume.html" class="btn btn-tertiary" target="_blank" rel="noopener noreferrer">Verified Resume ↗</a>
+                    <a href="#projects" class="btn btn-primary" id="hero-cta-primary">View Work ↓</a>
+                    <a href="#contact" class="btn btn-secondary" id="hero-cta-secondary">Get in Touch</a>
                 </div>
 
-                <!-- Executive Core Capabilities Matrix (Immediate Scan for CTOs/Founders) -->
-                <div class="hero-capabilities-grid reveal-fade-up">
-                    <div class="cap-card">
-                        <div class="cap-icon-box">⚡</div>
-                        <div class="cap-content">
-                            <h4>Multi-Agent Graphs</h4>
-                            <p>LangChain, LangGraph state loops, deterministic tool routing &amp; fallback schemas.</p>
-                        </div>
-                    </div>
-                    <div class="cap-card">
-                        <div class="cap-icon-box">👁️</div>
-                        <div class="cap-content">
-                            <h4>Vision &amp; Re-ID</h4>
-                            <p>5-stage arbitration cascade, YOLOv8, InsightFace ArcFace &amp; OSNet deep embeddings.</p>
-                        </div>
-                    </div>
-                    <div class="cap-card">
-                        <div class="cap-icon-box">🎙️</div>
-                        <div class="cap-content">
-                            <h4>Multilingual Voice AI</h4>
-                            <p>Whisper STT, 5 Indian languages (Tamil, Hindi, etc.) with sub-2s streaming latency.</p>
-                        </div>
-                    </div>
-                    <div class="cap-card">
-                        <div class="cap-icon-box">🛡️</div>
-                        <div class="cap-content">
-                            <h4>RAG &amp; Governance</h4>
-                            <p>pgvector + ChromaDB sub-100ms vector search with DPDP Act &amp; GDPR compliance.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Server-Side Rendered Proof Bar (Zero Placeholder Glitch) -->
+                <!-- Proof Bar -->
                 <div class="hero-proof-bar reveal-fade-up">
                     <div class="proof-card">
                         <div class="proof-metric">
@@ -386,66 +352,143 @@
             </div>
         </section>
 
-        <!-- ============ ARCHITECTURE PIPELINE ============ -->
+        <!-- ============ ARCHITECTURE PIPELINE (SVG DIAGRAM) ============ -->
         <section class="section" id="stack">
             <div class="section-container">
                 <div class="section-header reveal-fade-up">
                     <span class="section-kicker">Engineering Blueprint</span>
                     <h2 class="section-title">Production AI System Architecture</h2>
-                    <p class="section-subtitle">How I design, scale, and secure end-to-end intelligent applications from inference to delivery.</p>
+                    <p class="section-subtitle">How autonomous agents, vector memory, computer vision, and cloud infrastructure wire together in production systems.</p>
                 </div>
 
-                <div class="architecture-flow-grid">
-                    <div class="arch-block reveal-fade-up">
-                        <div class="arch-step">01 // ORCHESTRATION</div>
-                        <h3 class="arch-title">Multi-Agent State Graphs</h3>
-                        <p class="arch-description">Deterministic multi-agent routing with LangChain, LangGraph, and n8n. Implements fallback escalation, structured tool validation, and state persistence.</p>
-                        <div class="arch-chips">
-                            <span>LangChain</span>
-                            <span>LangGraph</span>
-                            <span>n8n</span>
-                            <span>CrewAI</span>
-                            <span>MCP</span>
-                        </div>
-                    </div>
+                <!-- SVG Pipeline Diagram -->
+                <div class="pipeline-diagram-wrapper reveal-fade-up">
+                    <svg class="pipeline-svg" id="pipeline-svg" viewBox="0 0 1060 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Production AI System Architecture Pipeline Diagram">
 
-                    <div class="arch-block reveal-fade-up">
-                        <div class="arch-step">02 // KNOWLEDGE &amp; RAG</div>
-                        <h3 class="arch-title">High-Precision Vector Retrieval</h3>
-                        <p class="arch-description">Semantic search pipelines powered by pgvector (cosine indexing) and ChromaDB. Implements hybrid keyword-dense retrieval with sub-100ms response targets.</p>
-                        <div class="arch-chips">
-                            <span>PostgreSQL</span>
-                            <span>pgvector</span>
-                            <span>ChromaDB</span>
-                            <span>OpenAI Embeddings</span>
-                        </div>
-                    </div>
+                        <!-- Column labels -->
+                        <text x="90" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5" text-transform="uppercase">INPUT</text>
+                        <text x="276" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5">ORCHESTRATION</text>
+                        <text x="528" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5">INTELLIGENCE</text>
+                        <text x="780" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5">DATA LAYER</text>
+                        <text x="970" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1.5">DELIVERY</text>
 
-                    <div class="arch-block reveal-fade-up">
-                        <div class="arch-step">03 // VISION &amp; PERCEPTION</div>
-                        <h3 class="arch-title">Multi-Camera Identity Re-ID</h3>
-                        <p class="arch-description">5-stage identity arbitration cascade combining YOLOv8n spatial bounding, ByteTrack MOT, InsightFace ArcFace 512-d embeddings, and OSNet deep Re-ID.</p>
-                        <div class="arch-chips">
-                            <span>YOLOv8</span>
-                            <span>InsightFace</span>
-                            <span>ByteTrack</span>
-                            <span>OSNet</span>
-                            <span>OpenCV</span>
-                        </div>
-                    </div>
+                        <!-- INPUT nodes -->
+                        <rect x="10" y="44" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="89" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Voice / Text Input</text>
+                        <text x="89" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Tamil · Hindi · English</text>
 
-                    <div class="arch-block reveal-fade-up">
-                        <div class="arch-step">04 // INFRASTRUCTURE</div>
-                        <h3 class="arch-title">Cloud Native &amp; Microservices</h3>
-                        <p class="arch-description">FastAPI and Next.js 14 backbones backed by Redis pub/sub caching, Supabase row-level security, Docker containers, and CI/CD automated deployments.</p>
-                        <div class="arch-chips">
-                            <span>FastAPI</span>
-                            <span>Next.js 14</span>
-                            <span>Redis</span>
-                            <span>Docker</span>
-                            <span>Supabase</span>
-                        </div>
-                    </div>
+                        <rect x="10" y="118" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="89" y="140" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Camera Feeds</text>
+                        <text x="89" y="156" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Multi-camera · RTSP</text>
+
+                        <rect x="10" y="192" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="89" y="214" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">User Queries</text>
+                        <text x="89" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">API · WhatsApp · PWA</text>
+
+                        <!-- ORCHESTRATION nodes -->
+                        <rect x="196" y="44" width="158" height="52" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+                        <text x="275" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0c4a6e">LangGraph</text>
+                        <text x="275" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#0369a1">State Graphs · Tool Routing</text>
+
+                        <rect x="196" y="118" width="158" height="52" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+                        <text x="275" y="140" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0c4a6e">n8n Orchestration</text>
+                        <text x="275" y="156" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#0369a1">Workflow Automation</text>
+
+                        <rect x="196" y="192" width="158" height="52" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+                        <text x="275" y="214" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0c4a6e">Agent State Mgr</text>
+                        <text x="275" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#0369a1">Fallback · Retry · Schema</text>
+
+                        <!-- INTELLIGENCE nodes -->
+                        <rect x="382" y="44" width="290" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="527" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">LLM Routing</text>
+                        <text x="527" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Gemini Pro · Claude · GPT-4 · Whisper STT</text>
+
+                        <rect x="382" y="118" width="290" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="527" y="140" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Vision Pipeline</text>
+                        <text x="527" y="156" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">YOLOv8 · ByteTrack · ArcFace 512-d · OSNet</text>
+
+                        <rect x="382" y="192" width="290" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="527" y="214" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Re-ID Cascade</text>
+                        <text x="527" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">5-Stage Arbitration · DPDP/GDPR Governance</text>
+
+                        <!-- DATA LAYER nodes -->
+                        <rect x="692" y="44" width="178" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="781" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">pgvector</text>
+                        <text x="781" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Cosine Search · &lt;100ms</text>
+
+                        <rect x="692" y="118" width="178" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="781" y="140" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">ChromaDB</text>
+                        <text x="781" y="156" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Vector Memory · RAG</text>
+
+                        <rect x="692" y="192" width="178" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="781" y="214" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Redis Cache</text>
+                        <text x="781" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Ephemeral State · Pub/Sub</text>
+
+                        <!-- DELIVERY nodes -->
+                        <rect x="890" y="44" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="969" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">FastAPI</text>
+                        <text x="969" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">40+ Async Endpoints</text>
+
+                        <rect x="890" y="118" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="969" y="140" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">Next.js PWA</text>
+                        <text x="969" y="156" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">React 18 · TypeScript</text>
+
+                        <rect x="890" y="192" width="158" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <text x="969" y="214" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1e293b">WebSocket</text>
+                        <text x="969" y="230" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Real-Time · Low Latency</text>
+
+                        <!-- Connector arrows INPUT → ORCHESTRATION -->
+                        <path id="pipe-01" d="M168 70 H196" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-02" d="M168 144 H196" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-03" d="M168 218 H196" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+                        <!-- ORCHESTRATION → INTELLIGENCE -->
+                        <path id="pipe-11" d="M354 70 H382" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-12" d="M354 144 H382" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-13" d="M354 218 H382" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+                        <!-- INTELLIGENCE → DATA LAYER -->
+                        <path id="pipe-21" d="M672 70 H692" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-22" d="M672 144 H692" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-23" d="M672 218 H692" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+                        <!-- DATA LAYER → DELIVERY -->
+                        <path id="pipe-31" d="M870 70 H890" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-32" d="M870 144 H890" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+                        <path id="pipe-33" d="M870 218 H890" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+                        <!-- Animated flow dot -->
+                        <circle class="pipeline-flow-dot" id="flow-dot-top" r="5">
+                            <animateMotion dur="5s" repeatCount="indefinite" begin="0s">
+                                <mpath href="#pipe-01"/>
+                            </animateMotion>
+                        </circle>
+                        <circle class="pipeline-flow-dot" r="5">
+                            <animateMotion dur="5s" repeatCount="indefinite" begin="1.25s">
+                                <mpath href="#pipe-11"/>
+                            </animateMotion>
+                        </circle>
+                        <circle class="pipeline-flow-dot" r="5">
+                            <animateMotion dur="5s" repeatCount="indefinite" begin="2.5s">
+                                <mpath href="#pipe-21"/>
+                            </animateMotion>
+                        </circle>
+                        <circle class="pipeline-flow-dot" r="5">
+                            <animateMotion dur="5s" repeatCount="indefinite" begin="3.75s">
+                                <mpath href="#pipe-31"/>
+                            </animateMotion>
+                        </circle>
+
+                        <!-- Arrow marker definition -->
+                        <defs>
+                            <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+                                <path d="M0,0 L0,6 L8,3 z" fill="#0284c7"/>
+                            </marker>
+                        </defs>
+
+                        <!-- Bottom spec label -->
+                        <text x="530" y="288" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">End-to-end latency target: sub-2s voice · sub-50ms vision · sub-100ms vector retrieval</text>
+                    </svg>
                 </div>
             </div>
         </section>
@@ -898,11 +941,11 @@
                         <p class="section-subtitle">Straightforward specifics on multi-agent architectures, computer vision cascades, SLA guarantees, and engagement models.</p>
                         
                         <div class="faq-help-box">
-                            <div class="faq-help-icon">💡</div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" style="margin-bottom:10px" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                             <h4>Have a specific architecture question?</h4>
-                            <p>Ask the interactive AI bot or reach out directly for system reviews.</p>
+                            <p>Ask the AI assistant or reach out directly for system reviews.</p>
                             <div class="faq-help-actions">
-                                <button class="btn btn-secondary btn-sm" id="faq-open-ai-chat" type="button">Chat with AI 🤖</button>
+                                <button class="btn btn-secondary btn-sm" id="faq-open-ai-chat" type="button">Chat with AI</button>
                                 <a href="mailto:lokiiii1211@gmail.com" class="btn btn-primary btn-sm">Email Direct ↗</a>
                             </div>
                         </div>
@@ -999,10 +1042,9 @@
         <!-- ============ DIRECT CONTACT & HIRING CHANNELS ============ -->
         <section class="section" id="contact">
             <div class="section-container">
-                <div class="section-header reveal-fade-up">
+                <div class="reveal-fade-up">
                     <span class="section-kicker">Direct Reach</span>
-                    <h2 class="section-title">Initiate Contact &amp; Engineering Inquiries</h2>
-                    <p class="section-subtitle">Direct channels to discuss full-time positions, freelance AI contracts &amp; MVPs, or architecture advisory.</p>
+                    <h2 class="contact-editorial-heading">Let's build something <em>that matters.</em></h2>
                 </div>
 
                 <div class="contact-channels-grid">
@@ -1154,21 +1196,18 @@
         </div>
     </footer>
 
-    <!-- ============ AI ASSISTANT CHATBOT WIDGET ============ -->
-    <div class="ai-chatbot-widget" id="ai-chatbot-widget">
-        <!-- Floating Bot Orb Trigger Button (Clean, Circular, No Clutter Text) -->
-        <button class="ai-chatbot-trigger" id="ai-chatbot-trigger" aria-label="Open Lokesh AI Assistant" title="Chat with Lokesh AI Assistant">
-            <span class="ai-chatbot-avatar">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="11" width="18" height="10" rx="2"></rect>
-                    <circle cx="12" cy="5" r="2"></circle>
-                    <path d="M12 7v4"></path>
-                    <line x1="8" y1="16" x2="8" y2="16"></line>
-                    <line x1="16" y1="16" x2="16" y2="16"></line>
-                </svg>
-            </span>
-            <span class="ai-chatbot-pulse" aria-hidden="true"></span>
-        </button>
+        <!-- ============ AI ASSISTANT CHATBOT WIDGET ============ -->
+        <div class="ai-chatbot-widget" id="ai-chatbot-widget">
+            <!-- Floating trigger — minimal dark pill with chat icon and status dot -->
+            <button class="ai-chatbot-trigger" id="ai-chatbot-trigger" aria-label="Open Lokesh AI Assistant" title="Chat with Lokesh AI">
+                <span class="ai-chatbot-avatar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </span>
+                <span>Ask Lokesh AI</span>
+                <span class="ai-chatbot-pulse" aria-hidden="true"></span>
+            </button>
 
         <!-- Tall Modern AI Chat Window Modal -->
         <div class="ai-chatbot-window" id="ai-chatbot-window" role="dialog" aria-label="Lokesh AI Chat Window">
@@ -1192,10 +1231,10 @@
 
             <!-- Quick Suggestions -->
             <div class="ai-chat-suggestions">
-                <button class="ai-chip-btn" data-prompt="Tell me about Viya AI">💡 Viya AI</button>
-                <button class="ai-chip-btn" data-prompt="What is SmartDetect Re-ID?">👁️ SmartDetect</button>
-                <button class="ai-chip-btn" data-prompt="What is your tech stack?">🛠️ Tech Stack</button>
-                <button class="ai-chip-btn" data-prompt="How can I contact or hire Lokesh?">📄 Contact / Resume</button>
+                <button class="ai-chip-btn" data-prompt="Tell me about Viya AI">Viya AI</button>
+                <button class="ai-chip-btn" data-prompt="What is SmartDetect Re-ID?">SmartDetect</button>
+                <button class="ai-chip-btn" data-prompt="What is your tech stack?">Tech Stack</button>
+                <button class="ai-chip-btn" data-prompt="How can I contact or hire Lokesh?">Contact / Hire</button>
             </div>
 
             <!-- Messages Area -->
@@ -1227,7 +1266,7 @@
     </div>
 
     <!-- ============ SCRIPTS ============ -->
-    <script src="script.js?v=3.0.0" defer></script>
+    <script src="script.js?v=4.0.0" defer></script>
 </body>
 
 </html>
