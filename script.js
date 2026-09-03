@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCommandPalette();
     initCardSpotlights();
     initScrollReveals();
+    initSectionInView();
     initHeroWordReveal();
     initMagneticButtons();
     initStickyStackBlur();
@@ -378,6 +379,59 @@ function initScrollReveals() {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+}
+
+/**
+ * 8b. Section-specific InView classes
+ * - Bento tiles: adds 'in-view' to trigger ::before accent bar scaleY(1)
+ * - Skill cards: adds 'in-view' + stagger delays on each .tag
+ * - Timeline items: adds 'in-view' to trigger slide-in-from-right
+ */
+function initSectionInView() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.bento-tile, .skill-category-card, .timeline-milestone-item')
+            .forEach(el => el.classList.add('in-view'));
+        return;
+    }
+
+    const options = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+
+    // Bento tiles — accent bar entrance
+    const bentoObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+        });
+    }, options);
+    document.querySelectorAll('.bento-tile').forEach(el => bentoObserver.observe(el));
+
+    // Skill cards — card in-view + staggered .tag slide-in
+    const skillObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const card = entry.target;
+            card.classList.add('in-view');
+            // Stagger each tag row inside this card
+            card.querySelectorAll('.tag').forEach((tag, i) => {
+                tag.style.transitionDelay = `${60 + i * 40}ms`;
+            });
+            obs.unobserve(card);
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.skill-category-card').forEach(el => skillObserver.observe(el));
+
+    // Timeline milestone items — slide-in from right with stagger
+    const timelineObserver = new IntersectionObserver((entries, obs) => {
+        const intersecting = entries.filter(e => e.isIntersecting);
+        intersecting.forEach((entry, idx) => {
+            setTimeout(() => {
+                entry.target.classList.add('in-view');
+            }, idx * 120);
+            obs.unobserve(entry.target);
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.timeline-milestone-item').forEach(el => timelineObserver.observe(el));
 }
 
 /**
