@@ -335,57 +335,68 @@ function initCommandPalette() {
 }
 
 /**
- * 7. Dynamic Card Spotlight Cursor Follower
+ * 7. Dynamic Card Spotlight + 3D Tilt on hover (premium interaction)
  */
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.bento-tile, .project-spread, .arch-block, .skill-category-card, .channel-card, .engineer-card, .faq-item, .timeline-card, .proof-card, .cap-card');
-    
+    const cards = document.querySelectorAll('.bento-tile, .skill-category-card, .timeline-card, .channel-card, .engineer-card');
+
     cards.forEach(card => {
+        // Spotlight glow that follows cursor
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
+
+            // Subtle 3D tilt — max 6deg
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+            const rotateX = ((y - cy) / cy) * -5;
+            const rotateY = ((x - cx) / cx) * 5;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
         });
     });
 }
 
 /**
- * 8. Staggered Scroll Reveals (500ms duration, cubic-bezier(0.16, 1, 0.3, 1), 75ms stagger, once: true)
+ * 8. Staggered Scroll Reveals — triggers .is-visible on .reveal-fade-up elements
  */
 function initScrollReveals() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.reveal-fade-up').forEach(el => el.classList.add('is-revealed'));
+        document.querySelectorAll('.reveal-fade-up, .reveal-scale').forEach(el => {
+            el.classList.add('is-visible');
+        });
         return;
     }
 
-    const revealElements = document.querySelectorAll('.reveal-fade-up');
+    const revealElements = document.querySelectorAll('.reveal-fade-up, .reveal-scale');
     if (!revealElements.length) return;
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         const intersecting = entries.filter(entry => entry.isIntersecting);
         intersecting.forEach((entry, idx) => {
             const el = entry.target;
-            const staggerDelay = Math.min(idx * 75, 400); // 75ms stagger per element
+            const staggerDelay = Math.min(idx * 80, 400);
             setTimeout(() => {
-                el.classList.add('is-revealed');
+                el.classList.add('is-visible');
             }, staggerDelay);
-            observer.unobserve(el); // once: true — never re-triggers distractingly on scroll-back
+            observer.unobserve(el);
         });
     }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.06,
+        rootMargin: '0px 0px -30px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
 }
 
 /**
- * 8b. Section-specific InView classes
- * - Bento tiles: adds 'in-view' to trigger ::before accent bar scaleY(1)
- * - Skill cards: adds 'in-view' + stagger delays on each .tag
- * - Timeline items: adds 'in-view' to trigger slide-in-from-right
+ * 8b. Section-specific InView classes + animated counters
  */
 function initSectionInView() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -394,31 +405,36 @@ function initSectionInView() {
         return;
     }
 
-    const options = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+    const options = { threshold: 0.08, rootMargin: '0px 0px -30px 0px' };
 
-    // Bento tiles — accent bar entrance
+    // Bento tiles — staggered entrance (accent bar + translate-up)
     const bentoObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in-view');
+        const intersecting = entries.filter(e => e.isIntersecting);
+        intersecting.forEach((entry, idx) => {
+            setTimeout(() => {
+                entry.target.classList.add('in-view');
+                // Also add is-visible for translateY reveal if not already done
+                entry.target.classList.add('is-visible');
+            }, idx * 90);
             obs.unobserve(entry.target);
         });
     }, options);
     document.querySelectorAll('.bento-tile').forEach(el => bentoObserver.observe(el));
 
-    // Skill cards — card in-view + staggered .tag slide-in
+    // Skill cards — stagger cards + stagger tags within each card
     const skillObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const card = entry.target;
-            card.classList.add('in-view');
-            // Stagger each tag row inside this card
-            card.querySelectorAll('.tag').forEach((tag, i) => {
-                tag.style.transitionDelay = `${60 + i * 40}ms`;
-            });
-            obs.unobserve(card);
+        const intersecting = entries.filter(e => e.isIntersecting);
+        intersecting.forEach((entry, idx) => {
+            setTimeout(() => {
+                const card = entry.target;
+                card.classList.add('in-view');
+                card.querySelectorAll('.tag').forEach((tag, i) => {
+                    tag.style.transitionDelay = `${80 + i * 45}ms`;
+                });
+            }, idx * 100);
+            obs.unobserve(entry.target);
         });
-    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.10, rootMargin: '0px 0px -20px 0px' });
     document.querySelectorAll('.skill-category-card').forEach(el => skillObserver.observe(el));
 
     // Timeline milestone items — slide-in from right with stagger
@@ -427,12 +443,54 @@ function initSectionInView() {
         intersecting.forEach((entry, idx) => {
             setTimeout(() => {
                 entry.target.classList.add('in-view');
-            }, idx * 120);
+            }, idx * 130);
             obs.unobserve(entry.target);
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.timeline-milestone-item').forEach(el => timelineObserver.observe(el));
+
+    // Animated number counters in proof bar
+    initNumberCounters();
 }
+
+/**
+ * Animated number counter for proof bar metrics
+ */
+function initNumberCounters() {
+    const counters = [
+        { el: document.querySelector('.proof-card:nth-child(1) .proof-number'), end: 5,    suffix: '',  duration: 1200 },
+        { el: document.querySelector('.proof-card:nth-child(2) .proof-number'), end: 40,   suffix: '+', duration: 1400 },
+        { el: document.querySelector('.proof-card:nth-child(3) .proof-number'), end: 310,  suffix: '+', duration: 1600 },
+        { el: document.querySelector('.proof-card:nth-child(4) .proof-number'), end: 92.5, suffix: '%', duration: 1800, isFloat: true },
+    ];
+
+    const proofBar = document.querySelector('.hero-proof-bar');
+    if (!proofBar) return;
+
+    // Reset to 0
+    counters.forEach(c => { if (c.el) c.el.textContent = '0' + c.suffix; });
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+
+        counters.forEach(({ el, end, suffix, duration, isFloat }) => {
+            if (!el) return;
+            const start = performance.now();
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const value = eased * end;
+                el.textContent = (isFloat ? value.toFixed(1) : Math.floor(value)) + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(proofBar);
+}
+
 
 /**
  * 9. Magnetic Button Physics (Desktop)

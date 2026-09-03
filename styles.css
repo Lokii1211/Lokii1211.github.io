@@ -549,12 +549,51 @@ code {
     transform: translateY(0) scale(0.98);
 }
 
-/* ---------- SECTION BASE (Editorial, generous breathing room) ---------- */
+/* ---------- SECTION BASE ---------- */
 .section {
     position: relative;
     z-index: 1;
-    padding: 96px 0;
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 100px 0;
+}
+
+/* Dark section variant - deep navy for premium contrast */
+.section-dark {
+    background: #060c18;
+    color: #f1f5f9;
+}
+
+/* Mid-dark section - slate-navy for visual rhythm */
+.section-mid-dark {
+    background: #0a1628;
+    color: #f1f5f9;
+}
+
+/* Alternating light - off-white for breathing room */
+.section-light {
+    background: #f8fafc;
+}
+
+.section-dark .section-kicker,
+.section-mid-dark .section-kicker {
+    color: #38bdf8;
+}
+
+.section-dark .section-title,
+.section-mid-dark .section-title {
+    color: #f1f5f9;
+}
+
+.section-dark .section-subtitle,
+.section-mid-dark .section-subtitle {
+    color: rgba(241,245,249,0.6);
+}
+
+/* Section dividers - colored gradient lines between sections */
+.section-dark + .section-light,
+.section-light + .section-dark,
+.section-dark + .section-mid-dark,
+.section-mid-dark + .section-dark {
+    border-top: none;
 }
 
 .section-container {
@@ -606,7 +645,90 @@ code {
     overflow: hidden;
     background: var(--hero-bg);
     padding: clamp(80px, 12vw, 140px) 0 clamp(64px, 9vw, 100px) 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: none;
+}
+
+/* =====================================================================
+   DARK SECTION TEXTURE — subtle dot-grid for premium feel
+   ===================================================================== */
+.section-dark::before,
+.section-mid-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.4) 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.4) 80%, transparent 100%);
+}
+
+.section-dark > *,
+.section-mid-dark > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Accent glow orbs inside dark sections */
+.section-dark::after,
+.section-mid-dark::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+}
+
+#projects.section-dark::after {
+    width: 600px;
+    height: 600px;
+    right: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%);
+}
+
+#skills.section-mid-dark::after {
+    width: 500px;
+    height: 500px;
+    left: -100px;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(129,140,248,0.08) 0%, transparent 70%);
+}
+
+#journey.section-dark::after {
+    width: 400px;
+    height: 400px;
+    right: 0;
+    top: 100px;
+    background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%);
+}
+
+/* =====================================================================
+   REVEAL / SCROLL ANIMATION SYSTEM
+   ===================================================================== */
+.reveal-fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 600ms var(--ease-spring), transform 600ms var(--ease-spring);
+}
+
+.reveal-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 500ms var(--ease-spring), transform 500ms var(--ease-spring);
+}
+
+.reveal-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .hero-container {
@@ -1187,8 +1309,77 @@ code {
     gap: 10px;
     flex-wrap: wrap;
 }
+/* =====================================================================
+   BENTO TILES — Glass treatment on dark section background
+   ===================================================================== */
+.section-dark .bento-tile {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+}
 
-/* Project number index — subtle top-right corner */
+.section-dark .bento-hero-tile {
+    background: rgba(14,165,233,0.08);
+    border-color: rgba(56,189,248,0.2);
+}
+
+.section-dark .bento-vision-tile {
+    background: rgba(99,102,241,0.08);
+    border-color: rgba(129,140,248,0.2);
+}
+
+.section-dark .bento-medium-tile.kaizy-tile   { background: rgba(251,191,36,0.06);  border-color: rgba(251,191,36,0.18); }
+.section-dark .bento-medium-tile.mentixy-tile { background: rgba(14,165,233,0.06);  border-color: rgba(14,165,233,0.18); }
+.section-dark .bento-medium-tile.kadai-tile   { background: rgba(244,114,182,0.06); border-color: rgba(244,114,182,0.18); }
+.section-dark .bento-medium-tile.aadhaar-tile { background: rgba(251,146,60,0.06);  border-color: rgba(251,146,60,0.18); }
+
+.section-dark .bento-tile:hover {
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.07);
+}
+
+.section-dark .bento-title { color: #f1f5f9; }
+.section-dark .bento-plain-line { color: rgba(241,245,249,0.9); }
+.section-dark .bento-pull-line { color: rgba(241,245,249,0.55); }
+.section-dark .bento-pull-line strong { color: rgba(241,245,249,0.9); }
+.section-dark .bento-callout-mini {
+    background: rgba(255,255,255,0.04);
+    border-left-color: rgba(56,189,248,0.5);
+    color: rgba(241,245,249,0.6);
+}
+.section-dark .bento-callout-mini strong { color: rgba(241,245,249,0.9); }
+.section-dark .bento-project-index { color: rgba(241,245,249,0.3); }
+.section-dark .bento-tile-footer { border-top-color: rgba(255,255,255,0.08); }
+.section-dark .bento-tag {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: rgba(241,245,249,0.6);
+}
+.section-dark .bento-tile:hover .bento-tag {
+    background: rgba(255,255,255,0.1);
+    color: rgba(241,245,249,0.9);
+}
+.section-dark .badge-flagship { background: rgba(56,189,248,0.15); color: #38bdf8; border-color: rgba(56,189,248,0.25); }
+.section-dark .badge-computer-vision { background: rgba(129,140,248,0.15); color: #818cf8; border-color: rgba(129,140,248,0.25); }
+.section-dark .badge-marketplace { background: rgba(251,191,36,0.15); color: #fbbf24; border-color: rgba(251,191,36,0.25); }
+.section-dark .badge-ai-career { background: rgba(56,189,248,0.12); color: #7dd3fc; border-color: rgba(56,189,248,0.22); }
+.section-dark .badge-retail { background: rgba(244,114,182,0.15); color: #f9a8d4; border-color: rgba(244,114,182,0.25); }
+.section-dark .badge-hackathon { background: rgba(251,146,60,0.15); color: #fdba74; border-color: rgba(251,146,60,0.25); }
+.section-dark .badge-status { color: rgba(241,245,249,0.45); }
+.section-dark .bento-actions .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(241,245,249,0.8);
+}
+.section-dark .bento-actions .btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
+    color: #f1f5f9;
+}
+
+/* Project number index */
 .bento-project-index {
     position: absolute;
     top: 22px;
@@ -1319,10 +1510,61 @@ code {
 
 
 /* =====================================================================
-   TECHNICAL ARSENAL — Skills Section
-   2-column card grid with SVG icons, progress bars, and stagger animation.
+   SKILL CARDS — Glass treatment for dark mid section
    ===================================================================== */
+.section-mid-dark .skill-category-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+}
 
+.section-mid-dark .skill-category-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(56,189,248,0.3);
+    box-shadow: 0 12px 40px rgba(56,189,248,0.12), 0 4px 16px rgba(0,0,0,0.3);
+    transform: translateY(-6px);
+}
+
+.section-mid-dark .skill-card-icon {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.12);
+}
+
+.section-mid-dark .skill-category-card:hover .skill-card-icon {
+    background: rgba(56,189,248,0.15);
+    border-color: rgba(56,189,248,0.35);
+}
+
+.section-mid-dark .skill-card-icon svg { stroke: rgba(241,245,249,0.5); }
+.section-mid-dark .skill-category-card:hover .skill-card-icon svg { stroke: #38bdf8; }
+
+.section-mid-dark .category-title { color: rgba(241,245,249,0.35); }
+
+.section-mid-dark .skill-primary-pill {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.12);
+    color: rgba(241,245,249,0.9);
+}
+
+.section-mid-dark .skill-category-card:hover .skill-primary-pill {
+    background: rgba(56,189,248,0.15);
+    border-color: rgba(56,189,248,0.3);
+    color: #7dd3fc;
+}
+
+.section-mid-dark .tag {
+    color: rgba(241,245,249,0.5);
+    border-bottom-color: rgba(255,255,255,0.07);
+}
+
+.section-mid-dark .tag:hover { color: rgba(241,245,249,0.9); }
+.section-mid-dark .tag-highlight { color: rgba(241,245,249,0.9); }
+
+/* =====================================================================
+   SKILLS GRID
+   ===================================================================== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1471,10 +1713,60 @@ code {
 
 
 /* =====================================================================
-   TRACK RECORD — Timeline Section
-   Editorial year labels + pulsing dot on latest + slide-in animation.
+   TIMELINE CARDS — Glass dark treatment for dark section
    ===================================================================== */
+.section-dark .timeline-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 5px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
 
+.section-dark .timeline-milestone-item:first-child .timeline-card {
+    border-left-color: #38bdf8;
+    box-shadow: 0 4px 24px rgba(56,189,248,0.15);
+}
+
+.section-dark .timeline-card:hover {
+    border-left-color: #38bdf8;
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 16px 48px rgba(56,189,248,0.12), 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.section-dark .timeline-title { color: #f1f5f9; }
+.section-dark .timeline-desc { color: rgba(241,245,249,0.55); }
+.section-dark .timeline-bullets { color: rgba(241,245,249,0.55); }
+.section-dark .timeline-bullets strong { color: rgba(241,245,249,0.9); }
+.section-dark .timeline-badge {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.12);
+    color: rgba(241,245,249,0.6);
+}
+.section-dark .timeline-category { color: rgba(241,245,249,0.3); }
+.section-dark .timeline-tech-tags { border-top-color: rgba(255,255,255,0.07); }
+.section-dark .timeline-tech-tags span {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.09);
+    color: rgba(241,245,249,0.5);
+}
+.section-dark .timeline-card:hover .timeline-tech-tags span {
+    background: rgba(56,189,248,0.1);
+    color: #7dd3fc;
+    border-color: rgba(56,189,248,0.25);
+}
+.section-dark .timeline-dot {
+    border-color: #060c18;
+    box-shadow: 0 0 0 1.5px rgba(255,255,255,0.12);
+}
+.section-dark .timeline-track-container::before {
+    background: rgba(255,255,255,0.1);
+}
+
+/* =====================================================================
+   TRACK RECORD — Timeline Section
+   ===================================================================== */
 .timeline-track-container {
     max-width: 860px;
     margin: 0 auto;
